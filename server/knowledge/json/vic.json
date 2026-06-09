@@ -1,0 +1,214 @@
+{
+  "state": "VIC",
+  "state_full": "Victoria",
+  "disclaimer": "LeaseLand provides general information only — it is not legal advice. Consult a qualified professional for your specific situation. Always verify with Consumer Affairs Victoria or VCAT for your exact circumstances.",
+  "last_updated": "2025-06-08",
+  "primary_authority": {
+    "name": "Consumer Affairs Victoria (CAV)",
+    "website": "https://www.consumer.vic.gov.au/housing",
+    "legislation": "Residential Tenancies Act 1997 (Vic) (heavily amended by the Rental Tenancies Amendment Act 2018 and subsequent reforms)"
+  },
+  "tribunal": {
+    "name": "VCAT (Victorian Civil and Administrative Tribunal)",
+    "website": "https://www.vcat.vic.gov.au",
+    "jurisdiction": "Residential tenancy disputes including bond, rent, repairs, and possession"
+  },
+
+  "bond_rules": {
+    "summary": "Maximum bond is 4 weeks' rent (or 6 weeks' if rent > $900/week). Bond must be lodged with the Residential Tenancies Bond Authority (RTBA) within 10 business days. Bond must be returned within 14 days of the tenancy ending if there is agreement on distribution.",
+    "rules": [
+      {
+        "topic": "Maximum bond amount",
+        "summary": "Maximum bond is 4 weeks' rent (6 weeks' if weekly rent exceeds $900).",
+        "details": "For rental properties where weekly rent is $900 or less, the maximum bond is 4 weeks' rent. For rent above $900/week, the maximum bond is 6 weeks' rent. No additional deposits (key money, holding deposits exceeding 1 week's rent) are permitted.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 226, s 227"
+      },
+      {
+        "topic": "Bond lodgement",
+        "summary": "Bond must be lodged with the RTBA within 10 business days of receipt.",
+        "details": "The landlord or agent must lodge the bond with the Residential Tenancies Bond Authority (RTBA) within 10 business days of receiving it. The lodgement must be done online via RTBA Online. Both landlord and tenant must sign the bond lodgement form. The RTBA issues a bond receipt to the tenant.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 230"
+      },
+      {
+        "topic": "Bond return process",
+        "summary": "Bond returned within 14 days if both parties agree, or VCAT determines the split.",
+        "details": "When the tenancy ends, either party can lodge a bond claim with the RTBA. If both parties agree on the distribution, the bond is paid within 14 days. If there is a dispute, RTBA holds the bond until the parties agree or VCAT makes a determination. Landlord can only deduct for unpaid rent, damage beyond reasonable wear and tear, or breach of the agreement. VCAT can order the entire bond to be refunded if the landlord's claim is unreasonable.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 234, s 235"
+      }
+    ]
+  },
+
+  "rent_rules": {
+    "summary": "Rent can only be increased once every 12 months for both periodic and fixed-term agreements. Landlords must give 60 days' written notice. All rent increases must be registered on the Rent Register.",
+    "rules": [
+      {
+        "topic": "Rent increase frequency",
+        "summary": "Rent can only be increased once every 12 months, regardless of tenancy type.",
+        "details": "Since the 2018 reforms, rent can only be increased once every 12 months for any type of tenancy (fixed-term or periodic). Fixed-term agreements under 5 years cannot include rent increase clauses — rent is locked for the fixed term. For agreements of 5+ years, the agreement can specify a rent increase schedule (but still only once per 12 months). The tenant can challenge excessive rent increases at VCAT.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 43, s 44"
+      },
+      {
+        "topic": "Rent increase notice period",
+        "summary": "Landlord must give at least 60 days' written notice of any rent increase.",
+        "details": "The landlord must provide written notice of a rent increase at least 60 days before the increase takes effect. The notice must be in the prescribed form and state the new rent amount, the date it takes effect, and the tenant's right to challenge at VCAT. The notice must also be provided to the Residential Tenancies Commissioner for the Rent Register.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 44, s 44A"
+      },
+      {
+        "topic": "Rent Register",
+        "summary": "All rent increases must be recorded on the statewide Rent Register.",
+        "details": "Victoria maintains a public Rent Register where all rent increases across the state are recorded. Landlords must report each rent increase to the Residential Tenancies Commissioner within 30 days of giving notice. The Register is used to track rental market trends but also helps tenants identify if their increase is reasonable compared to similar properties.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 43A"
+      }
+    ]
+  },
+
+  "lease_termination": {
+    "summary": "Victoria has strict termination rules. Tenants breaking a lease pay a 'break fee' that decreases over time (1 months' rent maximum if less than 25% of term remains, otherwise advertising costs plus rent until re-let). No-grounds evictions were abolished in 2021. Landlords must have a valid reason to end a tenancy.",
+    "rules": [
+      {
+        "topic": "Breaking a lease — tenant",
+        "summary": "Break fee is capped at 1 month's rent (decreasing over the lease), or rent until re-let, whichever is lower.",
+        "details": "If a tenant ends a fixed-term lease early, the break fee is:\n- If less than 25% of the term has expired: 1 month's rent (free for students experiencing financial hardship or domestic/family violence)\n- If 25–50% has expired: 1 month's rent minus the number of weeks completed × 2.5%\n- If more than 75% has expired: half a month's rent\n\nThe landlord must take all reasonable steps to re-let the property (mitigation). If the property is re-let quickly, the break fee is reduced accordingly. The tenant cannot be charged for both the break fee and ongoing rent — the break fee is in lieu of advertising costs and rent until re-letting. Students facing hardship or victims of family violence can terminate with no break fee.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 213, s 214, s 215"
+      },
+      {
+        "topic": "Tenant notice — periodic",
+        "summary": "Tenant must give 28 days' written notice to end a periodic tenancy.",
+        "details": "For a periodic (month-to-month) tenancy, the tenant must give at least 28 days' written notice. If at the end of a fixed-term agreement, no notice is required if the tenant vacates on the last day of the term (otherwise 28 days' notice is required).",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 278"
+      },
+      {
+        "topic": "Landlord termination — no-grounds abolished",
+        "summary": "No-grounds eviction was abolished in 2021. Landlords must have a valid prescribed reason to end a tenancy.",
+        "details": "Since 29 March 2021, landlords in Victoria cannot end a periodic tenancy without a valid reason. Valid reasons include:\n- The landlord is selling the property (60 days' notice)\n- The landlord or their family intends to move in (60 days' notice)\n- The property is being demolished or renovated (60 days' notice)\n- The tenant has breached the agreement (14–28 days' notice)\n- The property is being used for short-term accommodation (i.e., Airbnb — 60 days' notice)\n- End of fixed term (no statutory notice required, tenant vacates on last day if not renewing)\nFalse claims by the landlord can result in compensation to the tenant.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 89, s 91, s 91A, s 91B"
+      }
+    ]
+  },
+
+  "maintenance": {
+    "summary": "Landlords must provide and maintain the property in good repair and fit for habitation. Urgent repairs (up to $2,500) can be arranged by the tenant without prior approval. Non-urgent repairs must be addressed within 14 days of written notice.",
+    "rules": [
+      {
+        "topic": "Urgent repairs",
+        "summary": "Tenant can arrange urgent repairs up to $2,500 without landlord approval and be reimbursed within 7 days.",
+        "details": "Urgent repairs include: burst water pipe, blocked or broken toilet, serious roof leak, gas leak, dangerous electrical fault, flooding or serious flood damage, failure of hot water system, failure of stove/oven/heater (in winter), failure of air conditioning (in summer for cooling), failure or breakdown of any essential service (gas, water, electricity), any fault causing the property to be unsafe or insecure. The tenant can arrange repairs costing up to $2,500 without prior approval if the landlord cannot be contacted or fails to act. The landlord must reimburse the tenant within 7 days of receiving receipts and a written request.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 230, s 231"
+      },
+      {
+        "topic": "Non-urgent repairs",
+        "summary": "Tenant must notify landlord in writing; landlord must respond within 14 days.",
+        "details": "The tenant should notify the landlord in writing of any non-urgent repair needed. The landlord must respond within 14 days (either fix it, arrange a quote, or provide a timeline). If the landlord fails to respond, the tenant can apply to VCAT for a repairs order. VCAT can order the landlord to complete the repairs and may order rent reduction for the period the repair was outstanding.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 211, s 212"
+      },
+      {
+        "topic": "Minimum housing standards (Victoria)",
+        "summary": "Rental properties must meet minimum standards including heating, window coverings, and kitchen facilities.",
+        "details": "Since March 2021, all rental properties in Victoria must meet minimum standards including:\n- A working heater in the main living area\n- Fixed floor covering in main living areas\n- Window coverings in bedrooms\n- A flush toilet connected to sewer/septic\n- Adequate kitchen facilities (sink with hot/cold water, stove, oven, adequate bench space)\n- Locks on all external doors and windows\n- Adequate ventilation (exhaust fans in bathrooms/kitchens)\n- No mould or damp\n- Property must be structurally sound and weatherproof",
+        "law_reference": "Residential Tenancies Regulations 2020 (Vic) Part 4"
+      }
+    ]
+  },
+
+  "entry_notice": {
+    "summary": "Landlord/agent must give at least 24 hours' written notice before entering (except emergencies). Entry is between 8am–6pm (weekdays) or 9am–1pm (weekends). Maximum of 4 routine inspections per year.",
+    "rules": [
+      {
+        "topic": "Entry notice period",
+        "summary": "Landlord must give at least 24 hours' written notice before entering the property.",
+        "details": "The landlord or agent must provide at least 24 hours' written notice before entering the rental property for a valid purpose (inspections, repairs, showing to prospective tenants/buyers). Entry must be between 8am and 6pm on weekdays, or 9am to 1pm on weekends and public holidays. The tenant or their representative has the right to be present during the entry. The entry must not interfere unreasonably with the tenant's quiet enjoyment.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 85, s 86"
+      },
+      {
+        "topic": "Routine inspections",
+        "summary": "Maximum 4 routine inspections per year with 24 hours' notice.",
+        "details": "The landlord can conduct routine inspections no more than 4 times per year. The tenant must receive at least 24 hours' written notice specifying the date, time, and purpose. Inspection frequency must be reasonable — back-to-back or monthly inspections could be challenged. The inspection should take no longer than is necessary (typically 30–60 minutes for a standard property).",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 85(3)"
+      },
+      {
+        "topic": "Entry for sales/showings",
+        "summary": "Landlord must give 24 hours' notice for individual inspections, or 14 days for the first block of inspections.",
+        "details": "For selling the property or showing to prospective tenants, the landlord must give at least 24 hours' written notice for each individual inspection. However, for the first block of inspections (e.g., open for inspections for multiple weeks), the landlord can give one written notice 14 days before the first inspection, specifying the frequency and times.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 86"
+      }
+    ]
+  },
+
+  "condition_reports": {
+    "summary": "Landlord must provide an ingoing condition report within 3 business days of the tenant moving in. Tenant has 5 business days to return comments. A video walkthrough is recommended practice. The report is critical for bond disputes.",
+    "rules": [
+      {
+        "topic": "Ingoing condition report",
+        "summary": "Landlord must provide report within 3 business days; tenant has 5 business days to return.",
+        "details": "The landlord or agent must give the tenant a condition report (in the approved form) within 3 business days of the tenant taking possession. The report must describe the condition of each room, fixtures, appliances, and the grounds. The tenant has 5 business days to review the report, add comments, sign it, and return one copy to the landlord. The tenant should take dated photos and videos of everything, including existing damage, cleanliness, and working condition of appliances. If the tenant finds issues not noted by the landlord, they should photograph and add them to the report.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 34, s 35; Residential Tenancies Regulations 2020"
+      },
+      {
+        "topic": "Outgoing condition report",
+        "summary": "Tenant should attend final inspection and document the property condition.",
+        "details": "When the tenancy ends, the tenant should arrange a final inspection with the landlord/agent. The tenant should:\n- Inspect the property with the landlord/agent\n- Take dated photos and videos\n- Compare with the ingoing condition report\n- Ensure the property is clean and tidy\n- Check that the property is left in the same condition as at the start (minus fair wear and tear)\nThe outgoing report is the basis for the landlord's bond claim, so thorough documentation is essential.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 34(4)"
+      }
+    ]
+  },
+
+  "dispute_resolution": {
+    "summary": "Tenancy disputes in Victoria are handled by VCAT. The process involves: 1) Attempt direct resolution with landlord/agent, 2) Contact Consumer Affairs Victoria for free advice, 3) Apply to VCAT online (fees apply, can be waived) for a formal hearing. Tenants can also get free advice from Tenancy Victoria.",
+    "rules": [
+      {
+        "topic": "VCAT application process",
+        "summary": "Tenants can apply to VCAT online for tenancy disputes; fees are around $66 (waived for low income).",
+        "details": "Tenants can apply to VCAT online via the VCAT website for residential tenancy disputes. The application fee (approximately $66 in 2025) can be waived for tenants with financial hardship. The VCAT process:\n1. Lodging the application\n2. Compulsory conciliation conference (mediated by a VCAT member)\n3. If no agreement, a formal hearing\n4. Binding VCAT order issued\n\nLegal representation is discouraged at VCAT hearings — the process is designed for self-represented parties. The Tenants Union of Victoria provides free advice and can assist with VCAT applications.",
+        "law_reference": "Victorian Civil and Administrative Tribunal Act 1998 (Vic); VCAT Practice Note"
+      },
+      {
+        "topic": "Free assistance — Tenancy Victoria",
+        "summary": "Tenancy Victoria provides free legal advice and representation for tenants.",
+        "details": "Tenancy Victoria (formerly Tenants Union of Victoria) is a community legal centre that provides free legal advice to tenants, including:\n- Phone advice on weekdays\n- Assistance with writing to landlords/agents\n- Help with VCAT applications\n- Representation at VCAT in some cases (particularly for vulnerable tenants)\n- Fact sheets and guides in multiple languages\n- Specialist advice on bond disputes, repairs, evictions, and discrimination",
+        "law_reference": "Tenancy Victoria (community legal centre)"
+      },
+      {
+        "topic": "Consumer Affairs Victoria mediation",
+        "summary": "CAV offers free mediation before tenants apply to VCAT.",
+        "details": "Consumer Affairs Victoria provides a free Tenancy Dispute Resolution Service. A trained mediator helps both parties resolve the issue without going to VCAT. Mediation is voluntary and confidential. If mediation succeeds, a written agreement is signed. If it fails, a certificate is issued allowing the matter to proceed to VCAT.",
+        "law_reference": "Australian Consumer Law (Victoria)"
+      }
+    ]
+  },
+
+  "renters_rights": {
+    "summary": "Victoria has some of the strongest renter protections in Australia, including abolition of no-grounds evictions, mandatory minimum standards, right to modify the property with consent (not unreasonably withheld), and strong protections against discrimination. Rental providers (formerly 'landlords') cannot unreasonably refuse a request for a pet.",
+    "rules": [
+      {
+        "topic": "No-grounds eviction abolished",
+        "summary": "Landlords must have a valid reason to end a tenancy since March 2021.",
+        "details": "Victoria was the first Australian state to abolish no-grounds evictions (effective 29 March 2021). Landlords cannot end a periodic tenancy without a prescribed reason. If a landlord gives a termination notice on false grounds, the tenant can apply to VCAT for compensation (up to 6 months' rent). This gives tenants significant security of tenure.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 89, s 91ZA"
+      },
+      {
+        "topic": "Right to pets",
+        "summary": "Landlord cannot unreasonably refuse a tenant's request to keep a pet.",
+        "details": "Tenants have the right to request a pet in writing. The landlord must respond within 14 days and can only refuse on reasonable grounds (e.g., the property is unsuitable, the pet would breach laws, or would cause damage that cannot be adequately remedied). If the landlord refuses, the tenant can apply to VCAT which can override the refusal. The landlord cannot charge extra bond or 'pet rent'. Assistance dogs are exempt.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 71A–71G"
+      },
+      {
+        "topic": "Right to modify the rental property",
+        "summary": "Tenants can make minor modifications without consent; major modifications require consent (not unreasonably withheld).",
+        "details": "Tenants can make minor modifications without requiring the landlord's consent, including:\n- Installing picture hooks and wall anchors\n- Installing child safety gates\n- Installing flyscreen covers\n- Installing wireless doorbells\n- Fitting furniture safety anchors\n- Installing low-impact shelving\n- Applying adhesive strips\n\nFor significant modifications (e.g., installing air conditioning, VPN internet connection), the tenant must request approval in writing. The landlord cannot unreasonably withhold consent.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 67; Residential Tenancies Regulations 2020"
+      },
+      {
+        "topic": "Protection against discrimination",
+        "summary": "Landlords cannot discriminate against tenants on protected grounds including race, gender, sexuality, disability, or having children.",
+        "details": "Under Victorian law, landlords and agents cannot refuse to rent, impose different terms, or terminate a tenancy on the grounds of:\n- Race, colour, or national extraction\n- Sex or sexual orientation\n- Gender identity\n- Disability (physical, intellectual, or mental)\n- Marital status or pregnancy\n- Having children (family status)\n- Age\n- Religion\n- Political opinion or trade union activity\n- Domestic violence or sexual assault victim status\nTenants who experience discrimination can complain to the Victorian Equal Opportunity and Human Rights Commission or apply to VCAT.",
+        "law_reference": "Equal Opportunity Act 2010 (Vic)"
+      },
+      {
+        "topic": "Rent reduction for loss of amenity",
+        "summary": "Tenant can request rent reduction if part of the property is unusable due to repairs or disrepair.",
+        "details": "If any part of the property becomes unusable (e.g., a room floods, a bathroom becomes unusable), the tenant can request a rent reduction for the period the amenity was lost. If the landlord does not agree, the tenant can apply to VCAT. Rent reductions can be backdated to when the issue was first reported.",
+        "law_reference": "Residential Tenancies Act 1997 (Vic) s 210"
+      }
+    ]
+  }
+}

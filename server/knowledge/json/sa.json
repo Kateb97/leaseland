@@ -1,0 +1,202 @@
+{
+  "state": "SA",
+  "state_full": "South Australia",
+  "disclaimer": "LeaseLand provides general information only — it is not legal advice. Consult a qualified professional for your specific situation. Always verify with Consumer & Business Services SA or SACAT for your exact circumstances.",
+  "last_updated": "2025-06-08",
+  "primary_authority": {
+    "name": "Consumer & Business Services (CBS) SA",
+    "website": "https://www.cbs.sa.gov.au/tenancy",
+    "legislation": "Residential Tenancies Act 1995 (SA) (as amended by the Residential Tenancies (Miscellaneous) Amendment Act 2020)"
+  },
+  "tribunal": {
+    "name": "SACAT (South Australian Civil and Administrative Tribunal)",
+    "website": "https://www.sacat.sa.gov.au",
+    "jurisdiction": "Residential tenancy disputes including bond, rent, termination, and repairs"
+  },
+
+  "bond_rules": {
+    "summary": "Maximum bond is 4 weeks' rent. Bond must be lodged with the Residential Bonds division of CBS SA within 28 days. Bond refunded within 14 days of an agreed claim.",
+    "rules": [
+      {
+        "topic": "Maximum bond amount",
+        "summary": "Maximum bond is 4 weeks' rent, regardless of rent amount.",
+        "details": "The maximum bond a landlord can require is 4 weeks' rent. There is no exception for higher-rent properties. No 'key money', application fees, or other non-refundable upfront payments are permitted. A holding deposit (limited to 1 week's rent) can be collected but must be refunded if the tenancy does not proceed through no fault of the tenant.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 40"
+      },
+      {
+        "topic": "Bond lodgement",
+        "summary": "Bond must be lodged with CBS SA within 28 days of receipt.",
+        "details": "The landlord or agent must lodge the bond with the Residential Bonds division of Consumer & Business Services SA within 28 calendar days of receiving it. The lodgement includes completing a bond lodgement form (signed by both landlord and tenant) and submitting the payment. CBS SA issues a bond receipt to the tenant confirming lodgement.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 41"
+      },
+      {
+        "topic": "Bond refund process",
+        "summary": "Bond refunded within 14 days after CBS receives a completed and signed claim form.",
+        "details": "When the tenancy ends, either party can apply for the bond refund. If both parties agree (signed claim form), the bond is paid within 14 days. If there is a dispute, the bond remains with CBS until the parties agree or SACAT makes an order. The landlord must provide evidence (condition reports, receipts, quotes) to support deductions. Acceptable deductions: unpaid rent, damage beyond fair wear and tear, and agreed cleaning costs.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 42, s 43"
+      }
+    ]
+  },
+
+  "rent_rules": {
+    "summary": "Rent can only be increased once every 12 months for periodic tenancies. Landlords must give 60 days' written notice. Fixed-term agreements less than 12 months cannot have rent increases during the term.",
+    "rules": [
+      {
+        "topic": "Rent increase frequency",
+        "summary": "Rent can be increased once every 12 months for periodic tenancies; fixed-term tenancies lock the rent.",
+        "details": "For periodic tenancies, rent can only be increased once every 12 months. For fixed-term agreements of less than 12 months, the rent is fixed for the entire term and cannot be increased. For fixed-term agreements of 12 months or more, a rent increase clause can be included specifying the date and amount or method of increase. After the fixed term ends, the periodic 12-month rule applies.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 56"
+      },
+      {
+        "topic": "Rent increase notice period",
+        "summary": "Landlord must give at least 60 days' written notice of a rent increase.",
+        "details": "The landlord must provide at least 60 days' written notice before the proposed rent increase takes effect. The notice must state the current rent, the new rent amount, and the effective date. The tenant can challenge an excessive increase at SACAT within 28 days of receiving the notice. SACAT can set aside or reduce an excessive increase.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 57"
+      }
+    ]
+  },
+
+  "lease_termination": {
+    "summary": "Breaking a lease in SA: tenant is liable for the lesser of the actual loss (rent until re-let + advertising) or a break fee (capped at 6 weeks' rent, decreasing over the term). No-grounds eviction requires 90 days' notice (for tenancies over 12 months).",
+    "rules": [
+      {
+        "topic": "Breaking a fixed-term lease — tenant",
+        "summary": "Tenant pays the lesser of actual loss or a capped break fee (2–6 weeks' rent depending on remaining term).",
+        "details": "When a tenant breaks a fixed-term lease in SA, their liability is the LESSER of:\n(a) Actual loss — rent until the property is re-let (with landlord mitigating), plus reasonable advertising costs if the tenant does not find a replacement\n(b) A break fee calculated based on how much of the term is remaining:\n   - More than 75% of term remaining: 6 weeks' rent\n   - 50–75% remaining: 4 weeks' rent\n   - 25–50% remaining: 3 weeks' rent\n   - Less than 25% remaining: 2 weeks' rent\n\nIf the tenant finds a suitable replacement tenant, the advertising cost is not payable and the break fee is reduced. The landlord must take all reasonable steps to re-let the property.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 81"
+      },
+      {
+        "topic": "Tenant notice — periodic",
+        "summary": "Tenant must give at least 21 days' written notice for a periodic tenancy.",
+        "details": "A tenant must give at least 21 days' written notice to end a periodic (month-to-month) tenancy. If the tenant vacates at the end of a fixed term, no notice is required if they leave on the last day. Written notice should include the date and signature of the tenant.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 76"
+      },
+      {
+        "topic": "Landlord termination — periodic tenancy",
+        "summary": "Landlord must give 28–90 days' notice depending on tenancy length and grounds.",
+        "details": "For periodic tenancies:\n- No-grounds (tenancy less than 12 months): 60 days' notice (28 days if the property is to be sold)\n- No-grounds (tenancy 12 months or more): 90 days' notice\n- Breach of agreement (rent arrears, other breaches): 14 days' notice\n- Landlord or family moving in: 60 days' notice (must be genuine)\n- Demolition or major renovations: 60 days' notice (with supporting documents)\n- Property sold with vacant possession: 28 days' notice\nFor fixed-term agreements, the landlord cannot terminate early without grounds or a contractual right to do so.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 77, s 78, s 79"
+      }
+    ]
+  },
+
+  "maintenance": {
+    "summary": "Landlord must maintain the property in good repair and fit for habitation. Urgent repairs up to $1,000 can be arranged by the tenant without prior approval. Non-urgent repairs require written notice to the landlord with a reasonable timeframe for response.",
+    "rules": [
+      {
+        "topic": "Landlord's repair obligations",
+        "summary": "Landlord must ensure the property is in good repair and fit for habitation throughout the tenancy.",
+        "details": "The landlord is obligated to:\n- Maintain the property in a reasonable state of repair\n- Ensure the property is fit for human habitation\n- Comply with all building, health, and safety requirements\n- Ensure all appliances and fixtures are in working order\n- Provide a property that is reasonably clean at the start of the tenancy\nThe landlord cannot contract out of these obligations.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 65, s 66"
+      },
+      {
+        "topic": "Urgent repairs",
+        "summary": "Tenant can arrange urgent repairs up to $1,000 and be reimbursed within 14 days.",
+        "details": "Urgent repairs include: burst water pipe, blocked or broken toilet, serious roof leak, gas leak, dangerous electrical fault, flooding, failure of hot water system, failure of stove/oven, failure of heating in winter, failure of essential service, any fault making the property unsafe. If the landlord cannot be contacted or fails to act, the tenant can arrange repairs up to $1,000. The landlord must reimburse the tenant within 14 days of receiving receipts. For repairs costing over $1,000, the tenant must contact the landlord or apply to SACAT first.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 69"
+      },
+      {
+        "topic": "Non-urgent repairs process",
+        "summary": "Tenant must notify landlord in writing; if unresolved in 14 days, apply to SACAT.",
+        "details": "The tenant should give the landlord written notice of the repair needed. The landlord should respond within a reasonable time (14 days is generally considered reasonable). If the landlord fails to act, the tenant can apply to SACAT for an order. SACAT can order the landlord to complete the repairs, reduce the rent, and in severe cases allow the tenant to terminate the tenancy.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 68, s 70"
+      }
+    ]
+  },
+
+  "entry_notice": {
+    "summary": "Landlord/agent must give at least 48 hours' written notice before entering (except emergencies). Entry must be between 8am–8pm. Maximum of 4 routine inspections per year.",
+    "rules": [
+      {
+        "topic": "Entry notice period",
+        "summary": "Landlord must give at least 7 days' notice for a routine inspection, 48 hours for other purposes.",
+        "details": "The landlord or agent must give written notice before entering:\n- For a routine inspection: at least 7 days' notice\n- For repairs, maintenance, or inspections by tradespeople: at least 48 hours' notice\n- For valuations or inspections by prospective buyers/lenders: at least 48 hours' notice\n- For viewing by prospective tenants (when current tenancy is ending): at least 48 hours' notice\nEntry must be between 8am and 8pm. In an emergency, the landlord can enter without notice.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 71"
+      },
+      {
+        "topic": "Routine inspection frequency",
+        "summary": "Maximum of 4 routine inspections per year with 7 days' notice.",
+        "details": "The landlord can conduct routine inspections no more than 4 times per year (every 3 months). The tenant must receive at least 7 days' written notice specifying the date and time. The inspection must be at a reasonable time. The tenant has the right to be present.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 71(2)"
+      }
+    ]
+  },
+
+  "condition_reports": {
+    "summary": "Landlord must provide a condition report before or at the start of the tenancy. The tenant has 3 days to return the report with comments (for rooming houses) or 7 days for standard tenancies.",
+    "rules": [
+      {
+        "topic": "Ingoing condition report",
+        "summary": "Landlord must complete a condition report and provide it to the tenant at the start of the tenancy.",
+        "details": "The landlord or agent must prepare a condition report (in the approved form) describing the state of the premises at the start of the tenancy. The report must be given to the tenant before or at the time of handing over possession. The tenant has 7 days to review the report, add comments about the condition of each room and item, and return one signed copy to the landlord. The tenant should take dated photos and videos to support their comments. The SA Government Tenancy Information Service provides the standard condition report form.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 30"
+      },
+      {
+        "topic": "Outgoing condition report",
+        "summary": "Landlord and tenant should conduct a joint final inspection.",
+        "details": "At the end of the tenancy, the tenant should arrange a final inspection with the landlord or agent. Both parties should go through the property room by room, comparing the condition with the ingoing report. The landlord must provide the tenant with a copy of the completed outgoing report if requested. Any deductions for damage or cleaning must be supported by evidence showing the condition was worse than at the start (beyond fair wear and tear).",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 30(4)"
+      }
+    ]
+  },
+
+  "dispute_resolution": {
+    "summary": "Tenancy disputes in SA are handled by SACAT. The process involves: 1) Attempt direct resolution, 2) Contact CBS SA for advice and free dispute resolution, 3) Apply to SACAT online (fees apply, can be waived).",
+    "rules": [
+      {
+        "topic": "SACAT application process",
+        "summary": "Tenants can apply to SACAT for tenancy disputes; fees are approximately $97–$200 (waivable for hardship).",
+        "details": "Tenants can lodge an application with SACAT online via the SACAT website. Application fees range from approximately $97 (minor tenancy matters) to $200 (general claims). Fees can be waived or reduced for tenants with financial hardship. The process involves:\n1. Filing the application with details of the dispute\n2. A directions hearing or conciliation conference\n3. If no agreement, a formal hearing\n4. Binding SACAT order is issued\nParties usually represent themselves at SACAT.",
+        "law_reference": "South Australian Civil and Administrative Tribunal Act 2013 (SA)"
+      },
+      {
+        "topic": "CBS SA Tenancy Advice Service",
+        "summary": "Free tenancy advice and dispute resolution available from Consumer & Business Services SA.",
+        "details": "Consumer & Business Services SA provides a free Tenancy Advice Service that can:\n- Answer questions about tenancy rights and obligations\n- Explain bond, rent, and maintenance rules\n- Help with writing letters to landlords/agents\n- Provide information about SACAT processes\n- Refer tenants to legal assistance if needed\nThe service is available by phone and online.",
+        "law_reference": "Consumer & Business Services SA"
+      }
+    ]
+  },
+
+  "renters_rights": {
+    "summary": "SA tenants have strong protections including minimum housing standards, the right to request modifications (consent not unreasonably withheld), protection against retaliatory eviction, and the right to assign or sublet with landlord's consent (not unreasonably withheld).",
+    "rules": [
+      {
+        "topic": "Minimum housing standards (SA)",
+        "summary": "Rental properties must meet minimum standards including weatherproofing, security, and sanitation.",
+        "details": "Under the Residential Tenancies (Miscellaneous) Amendment Act 2020, rental properties must meet minimum standards:\n- Property must be weatherproof and structurally sound\n- All windows and doors must have working locks\n- Adequate lighting in all rooms\n- Adequate ventilation (windows, exhaust fans)\n- Working toilet, bathroom, and kitchen facilities\n- Hot and cold running water\n- Electrical wiring and gas fittings must be safe\n- Property must be free from significant mould or damp\nSA also has specific standards for ceiling insulation (minimum R-3.0 in most areas).",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 65A"
+      },
+      {
+        "topic": "Right to assign or sublet",
+        "summary": "Tenant can assign the lease or sublet with landlord's consent, which cannot be unreasonably withheld.",
+        "details": "A tenant can request to assign the lease (transfer to another person) or sublet part of the property. The landlord's consent is required but cannot be unreasonably withheld. The tenant must make the request in writing. If the landlord unreasonably refuses, the tenant can apply to SACAT. The landlord can charge a reasonable fee for processing the assignment.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 80"
+      },
+      {
+        "topic": "Right to make modifications",
+        "summary": "Tenants can make minor modifications with the landlord's consent (not unreasonably withheld).",
+        "details": "Tenants can request to make modifications to the property (e.g., installing air conditioning, TV wall mounts, security screens). The landlord's consent is required but cannot be unreasonably withheld. For minor modifications (e.g., picture hooks, child safety devices), the landlord's consent must not be withheld. SA does not have a specific list of 'minor modifications' like VIC, but common sense applies — the office of Consumer & Business Services can provide guidance.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 66A"
+      },
+      {
+        "topic": "Retaliatory eviction protection",
+        "summary": "Landlord cannot evict a tenant for exercising their legal rights.",
+        "details": "It is illegal for a landlord to issue a termination notice because the tenant:\n- Complained about the condition of the property\n- Requested repairs\n- Applied to SACAT\n- Contacted Consumer & Business Services SA\n- Joined or formed a tenants' union\n- Refused a rent increase that was not properly notified\nIf SACAT finds an eviction is retaliatory, it can dismiss the application and the tenancy continues.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 85"
+      },
+      {
+        "topic": "Quiet enjoyment",
+        "summary": "Tenant has the right to quiet enjoyment without interference from the landlord.",
+        "details": "The tenant is entitled to occupy the property without undue interference. This includes:\n- Not being locked out or having access restricted\n- Not having utilities disconnected or services withheld\n- Not being harassed, threatened, or intimidated\n- Having privacy (landlord cannot enter without proper notice unless emergency)\n- Having reasonable peace, comfort, and privacy\nA breach of quiet enjoyment can result in SACAT ordering compensation.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 67"
+      },
+      {
+        "topic": "Family violence protections",
+        "summary": "Tenants experiencing domestic violence can terminate a tenancy with 7 days' notice and no break fee.",
+        "details": "A tenant experiencing domestic or family violence can end their tenancy with 7 days' notice by providing supporting evidence (a court order, police report, or certificate from a doctor or registered psychologist). No break fee is payable. The tenant's name can also be removed from the tenancy agreement and bond records. The remaining tenant (if any) can take over the lease.",
+        "law_reference": "Residential Tenancies Act 1995 (SA) s 80AA–80AC"
+      }
+    ]
+  }
+}

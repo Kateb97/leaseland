@@ -1,0 +1,208 @@
+{
+  "state": "ACT",
+  "state_full": "Australian Capital Territory",
+  "disclaimer": "LeaseLand provides general information only — it is not legal advice. Consult a qualified professional for your specific situation. Always verify with ACT Revenue Office or ACAT for your exact circumstances.",
+  "last_updated": "2025-06-08",
+  "primary_authority": {
+    "name": "ACT Revenue Office — Rental Bonds",
+    "website": "https://www.revenue.act.gov.au/rental-bonds",
+    "legislation": "Residential Tenancies Act 1997 (ACT) and Residential Tenancies Regulation 1998 (ACT)"
+  },
+  "tribunal": {
+    "name": "ACAT (ACT Civil and Administrative Tribunal)",
+    "website": "https://www.acat.act.gov.au",
+    "jurisdiction": "Residential tenancy disputes including bond, rent, termination, and repairs"
+  },
+
+  "bond_rules": {
+    "summary": "Maximum bond is 4 weeks' rent. Bond must be lodged with the ACT Revenue Office's Rental Bonds Online (RBO) within 10 business days. Bond refunded within 14 days if both parties agree.",
+    "rules": [
+      {
+        "topic": "Maximum bond amount",
+        "summary": "Maximum bond is 4 weeks' rent for properties up to $800/week; no limit above $800/week.",
+        "details": "For residential tenancies with a weekly rent of $800 or less, the maximum bond is 4 weeks' rent. For rent above $800/week, there is no prescribed maximum (but must be reasonable). No 'key money' or non-refundable fees are permitted. Holding deposits are limited to 1 week's rent and must be refunded if the tenancy doesn't proceed due to the landlord's decision.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 30, s 30A"
+      },
+      {
+        "topic": "Bond lodgement",
+        "summary": "Bond must be lodged with ACT Revenue Office within 10 business days via Rental Bonds Online.",
+        "details": "The landlord or agent must lodge the bond with the ACT Revenue Office's Rental Bonds Online system within 10 business days of receiving it. The bond lodgement must be completed online, and both parties receive a confirmation receipt. Failure to lodge is an offence and can result in penalties. The tenant can also lodge the bond themselves if the landlord fails to do so.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 31"
+      },
+      {
+        "topic": "Bond refund",
+        "summary": "Bond refunded within 14 days of agreed claim; disputes go to ACAT.",
+        "details": "When the tenancy ends, either party can lodge a bond refund claim. If both parties agree, the refund is processed within 14 days. If there is a dispute, the ACT Revenue Office holds the bond until ACAT makes a determination. The landlord can only deduct for:\n- Unpaid rent\n- Damage beyond reasonable wear and tear\n- Cleaning if the property was left less clean than at the start (with condition report evidence)\n- Any other breach of the lease",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 35"
+      }
+    ]
+  },
+
+  "rent_rules": {
+    "summary": "Rent can only be increased once every 12 months for both periodic and fixed-term agreements. Landlord must give at least 8 weeks' (56 days) written notice. ACT has unique rules including the requirement that rent increases must not be excessive and the tenant can challenge at ACAT.",
+    "rules": [
+      {
+        "topic": "Rent increase frequency",
+        "summary": "Rent can only be increased once every 12 months.",
+        "details": "Rent can only be increased once every 12 months regardless of the type of tenancy (periodic or fixed-term). For fixed-term agreements, the agreed rent is locked for the term (unless the agreement is for 12+ months and has a specific rent increase clause). For periodic agreements, the 12-month clock resets from the last increase.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 67"
+      },
+      {
+        "topic": "Rent increase notice period",
+        "summary": "Landlord must give at least 8 weeks' (56 days) written notice of a rent increase.",
+        "details": "The landlord must provide written notice of at least 8 weeks (56 days) before the proposed rent increase takes effect. The notice must be in the approved form and state the current rent, the new rent, and the effective date. The tenant can challenge the increase at ACAT if it is excessive. ACT is unique in giving tenants 8 weeks' notice — longer than most other states.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 68"
+      }
+    ]
+  },
+
+  "lease_termination": {
+    "summary": "Breaking a lease in ACT: tenant pays a break fee (set fee decreasing over the term) plus reasonable letting fees if applicable. No-grounds evictions require 26 weeks' notice for periodic tenancies over 12 months — one of the longest notice periods in Australia. ACT has strong security of tenure protections.",
+    "rules": [
+      {
+        "topic": "Breaking a fixed-term lease — tenant",
+        "summary": "Break fee is capped and decreases over the term; landlord must mitigate losses.",
+        "details": "When a tenant breaks a fixed-term lease in the ACT, the break fee is:\n- If less than 50% of the term has expired: 4 weeks' rent + GST (applicable letting fee)\n- If 50% or more has expired: 2 weeks' rent + GST (applicable letting fee)\n\nThe landlord must take all reasonable steps to re-let the property. If the property is re-let quickly, the break fee may be reduced. The tenant is also liable for rent until a new tenant moves in, but the break fee caps their total liability for rent lost during the vacancy period. If the tenant finds a suitable replacement tenant themselves, the letting fee is not applicable.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 71A, s 71B"
+      },
+      {
+        "topic": "Tenant notice — periodic",
+        "summary": "Tenant must give 3 weeks' (21 days) notice to end a periodic tenancy.",
+        "details": "A tenant must give at least 3 weeks' (21 days) written notice to end a periodic (continuing) tenancy. If vacating at the end of a fixed term, the tenant does not need to give notice if they leave on the last day of the term. The tenant should provide their forwarding address at the time of giving notice.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 52"
+      },
+      {
+        "topic": "Landlord termination — ACT strong protections",
+        "summary": "No-grounds eviction requires 26 weeks' notice for tenancies over 12 months — the longest in Australia.",
+        "details": "For periodic tenancies in ACT:\n- No-grounds (tenancy less than 12 months): 8 weeks' notice\n- No-grounds (tenancy 12 months or more): 26 weeks' (6 months) notice — the longest in Australia\n- Breach of agreement (rent arrears): 2 weeks' notice after a breach notice\n- Landlord or family moving in: 8 weeks' notice (must be genuine and supported by statutory declaration)\n- Demolition or major renovations: 8 weeks' notice (with supporting documents and evidence of approval)\n- Property sold with vacant possession: 8 weeks' notice\n- Tenant causing nuisance or damage: 2 weeks' notice\nACT has some of the strongest security of tenure laws in Australia, making it difficult for landlords to end tenancies without good reason.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 54, s 55, s 56"
+      }
+    ]
+  },
+
+  "maintenance": {
+    "summary": "Landlord must maintain the property in good repair and fit for habitation. ACT has specific minimum standards. Urgent repairs up to $2,000 can be arranged by the tenant without prior approval. Non-urgent repairs must be reported in writing with landlord response expected within 14 days.",
+    "rules": [
+      {
+        "topic": "Landlord's repair obligations",
+        "summary": "Landlord must maintain the premises in good repair and fit for habitation throughout the tenancy.",
+        "details": "The landlord must:\n- Ensure the property is in good repair (structurally sound, all fixtures and appliances working)\n- Ensure the property is fit for human habitation (safe, healthy, and hygienic)\n- Comply with all building and health requirements, including minimum housing standards\n- Ensure all essential services (water, electricity, gas, sewerage) are working\n- Ensure the property meets the ACT's minimum housing standards\nThese obligations cannot be excluded or limited by the tenancy agreement.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 47, s 48"
+      },
+      {
+        "topic": "Urgent repairs",
+        "summary": "Tenant can arrange urgent repairs up to $2,000 without prior landlord approval and be reimbursed within 7 days.",
+        "details": "Urgent repairs include: burst water pipe, blocked or broken toilet, serious roof leak, gas leak, dangerous electrical fault, flooding, failure of hot water system, failure of stove/oven/heater (in winter)/air conditioner (in summer), breakdown of any essential service (gas, water, electricity), pest infestation, any fault making the property unsafe or insecure. The tenant can arrange repairs costing up to $2,000 without prior approval if the landlord cannot be contacted or fails to respond. The landlord must reimburse the tenant within 7 days of receiving receipts and a written request — one of the quickest reimbursement timelines in Australia.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 48A, s 48B"
+      },
+      {
+        "topic": "Non-urgent repairs process",
+        "summary": "Tenant must notify landlord in writing; if not addressed within 14 days, apply to ACAT.",
+        "details": "The tenant should report non-urgent repairs in writing to the landlord or agent. The landlord must respond within 14 days. If the landlord fails to address the issue, the tenant can apply to ACAT. ACAT can order the landlord to complete repairs, may order a rent reduction (including backdated), and in extreme cases allow the tenant to terminate the tenancy.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 48"
+      }
+    ]
+  },
+
+  "entry_notice": {
+    "summary": "Landlord/agent must give at least 24 hours' written notice before entering (except emergencies). Entry must be between 8am–8pm. Maximum of 4 routine inspections per year.",
+    "rules": [
+      {
+        "topic": "Entry notice period",
+        "summary": "Landlord must give at least 24 hours' written notice before entering except in emergencies.",
+        "details": "The landlord or agent must provide at least 24 hours' written notice before entering the rental property for a valid purpose (inspection, repairs, showing). Entry must be between 8am and 8pm. Notice must specify the purpose, date, and timeframe for entry. The tenant has the right to be present. In an emergency, the landlord can enter without notice.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 44"
+      },
+      {
+        "topic": "Routine inspections",
+        "summary": "Maximum of 4 routine inspections per year with 24 hours' notice.",
+        "details": "The landlord can conduct routine inspections no more than 4 times per year. The tenant must receive at least 24 hours' written notice specifying the date and time. Inspections must be at a reasonable time. The tenant can request to reschedule if the proposed time is inconvenient.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 44(3)"
+      },
+      {
+        "topic": "Entry for sales/showings",
+        "summary": "Landlord can show the property with 24 hours' notice, but can't show more than 2 times per week without consent.",
+        "details": "When a tenancy is ending or the tenant has given notice, the landlord may show the property to prospective tenants or buyers with at least 24 hours' notice. However, the landlord cannot conduct more than 2 showings per week without the tenant's agreement. Showings must be at reasonable times between 8am and 8pm.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 44"
+      }
+    ]
+  },
+
+  "condition_reports": {
+    "summary": "Landlord must provide a condition report within 3 business days of the tenant moving in. The tenant has 3 business days to return the report with comments. ACT uses a standard form available from the ACT Revenue Office.",
+    "rules": [
+      {
+        "topic": "Ingoing condition report",
+        "summary": "Landlord must provide a condition report within 3 business days; tenant has 3 business days to return.",
+        "details": "The landlord or agent must prepare a condition report in the approved form and give it to the tenant within 3 business days of the tenant taking possession. The report covers every room, all fixtures, appliances, and the property's grounds. The tenant has 3 business days to:\n1. Review the report\n2. Add comments about any damage, defects, or cleanliness issues\n3. Take dated photos and videos to support their comments\n4. Sign and return one copy to the landlord\nThe tenant should document everything — even minor damage — as this is the critical evidence for bond disputes.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 21, s 22"
+      },
+      {
+        "topic": "Outgoing condition report",
+        "summary": "Tenant should attend final inspection and provide forwarding address to the landlord.",
+        "details": "At the end of the tenancy, the tenant should arrange a final inspection with the landlord or agent. The property should be left in the same condition as recorded on the ingoing report (minus fair wear and tear). Both parties should go through each room together. The tenant should provide their forwarding address in writing to facilitate bond refund. The landlord should provide an itemised list of any deductions with supporting evidence.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 22(4)"
+      }
+    ]
+  },
+
+  "dispute_resolution": {
+    "summary": "Tenancy disputes in the ACT are handled by ACAT. The process is: 1) Try to resolve with the landlord/agent, 2) Get advice from ACT Law Society or Tenants' Advice Service, 3) Apply to ACAT online for a hearing. ACAT fees are low and can be waived.",
+    "rules": [
+      {
+        "topic": "ACAT application process",
+        "summary": "Tenants can apply to ACAT for tenancy disputes; fees are around $43–$95 (waivable for hardship).",
+        "details": "Tenants can apply to ACAT online via the ACAT website. Application fees are relatively low:\n- Minor applications: approximately $43\n- Standard applications: approximately $95\nFees can be waived for tenants with financial hardship. The ACAT process involves:\n1. Filing the application\n2. A conference (mediation by an ACAT member)\n3. If no agreement, a formal hearing\n4. Binding ACAT order is issued\nACAT hearings are informal and designed for self-represented parties. Legal representation requires ACAT permission.",
+        "law_reference": "ACT Civil and Administrative Tribunal Act 2008 (ACT)"
+      },
+      {
+        "topic": "Tenants' Advice Service (ACT)",
+        "summary": "Free legal advice for tenants in the ACT provided by the ACT Law Society.",
+        "details": "The ACT Law Society runs a Tenants' Advice Service that provides free legal advice to tenants, including:\n- Phone advice on tenancy issues\n- Assistance with understanding rights and obligations\n- Help with writing letters and filling out forms\n- Representation at ACAT in some cases\n- Information sheets in plain English\nThe service is free for tenants on low incomes or who hold a concession card.",
+        "law_reference": "ACT Law Society Tenants' Advice Service"
+      }
+    ]
+  },
+
+  "renters_rights": {
+    "summary": "ACT has the strongest renter protections in Australia, including the longest no-grounds eviction notice period (26 weeks), minimum energy efficiency standards, right to pets, ban on rent bidding, and strong protections against no-cause terminations. ACT is the only jurisdiction with mandatory energy efficiency standards for rental properties.",
+    "rules": [
+      {
+        "topic": "Minimum housing standards (ACT)",
+        "summary": "Rental properties must meet minimum standards including energy efficiency (unique to ACT).",
+        "details": "ACT has some of the most comprehensive minimum standards for rental properties:\n- Property must be weatherproof and structurally sound\n- Working locks on all external doors and windows\n- Adequate lighting and ventilation\n- Working kitchen, bathroom, and toilet facilities\n- Hot and cold running water\n- Electrical wiring and gas fittings in safe condition\n- Free from mould, damp, and pests\n- Working smoke alarms (hardwired or with 10-year batteries)\n- Minimum energy efficiency rating — ACT is the ONLY state requiring rental properties to have an energy efficiency rating (mandatory disclosure of the Energy Efficiency Rating statement in all rental advertisements since 2023)",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 42A; Energy Efficiency (Cost of Living) Improvement Act 2023 (ACT)"
+      },
+      {
+        "topic": "Right to keep pets",
+        "summary": "Tenants have the right to keep a pet in their rental property; landlord can only refuse on reasonable grounds.",
+        "details": "ACT tenants have the right to keep pets in rental properties. The tenant must make a written request. The landlord must respond within 14 days and can only refuse on reasonable grounds (e.g., the property cannot accommodate the pet, the pet would cause an unacceptable risk to health and safety, or keeping the pet would contravene a law). If the landlord refuses, the tenant can apply to ACAT. Assistance animals are exempt from all restrictions.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 71BA–71BG"
+      },
+      {
+        "topic": "Ban on rent bidding",
+        "summary": "Rent bidding is banned — landlords cannot solicit or accept offers above the advertised rent.",
+        "details": "ACT was one of the first jurisdictions in Australia to explicitly ban rent bidding. Landlords and agents cannot:\n- Solicit or invite offers of rent higher than the advertised price\n- Accept an offer of rent higher than the advertised price before the property is leased\n- Use the fact that someone offered more as a reason to refuse a tenant\n- Advertise a price range or 'negotiable' rent that invites bidding\nAll rental properties must be advertised with a fixed, specific rent amount.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 37A"
+      },
+      {
+        "topic": "Longest no-grounds eviction notice",
+        "summary": "26 weeks' notice required for no-grounds eviction of tenancies over 12 months — strongest in Australia.",
+        "details": "ACT provides the strongest security of tenure in Australia. For a periodic tenancy that has lasted 12 months or more, a landlord must give 26 weeks' (6 months) notice to vacate without grounds. This gives tenants exceptional stability and makes it very difficult for landlords to evict tenants without a valid reason.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 55"
+      },
+      {
+        "topic": "Retaliatory eviction protection",
+        "summary": "Strong protection against retaliatory eviction for exercising legal rights.",
+        "details": "A landlord cannot terminate a tenancy because the tenant:\n- Complained to the landlord about repairs or maintenance\n- Applied to ACAT for an order\n- Contacted the ACT Revenue Office or a government agency about tenancy issues\n- Joined or formed a tenants' union or association\n- Exercised any right under the tenancy laws\nIf ACAT finds an eviction is retaliatory, it can dismiss the termination application and award compensation to the tenant.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 57"
+      },
+      {
+        "topic": "Rent reduction for loss of amenity",
+        "summary": "Tenant can request rent reduction if the property or any part of it becomes unusable.",
+        "details": "If any part of the property becomes unusable (due to disrepair, damage, or other issues not caused by the tenant), the tenant can request a rent reduction for the period the amenity was lost. The reduction should be proportional to the loss of use. If the landlord does not agree, the tenant can apply to ACAT. This applies to situations like a room flooding, a bathroom becoming unusable, or the loss of a balcony or garden.",
+        "law_reference": "Residential Tenancies Act 1997 (ACT) s 67A"
+      }
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+// ACT Residential Tenancies Act 1997 - Key Rules
+module.exports = {
+  state: 'ACT',
+  name: 'Australian Capital Territory',
+  rent: {
+    maxIncreaseFrequency: 'Every 12 months for periodic agreements',
+    increaseNoticePeriod: 'At least 8 weeks (56 days) written notice. Must use prescribed form.',
+    maxBond: '4 weeks rent',
+    rentArrearsNoticePeriod: '14 days',
+    rentReceiptRequired: 'Must provide receipt within 7 days if requested',
+    rentFreeze: 'ACT Government can declare rent freeze periods in exceptional circumstances',
+  },
+  bonds: {
+    authority: 'ACT Revenue Office - Rental Bonds',
+    lodgingDeadline: 'Must be lodged with ACT Revenue Office within 5 business days of receipt',
+    bondReturn: 'Claim made within 10 working days of tenancy end. Disputes resolved by ACT Civil and Administrative Tribunal (ACAT).',
+    maxAmount: '4 weeks rent',
+    interest: 'Interest paid on bonds above $200 at a rate set by ACT Government',
+  },
+  conditionReports: {
+    requirement: 'Landlord must give 2 copies before tenant moves in or within 5 working days',
+    tenantReturn: 'Tenant must return signed copy within 5 working days with any disagreements noted',
+    photos: 'Dated photos recommended as evidence',
+    video: 'Video inspection reports are becoming common practice in ACT',
+  },
+  repairs: {
+    urgent: 'Burst water pipe, gas leak, dangerous electrical fault, blocked or broken toilet, serious roof leak, flooding, failure of hot water system, failure of stove/oven, failure of heating in winter, failure of cooling in hot weather, broken lock compromising security, broken window, any fault causing unsafe or unhealthy conditions',
+    urgentTenantRights: 'Tenant can arrange urgent repairs up to $1,200 (or 4 weeks rent, whichever is greater) and be reimbursed within 7 days',
+    nonUrgent: 'Landlord must respond within 14 days. If not resolved, tenant can apply to ACAT within 30 days.',
+    urgentRepairsDefinition: 'ACT has broadest definition of urgent repairs among Australian states',
+  },
+  leaseTermination: {
+    noticeByTenantPeriodic: '3 weeks (21 days) notice',
+    noticeByTenantFixed: 'Tenant can break lease - liable for costs capped based on remaining term',
+    noticeByLandlordPeriodic: '8 weeks (56 days) notice - must have genuine reason',
+    noticeByLandlordFixed: 'Valid grounds required: breach, sale, renovation, demolition, landlord/family moving in',
+    breakingLeaseFees: '0-12 months remaining: 4 weeks rent. 12-24 months: 6 weeks. Over 24 months: 8 weeks. Plus rent until new tenant moves in (must mitigate loss).',
+  },
+  inspections: {
+    frequency: 'Maximum 4 routine inspections per year',
+    noticePeriod: 'At least 7 days written notice (24 hours for showing to buyers/valuers)',
+    entryTimes: 'Between 8am and 6pm, not on Sundays or public holidays unless agreed',
+    entryNoticeContent: 'Notice must state reason for entry and be in writing',
+  },
+  pets: {
+    rules: 'Landlord cannot unreasonably refuse pets. Must respond within 14 days. Refusal must be on reasonable grounds.',
+    bondAddition: 'No additional pet bond allowed',
+    assistanceAnimals: 'Cannot refuse assistance animals - this is discrimination',
+  },
+  discrimination: {
+    rules: 'ACT Discrimination Act prohibits housing discrimination on grounds of race, gender, sexuality, age, disability, marital status, family status, pregnancy, religious/political belief, intersex status, HIV/AIDS status. Strongest protections in Australia.',
+  },
+  minimumStandards: {
+    overview: 'Properties must meet minimum housing standards before being rented:',
+    energyEfficiency: 'ACT has leading energy efficiency standards - minimum 6-star energy rating applicable in some cases',
+    insulation: 'Ceiling insulation required (minimum R-value)',
+    heatingAndCooling: 'Fixed heating in main living area - energy efficient type required in new tenancies',
+    condition: 'Structurally sound, weatherproof, good repair, adequate natural light and ventilation',
+    safety: 'Smoke alarms (interconnected), carbon monoxide alarms (if gas appliances), RCD safety switches, circuit breakers',
+    security: 'Key-operated deadlocks on external doors, window locks, security screens on ground floor windows',
+  },
+  resources: {
+    tribunal: 'ACT Civil and Administrative Tribunal (ACAT)',
+    tenancyUnion: "Tenants' Union ACT",
+    revenueOffice: 'ACT Revenue Office - Rental Bonds',
+    accessCanberra: 'Access Canberra (ACT Government)',
+  },
+  commonIssues: [
+    'ACT has some of the strongest tenant protections in Australia',
+    'Rent bidding is explicitly prohibited - cannot solicit or invite offers above asking rent',
+    'End of tenancy: property must be "reasonably clean" - not "professionally cleaned" unless in agreement',
+    'Water charges cannot be passed to tenant unless property has individual meter and is water efficient',
+    'Landlord must provide copy of energy efficiency rating if available',
+    'Minimum ceiling insulation standards must be met - tenant can request information on insulation',
+  ],
+};

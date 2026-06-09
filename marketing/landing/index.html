@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeaseLand — Is Your Australian Lease Fair? Free AI Lease Check for International Students</title>
+  <meta name="description" content="Worried about your rental lease in Australia? LeaseLand's free AI lease checker helps international students in NSW, VIC, QLD, WA, SA & ACT understand their rights, bond rules, and spot unfair clauses.">
+  <meta name="keywords" content="is my Australian lease normal, bond rules Australia, tenant rights international student Australia, rental lease check NSW, rental lease check VIC, rental lease check QLD, rental lease check WA, rental lease check SA, rental lease check ACT, international student renting Australia, bond return Australia, breaking lease Australia, rental dispute">
+  <link rel="canonical" href="https://leaseland.app/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="LeaseLand — Know Your Rental Rights as an International Student in Australia">
+  <meta property="og:description" content="AI-powered lease checker that flags unfair clauses and explains your rights state-by-state. Built for international students.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://leaseland.app/">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Schema.org markup for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "LeaseLand",
+    "applicationCategory": "LegalService",
+    "operatingSystem": "Web",
+    "description": "AI lease checker and tenancy assistant for international students renting in Australia. Reviews leases against NSW, VIC, QLD, WA, SA & ACT tenancy laws.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "AUD"
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "International Student"
+    }
+  }
+  </script>
+
+  <!-- Hreflang / country targeting -->
+  <link rel="alternate" href="https://leaseland.app/" hreflang="en-AU" />
+
+  <!-- Brand CSS (inline for performance on standalone page) -->
+  <style>
+    /* ── CSS Reset & Brand Design System (brand.css inlined) ── */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1E293B;background:#F8FAFC;line-height:1.5;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;height:auto;display:block}
+    a{color:#2563EB;text-decoration:none;transition:200ms ease-in-out}
+    a:hover{color:#1D4ED8}
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 1.5rem}
+
+    /* ── Colour Tokens ── */
+    :root{
+      --blue-50:#EFF6FF;--blue-100:#DBEAFE;--blue-200:#BFDBFE;--blue-300:#93C5FD;
+      --blue-400:#60A5FA;--blue-500:#3B82F6;--blue-600:#2563EB;--blue-700:#1D4ED8;--blue-800:#1E40AF;
+      --emerald-50:#ECFDF5;--emerald-100:#D1FAE5;--emerald-200:#A7F3D0;
+      --emerald-500:#10B981;--emerald-600:#059669;--emerald-700:#047857;
+      --amber-400:#FBBF24;--amber-500:#F59E0B;--amber-600:#D97706;
+      --sky-500:#0EA5E9;
+      --slate-50:#F8FAFC;--slate-100:#F1F5F9;--slate-200:#E2E8F0;
+      --slate-300:#CBD5E1;--slate-400:#94A3B8;--slate-500:#64748B;
+      --slate-600:#475569;--slate-700:#334155;--slate-800:#1E293B;--slate-900:#0F172A;
+    }
+
+    /* ── Typography ── */
+    h1,h2,h3,h4{font-weight:700;line-height:1.25;color:var(--slate-900)}
+    h1{font-size:clamp(2rem,5vw,3.25rem);letter-spacing:-0.02em}
+    h2{font-size:clamp(1.5rem,3.5vw,2.25rem);margin-bottom:1rem}
+    h3{font-size:clamp(1.125rem,2vw,1.375rem);margin-bottom:0.5rem}
+    p{color:var(--slate-600);margin-bottom:1rem}
+    .text-center{text-align:center}
+    .text-sm{font-size:0.875rem}
+    .text-xs{font-size:0.75rem}
+
+    /* ── Buttons ── */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.75rem 1.75rem;border-radius:0.5rem;font-weight:600;font-size:1rem;border:none;cursor:pointer;transition:all 200ms ease-in-out;text-align:center}
+    .btn-primary{background:var(--blue-600);color:#fff}
+    .btn-primary:hover{background:var(--blue-700);transform:translateY(-1px);box-shadow:0 4px 12px rgba(37,99,235,0.35)}
+    .btn-secondary{background:var(--emerald-600);color:#fff}
+    .btn-secondary:hover{background:var(--emerald-700);transform:translateY(-1px);box-shadow:0 4px 12px rgba(5,150,105,0.35)}
+    .btn-ghost{background:transparent;color:var(--blue-600);outline:1px solid var(--blue-200)}
+    .btn-ghost:hover{background:var(--blue-50)}
+    .btn-lg{padding:1rem 2rem;font-size:1.125rem;border-radius:0.75rem}
+    .btn-block{display:flex;width:100%}
+
+    /* ── Navigation ── */
+    nav{background:#fff;border-bottom:1px solid var(--slate-200);position:sticky;top:0;z-index:100;padding:0.875rem 0}
+    nav .container{display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:0.625rem;font-weight:800;font-size:1.25rem;color:var(--slate-900)}
+    .logo-icon{width:2rem;height:2rem;background:linear-gradient(135deg,var(--blue-600),var(--emerald-600));border-radius:0.5rem;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.875rem}
+    .nav-links{display:flex;align-items:center;gap:1.5rem}
+    .nav-links a{font-size:0.875rem;font-weight:500;color:var(--slate-600)}
+    .nav-links a:hover{color:var(--slate-900)}
+
+    /* ── Hero Section ── */
+    .hero{padding:5rem 0 3rem;background:linear-gradient(180deg,#fff 0%,var(--blue-50) 100%)}
+    .hero .container{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+    .hero h1 span{background:linear-gradient(135deg,var(--blue-600),var(--emerald-600));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-badge{display:inline-flex;align-items:center;gap:0.375rem;background:var(--emerald-50);color:var(--emerald-700);font-size:0.8125rem;font-weight:600;padding:0.375rem 0.75rem;border-radius:9999px;margin-bottom:1.25rem}
+    .hero-stats{display:flex;gap:2rem;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--slate-200)}
+    .hero-stat{text-align:center}
+    .hero-stat-number{font-size:1.5rem;font-weight:800;color:var(--slate-900)}
+    .hero-stat-label{font-size:0.8125rem;color:var(--slate-500);margin-top:0.125rem}
+    .hero-image{display:flex;align-items:center;justify-content:center}
+    .hero-image-placeholder{width:100%;max-width:480px;aspect-ratio:4/3;background:linear-gradient(135deg,var(--blue-100),var(--emerald-100));border-radius:1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;box-shadow:0 20px 40px -10px rgba(37,99,235,0.15)}
+    .hero-image-placeholder .big-icon{font-size:3rem;margin-bottom:0.75rem}
+    .hero-image-placeholder p{font-weight:500;color:var(--slate-700);margin:0}
+
+    /* ── Sections common ── */
+    section{padding:4rem 0}
+    .section-label{display:inline-block;font-size:0.8125rem;font-weight:600;color:var(--blue-600);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem}
+
+    /* ── How It Works ── */
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem}
+    .step{background:#fff;padding:2rem;border-radius:0.75rem;box-shadow:0 1px 3px rgba(0,0,0,0.06);border:1px solid var(--slate-200);position:relative;transition:transform 200ms ease,box-shadow 200ms ease}
+    .step:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.08)}
+    .step-number{width:2.5rem;height:2.5rem;background:var(--blue-600);color:#fff;border-radius:0.625rem;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;margin-bottom:1rem}
+    .step h3{font-size:1.125rem;margin-bottom:0.375rem}
+    .step p{font-size:0.9375rem;margin:0}
+
+    /* ── Features ── */
+    .features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2rem}
+    .feature-card{background:#fff;padding:1.5rem;border-radius:0.75rem;border:1px solid var(--slate-200);transition:border-color 200ms ease}
+    .feature-card:hover{border-color:var(--blue-300)}
+    .feature-icon{width:2.5rem;height:2.5rem;border-radius:0.5rem;display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:0.75rem}
+    .feature-icon.blue{background:var(--blue-50);color:var(--blue-600)}
+    .feature-icon.emerald{background:var(--emerald-50);color:var(--emerald-600)}
+    .feature-icon.amber{background:#FFFBEB;color:var(--amber-600)}
+    .feature-icon.sky{background:#F0F9FF;color:var(--sky-500)}
+    .feature-card h3{font-size:1rem;margin-bottom:0.25rem}
+    .feature-card p{font-size:0.875rem;margin:0;color:var(--slate-500)}
+
+    /* ── State Coverage ── */
+    .states-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;margin-top:2rem}
+    .state-pill{background:#fff;padding:0.75rem;border-radius:0.5rem;border:1px solid var(--slate-200);text-align:center;font-weight:600;font-size:0.875rem;color:var(--slate-700);transition:all 200ms ease}
+    .state-pill:hover{background:var(--blue-50);border-color:var(--blue-300);color:var(--blue-600);transform:translateY(-2px)}
+
+    /* ── Testimonials ── */
+    .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
+    .testimonial{background:#fff;padding:1.5rem;border-radius:0.75rem;border:1px solid var(--slate-200)}
+    .testimonial-stars{color:var(--amber-500);font-size:1rem;margin-bottom:0.75rem}
+    .testimonial-quote{font-size:0.9375rem;color:var(--slate-600);font-style:italic;margin-bottom:1rem}
+    .testimonial-author{display:flex;align-items:center;gap:0.75rem}
+    .testimonial-avatar{width:2.5rem;height:2.5rem;border-radius:50%;background:var(--slate-200);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.875rem;color:var(--slate-500)}
+    .testimonial-name{font-weight:600;font-size:0.875rem;color:var(--slate-800)}
+    .testimonial-role{font-size:0.75rem;color:var(--slate-400)}
+
+    /* ── Pricing ── */
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem;align-items:start}
+    .pricing-card{background:#fff;border-radius:0.75rem;border:1px solid var(--slate-200);padding:2rem;position:relative;transition:box-shadow 200ms ease}
+    .pricing-card.featured{border:2px solid var(--blue-600);box-shadow:0 8px 32px rgba(37,99,235,0.12)}
+    .pricing-card.featured::before{content:"Most Popular";position:absolute;top:-0.75rem;left:50%;transform:translateX(-50%);background:var(--blue-600);color:#fff;font-size:0.75rem;font-weight:700;padding:0.25rem 0.875rem;border-radius:9999px;text-transform:uppercase;letter-spacing:0.04em}
+    .pricing-name{font-size:1.125rem;font-weight:700;color:var(--slate-800)}
+    .pricing-price{font-size:2.25rem;font-weight:800;color:var(--slate-900);margin:0.5rem 0 0.25rem}
+    .pricing-price span{font-size:1rem;font-weight:500;color:var(--slate-400)}
+    .pricing-desc{font-size:0.875rem;color:var(--slate-500);margin-bottom:1.25rem}
+    .pricing-features{list-style:none;padding:0;margin:0 0 1.5rem}
+    .pricing-features li{padding:0.5rem 0;font-size:0.875rem;color:var(--slate-600);border-bottom:1px solid var(--slate-100);display:flex;align-items:center;gap:0.5rem}
+    .pricing-features li:last-child{border-bottom:none}
+    .pricing-features li::before{content:"✓";color:var(--emerald-500);font-weight:700}
+
+    /* ── Email Capture / Sign Up ── */
+    .signup-section{background:linear-gradient(135deg,var(--blue-600),var(--emerald-600));padding:4rem 0;border-radius:0}
+    .signup-section .section-label{color:rgba(255,255,255,0.8)}
+    .signup-section h2{color:#fff}
+    .signup-section p{color:rgba(255,255,255,0.85);max-width:540px;margin:0 auto 1.5rem}
+    .signup-form{max-width:540px;margin:0 auto}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+    .form-group{margin-bottom:1rem}
+    .form-group label{display:block;font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:0.375rem}
+    .form-group input,.form-group select{width:100%;padding:0.75rem 1rem;border-radius:0.5rem;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.15);color:#fff;font-size:0.9375rem;font-family:inherit;transition:background 200ms ease}
+    .form-group input::placeholder{color:rgba(255,255,255,0.5)}
+    .form-group input:focus,.form-group select:focus{outline:none;background:rgba(255,255,255,0.25)}
+    .form-group select option{color:var(--slate-800)}
+    .signup-form .btn{background:#fff;color:var(--blue-700);font-size:1rem;padding:0.875rem 2rem;margin-top:0.5rem}
+    .signup-form .btn:hover{background:var(--slate-100);transform:translateY(-1px)}
+    .form-disclaimer{font-size:0.75rem;color:rgba(255,255,255,0.6);margin-top:0.75rem;text-align:center}
+    .form-success{display:none;background:rgba(255,255,255,0.15);padding:1.5rem;border-radius:0.75rem;text-align:center;color:#fff}
+    .form-success.show{display:block}
+
+    /* ── CTA Section ── */
+    .cta-section{background:var(--slate-900);color:#fff;text-align:center}
+    .cta-section h2{color:#fff}
+    .cta-section p{color:var(--slate-400);max-width:540px;margin:0 auto 1.5rem}
+
+    /* ── Footer ── */
+    footer{background:var(--slate-900);padding:2.5rem 0;border-top:1px solid var(--slate-700)}
+    footer .container{display:flex;align-items:center;justify-content:space-between}
+    footer p,footer a{font-size:0.8125rem;color:var(--slate-400)}
+    footer a:hover{color:#fff}
+
+    /* ── Disclaimer Banner (chat/results area) ── */
+    .disclaimer{background:#FFFBEB;border:1px solid #FDE68A;border-radius:0.5rem;padding:0.75rem 1rem;display:flex;align-items:flex-start;gap:0.5rem;font-size:0.8125rem;color:var(--amber-700);margin-bottom:1.5rem}
+    .disclaimer-icon{font-size:1rem;flex-shrink:0;margin-top:0.0625rem}
+
+    /* ── FAQ (SEO-rich) ── */
+    .faq-item{border-bottom:1px solid var(--slate-200);padding:1rem 0}
+    .faq-question{font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:space-between;color:var(--slate-800)}
+    .faq-question::after{content:"+";font-size:1.25rem;color:var(--slate-400);transition:transform 200ms ease}
+    .faq-question.open::after{content:"−"}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height 250ms ease,padding 250ms ease;padding:0;color:var(--slate-600);font-size:0.9375rem;line-height:1.625}
+    .faq-answer.open{max-height:300px;padding-top:0.75rem}
+
+    /* ── Responsive ── */
+    @media(max-width:768px){
+      .hero .container{grid-template-columns:1fr;gap:2rem;text-align:center}
+      .hero-stats{justify-content:center}
+      .steps,.features-grid,.testimonials-grid{grid-template-columns:1fr}
+      .pricing-grid{grid-template-columns:1fr;max-width:400px;margin:2rem auto 0}
+      .states-grid{grid-template-columns:repeat(3,1fr)}
+      .form-row{grid-template-columns:1fr}
+      .nav-links .btn{display:none}
+      footer .container{flex-direction:column;gap:0.75rem;text-align:center}
+    }
+    @media(max-width:480px){
+      .states-grid{grid-template-columns:repeat(2,1fr)}
+      .hero{padding:3rem 0 2rem}
+      section{padding:2.5rem 0}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ Navigation ═══ -->
+  <nav>
+    <div class="container">
+      <a href="/" class="logo">
+        <div class="logo-icon">LL</div>
+        LeaseLand
+      </a>
+      <div class="nav-links">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="https://app.leaseland.app" class="btn btn-primary">Try Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ Hero ═══ -->
+  <section class="hero">
+    <div class="container">
+      <div>
+        <div class="hero-badge">🛡️ Built for International Students in Australia</div>
+        <h1>Is Your Australian <span>Lease Fair?</span></h1>
+        <p style="font-size:1.125rem;color:var(--slate-500);margin-top:0.75rem">
+          Paste your rental lease and get an AI-powered review that flags unfair clauses, 
+          explains your bond rights, and tells you what Australian law says — 
+          <strong>state by state, in plain English.</strong>
+        </p>
+        <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap">
+          <a href="https://app.leaseland.app" class="btn btn-primary btn-lg">Check Your Lease Free →</a>
+          <a href="#how-it-works" class="btn btn-ghost btn-lg">How It Works</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-number">6</div>
+            <div class="hero-stat-label">Australian States Covered</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">$0</div>
+            <div class="hero-stat-label">Start Free</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">2 min</div>
+            <div class="hero-stat-label">Lease Check</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-image-placeholder">
+          <div class="big-icon">📋</div>
+          <p style="font-size:1.125rem;font-weight:700;color:var(--slate-800);margin-bottom:0.375rem">AI Lease Checker Preview</p>
+          <p style="font-size:0.875rem;color:var(--slate-500);max-width:320px">
+            Upload or paste a lease → AI flags unusual, illegal, or negotiable clauses based on your state's laws
+          </p>
+          <div style="margin-top:0.75rem;display:flex;gap:0.25rem;flex-wrap:wrap;justify-content:center">
+            <span style="font-size:0.6875rem;background:rgba(239,68,68,0.12);color:#DC2626;padding:0.25rem 0.5rem;border-radius:0.25rem;font-weight:600">⚠ Possibly Unfair</span>
+            <span style="font-size:0.6875rem;background:rgba(5,150,105,0.12);color:#059669;padding:0.25rem 0.5rem;border-radius:0.25rem;font-weight:600">✓ Standard Clause</span>
+            <span style="font-size:0.6875rem;background:rgba(245,158,11,0.12);color:#D97706;padding:0.25rem 0.5rem;border-radius:0.25rem;font-weight:600">⚡ Negotiate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ State Coverage Strip ═══ -->
+  <section style="padding:2rem 0;background:var(--slate-50);border-top:1px solid var(--slate-200);border-bottom:1px solid var(--slate-200)">
+    <div class="container">
+      <p class="text-center text-sm" style="color:var(--slate-500);font-weight:600;margin-bottom:1rem">Covers tenancy laws in all major Australian states</p>
+      <div class="states-grid">
+        <div class="state-pill">🇦🇺 NSW</div>
+        <div class="state-pill">🇦🇺 VIC</div>
+        <div class="state-pill">🇦🇺 QLD</div>
+        <div class="state-pill">🇦🇺 WA</div>
+        <div class="state-pill">🇦🇺 SA</div>
+        <div class="state-pill">🇦🇺 ACT</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ How It Works ═══ -->
+  <section id="how-it-works">
+    <div class="container">
+      <p class="section-label text-center">How It Works</p>
+      <h2 class="text-center">Check Your Lease in 3 Simple Steps</h2>
+      <p class="text-center" style="max-width:560px;margin:0 auto 1rem">No legal degree needed. Just your lease document and 2 minutes.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Paste or Upload</h3>
+          <p>Copy-paste your lease text or upload a PDF. Tell us which Australian state you're in — NSW, VIC, QLD, WA, SA or ACT.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>AI Review</h3>
+          <p>Our AI scans every clause against state-specific tenancy laws. It flags anything unusual, illegal, or worth negotiating.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Know Your Rights</h3>
+          <p>Get a clear, plain-English report. Ask follow-up questions about bond disputes, maintenance, or breaking your lease.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Features ═══ -->
+  <section id="features" style="background:var(--slate-50)">
+    <div class="container">
+      <p class="section-label text-center">Features</p>
+      <h2 class="text-center">Everything You Need to Rent Confidently</h2>
+      <p class="text-center" style="max-width:560px;margin:0 auto 1rem">Two powerful tools designed for international students navigating Australian rentals.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon blue">🔍</div>
+          <h3>AI Lease Checker</h3>
+          <p>Paste a lease or upload a PDF; AI flags anything unusual, illegal, or worth negotiating based on the laws of your Australian state.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon emerald">💬</div>
+          <h3>Tenancy Assistant</h3>
+          <p>Ask plain-English questions about bond disputes, maintenance, notice periods, breaking a lease, or condition reports — answered with your state's specific rules.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon amber">💰</div>
+          <h3>Bond Recovery Guide</h3>
+          <p>Learn exactly how bond returns work in your state. Know what deductions are legal and how to dispute unfair claims.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon sky">🌏</div>
+          <h3>Multi-State Knowledge</h3>
+          <p>Covers NSW, VIC, QLD, WA, SA, and ACT. Our country & state engine makes it easy to add more regions in future.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Lease Checker Demo / Disclaimer Area ═══ -->
+  <section id="lease-checker" style="background:#fff">
+    <div class="container" style="max-width:720px">
+      <p class="section-label text-center">Try It Free</p>
+      <h2 class="text-center">What Does a Lease Check Look Like?</h2>
+
+      <!-- Disclaimer — Lives in the results area, not just the footer -->
+      <div class="disclaimer">
+        <span class="disclaimer-icon">⚖️</span>
+        <div>
+          <strong>LeaseLand provides general information only</strong> — it is not legal advice. 
+          Consult a qualified professional (e.g. a tenancy advocate or community legal centre) for your specific situation. 
+          We're here to help you understand your rights, not to represent you.
+        </div>
+      </div>
+
+      <div style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:0.75rem;padding:2rem;text-align:center">
+        <div style="font-size:1.125rem;font-weight:600;color:var(--slate-700);margin-bottom:0.75rem">🔒  No credit card required</div>
+        <p style="font-size:0.9375rem;color:var(--slate-500);max-width:400px;margin:0 auto 1.25rem">
+          Paste a lease clause and see what LeaseLand flags. One free question — no signup needed.
+        </p>
+        <a href="https://app.leaseland.app" class="btn btn-primary btn-lg">Try the Free Lease Check →</a>
+        <p class="text-xs" style="color:var(--slate-400);margin-top:0.75rem">
+          Free: 1 basic lease question. Full review: $9/month or $29 one-time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Testimonials ═══ -->
+  <section id="testimonials" style="background:var(--slate-50)">
+    <div class="container">
+      <p class="section-label text-center">Real Students, Real Results</p>
+      <h2 class="text-center">What International Students Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"I had no idea my lease had an illegal no-guest clause. LeaseLand caught it immediately. Saved me from a fine!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">PM</div>
+            <div>
+              <div class="testimonial-name">Priya M.</div>
+              <div class="testimonial-role">Student @ University of Melbourne, VIC</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"The bond recovery guide helped me get my full $2,400 bond back. My landlord tried to deduct 'cleaning' fees that weren't allowed under NSW law."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">LW</div>
+            <div>
+              <div class="testimonial-name">Li W.</div>
+              <div class="testimonial-role">Student @ UNSW, NSW</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"As a new international student, I was scared to question my lease terms. LeaseLand made it so easy to understand my rights."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">CJ</div>
+            <div>
+              <div class="testimonial-name">Carlos J.</div>
+              <div class="testimonial-role">Student @ University of Queensland, QLD</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Pricing ═══ -->
+  <section id="pricing">
+    <div class="container">
+      <p class="section-label text-center">Pricing</p>
+      <h2 class="text-center">Start Free, Upgrade When You Need More</h2>
+      <p class="text-center" style="max-width:560px;margin:0 auto 1rem">No hidden fees. No commitment. Get one free lease question to experience the value.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-name">Free</div>
+          <div class="pricing-price">$0</div>
+          <div class="pricing-desc">Try before you commit</div>
+          <ul class="pricing-features">
+            <li>1 basic lease question</li>
+            <li>State-specific answers</li>
+            <li>Plain English explanations</li>
+          </ul>
+          <a href="https://app.leaseland.app" class="btn btn-ghost btn-block">Try Free</a>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-name">Monthly</div>
+          <div class="pricing-price">$9 <span>/month</span></div>
+          <div class="pricing-desc">Full access, cancel anytime</div>
+          <ul class="pricing-features">
+            <li>Complete lease document review</li>
+            <li>Unlimited tenancy questions</li>
+            <li>State-by-state legal grounding</li>
+            <li>Bond recovery guidance</li>
+            <li>Cancel anytime</li>
+          </ul>
+          <a href="https://app.leaseland.app/subscribe" class="btn btn-primary btn-block">Subscribe — $9/mo</a>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-name">One-Shot</div>
+          <div class="pricing-price">$29 <span>once</span></div>
+          <div class="pricing-desc">Full review, no ongoing subscription</div>
+          <ul class="pricing-features">
+            <li>Complete lease document review</li>
+            <li>1 lease review — lifetime access</li>
+            <li>State-by-state legal grounding</li>
+            <li>Bond recovery guidance</li>
+          </ul>
+          <a href="https://app.leaseland.app/one-shot" class="btn btn-secondary btn-block">Buy Once — $29</a>
+        </div>
+      </div>
+      <p class="text-center text-sm" style="color:var(--slate-400);margin-top:1.5rem">
+        👥 Refer a housemate and get a free month. Share your referral link from your dashboard.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ (SEO-rich content) ═══ -->
+  <section id="faq" style="background:var(--slate-50)">
+    <div class="container" style="max-width:720px">
+      <p class="section-label text-center">FAQ</p>
+      <h2 class="text-center">Common Questions About Renting in Australia</h2>
+      <div style="margin-top:2rem">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Is my rental lease normal in Australia?</div>
+          <div class="faq-answer">LeaseLand reviews your lease against standard practices and legal requirements in your state. Many leases contain clauses that are technically legal but unusual, while others include illegal terms. Our AI flags both so you can negotiate or dispute informed.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">What are the bond rules in Australia?</div>
+          <div class="faq-answer">Each Australian state has its own bond authority (e.g. NSW Fair Trading, RTBA in VIC). Generally, bonds are capped at 4 weeks' rent (unfurnished) or 6 weeks (furnished, in some states). Landlords must lodge the bond with the state authority within a set timeframe. LeaseLand explains exactly how bonds work in your state.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Can I break my lease as an international student?</div>
+          <div class="faq-answer">Yes, but breaking a lease usually involves costs like re-letting fees, advertising, and rent until a new tenant is found. Most states cap these costs. You may also need to give notice — typically 14 to 28 days depending on your state and situation. LeaseLand explains the exact costs and notice periods for your state.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">How do I get my bond back in NSW / VIC / QLD?</div>
+          <div class="faq-answer">Bond return processes vary by state. In NSW, you apply via Rental Bonds Online. In VIC, via the RTBA. The landlord has a set timeframe to dispute claims. If they don't, your bond is returned automatically. LeaseLand provides state-specific bond recovery guidance to help you get your full deposit back.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">What can I do if my landlord won't do repairs?</div>
+          <div class="faq-answer">Landlords must maintain properties to a minimum standard under each state's tenancy laws. If urgent repairs aren't done, tenants in many states can arrange repairs up to a certain dollar amount and be reimbursed. For non-urgent issues, you may need to apply to your state's tribunal. LeaseLand can guide you through your specific situation.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Is LeaseLand legal advice?</div>
+          <div class="faq-answer">No. LeaseLand provides general information and educational guidance only. It is not a substitute for professional legal advice. We always recommend consulting a qualified professional, such as a tenancy advocate or community legal centre, for your specific situation.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Email Capture / Signup Section ═══ -->
+  <section class="signup-section" id="signup">
+    <div class="container" style="text-align:center">
+      <p class="section-label">Stay Informed</p>
+      <h2>Get Lease Tips & State Law Updates</h2>
+      <p>Join hundreds of international students who check their leases with us. We'll send you renting guides, bond recovery tips, and state law changes before peak intake seasons (Feb & July).</p>
+      <div class="signup-form" id="email-capture-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="e.g. Wei Chen" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="you@student.edu.au" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="university">University</label>
+            <input type="text" id="university" placeholder="e.g. University of Melbourne">
+          </div>
+          <div class="form-group">
+            <label for="state">Your State</label>
+            <select id="state" required>
+              <option value="" disabled selected>Select your state</option>
+              <option value="NSW">NSW</option>
+              <option value="VIC">VIC</option>
+              <option value="QLD">QLD</option>
+              <option value="WA">WA</option>
+              <option value="SA">SA</option>
+              <option value="ACT">ACT</option>
+              <option value="NT">NT</option>
+              <option value="TAS">TAS</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-lg" onclick="handleEmailCapture(event)">Send Me Free Lease Tips →</button>
+        <p class="form-disclaimer">We'll never spam you. Unsubscribe anytime. LeaseLand provides general information only — not legal advice.</p>
+      </div>
+      <div class="form-success" id="form-success">
+        <div style="font-size:2.5rem;margin-bottom:0.5rem">🎉</div>
+        <h3 style="color:#fff;font-size:1.25rem">You're In!</h3>
+        <p style="color:rgba(255,255,255,0.8);margin:0.5rem 0 0">Check your inbox for your first lease tips. Welcome to LeaseLand!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Final CTA ═══ -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Don't Sign a Lease Without Checking It First</h2>
+      <p>Thousands of international students rent in Australia every year. Many lose bond money to unfair clauses they didn't know existed. Don't be one of them.</p>
+      <a href="https://app.leaseland.app" class="btn btn-primary btn-lg" style="background:var(--emerald-600);color:#fff">Check Your Lease Free →</a>
+    </div>
+  </section>
+
+  <!-- ═══ Footer ═══ -->
+  <footer>
+    <div class="container">
+      <p>© 2025 LeaseLand — Helping International Students Rent Fairly in Australia</p>
+      <p>
+        <a href="#faq">FAQ</a> &nbsp;·&nbsp; 
+        <a href="#signup">Stay Updated</a> &nbsp;·&nbsp; 
+        <span style="color:var(--slate-400)">⚖️ Not legal advice</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ═══ JS ═══ -->
+  <script>
+    // ── Email Capture Handler ──
+    function handleEmailCapture(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const university = document.getElementById('university').value.trim();
+      const state = document.getElementById('state').value;
+
+      if (!name || !email || !state) {
+        alert('Please fill in your name, email, and state.');
+        return;
+      }
+
+      // Email validation (basic)
+      if (!email.includes('@') || !email.includes('.')) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      // Build the data payload
+      const payload = { name, email, university, state, source: 'landing-page-signup' };
+
+      // Send to the backend API (or log for now — backend teammate will wire this)
+      console.log('[LeaseLand Signup]', payload);
+
+      // Show success state
+      document.getElementById('email-capture-form').style.display = 'none';
+      document.getElementById('form-success').classList.add('show');
+
+      // In production, POST to /api/signup
+      // fetch('/api/signup', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+      //   .then(r => r.json())
+      //   .then(d => { if(d.ok) showSuccess(); })
+      //   .catch(e => alert('Something went wrong. Please try again.'));
+    }
+
+    // ── FAQ Toggle ──
+    function toggleFaq(element) {
+      const answer = element.nextElementSibling;
+      const isOpen = answer.classList.contains('open');
+      // Close all others
+      document.querySelectorAll('.faq-answer.open').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.faq-question.open').forEach(q => q.classList.remove('open'));
+      // Toggle this one
+      if (!isOpen) {
+        answer.classList.add('open');
+        element.classList.add('open');
+      }
+    }
+
+    // ── Smooth scroll for anchor links ──
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // ── Keyboard accessibility for FAQ ──
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.setAttribute('tabindex', '0');
+      q.setAttribute('role', 'button');
+      q.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleFaq(q);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

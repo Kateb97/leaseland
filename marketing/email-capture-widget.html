@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeaseLand — Free Tier Email Capture (Embeddable Widget)</title>
+  <!-- Brand styles from design/brand.css -->
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#F8FAFC;color:#1E293B;line-height:1.5;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:1.5rem}
+    :root{
+      --blue-600:#2563EB;--emerald-600:#059669;
+      --slate-50:#F8FAFC;--slate-100:#F1F5F9;--slate-200:#E2E8F0;
+      --slate-300:#CBD5E1;--slate-400:#94A3B8;--slate-500:#64748B;
+      --slate-600:#475569;--slate-700:#334155;--slate-800:#1E293B;--slate-900:#0F172A;
+    }
+
+    .capture-card{background:#fff;border-radius:1rem;box-shadow:0 10px 25px -5px rgba(0,0,0,0.08);border:1px solid var(--slate-200);padding:2rem;max-width:480px;width:100%}
+    .capture-icon{font-size:2.5rem;margin-bottom:0.75rem;text-align:center}
+    .capture-title{font-size:1.25rem;font-weight:700;text-align:center;color:var(--slate-900);margin-bottom:0.375rem}
+    .capture-desc{font-size:0.875rem;color:var(--slate-500);text-align:center;margin-bottom:1.5rem}
+
+    .form-group{margin-bottom:1rem}
+    .form-group label{display:block;font-size:0.8125rem;font-weight:600;color:var(--slate-700);margin-bottom:0.375rem}
+    .form-group input,.form-group select{width:100%;padding:0.75rem 1rem;border-radius:0.5rem;border:1px solid var(--slate-300);font-size:0.9375rem;font-family:inherit;color:var(--slate-800);background:#fff;transition:border-color 200ms ease}
+    .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--blue-600);box-shadow:0 0 0 3px rgba(37,99,235,0.1)}
+    .form-group input::placeholder{color:var(--slate-400)}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
+    .btn{display:flex;width:100%;align-items:center;justify-content:center;gap:0.5rem;padding:0.75rem 1.5rem;border-radius:0.5rem;font-weight:600;font-size:1rem;border:none;cursor:pointer;transition:all 200ms ease;background:var(--blue-600);color:#fff;margin-top:0.5rem}
+    .btn:hover{background:#1D4ED8;transform:translateY(-1px);box-shadow:0 4px 12px rgba(37,99,235,0.3)}
+
+    .disclaimer{font-size:0.6875rem;color:var(--slate-400);text-align:center;margin-top:1rem;border-top:1px solid var(--slate-100);padding-top:0.75rem}
+
+    .success-state{display:none;text-align:center;padding:1.5rem}
+    .success-state.show{display:block}
+    .success-state .emoji{font-size:3rem;margin-bottom:0.75rem}
+    .success-state h3{font-size:1.125rem;color:var(--slate-800);margin-bottom:0.25rem}
+    .success-state p{font-size:0.875rem;color:var(--slate-500);margin:0}
+  </style>
+</head>
+<body>
+  <!-- ═══ Embeddable Email Capture Widget (for free tier result page) ═══ -->
+  <div class="capture-card" id="capture-card">
+    <div class="capture-icon">📬</div>
+    <div class="capture-title">Get More Lease Tips</div>
+    <div class="capture-desc">Your lease check is complete! Want renting guides, state law updates, and tips before your next lease?</div>
+
+    <!-- Signup Form -->
+    <form id="capture-form" onsubmit="handleCapture(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="c-name">Name</label>
+          <input type="text" id="c-name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="c-email">Email</label>
+          <input type="email" id="c-email" placeholder="you@student.edu.au" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="c-state">Your State</label>
+        <select id="c-state" required>
+          <option value="" disabled selected>Select</option>
+          <option value="NSW">NSW</option>
+          <option value="VIC">VIC</option>
+          <option value="QLD">QLD</option>
+          <option value="WA">WA</option>
+          <option value="SA">SA</option>
+          <option value="ACT">ACT</option>
+          <option value="NT">NT</option>
+          <option value="TAS">TAS</option>
+        </select>
+      </div>
+      <button type="submit" class="btn">Send Me Free Lease Tips →</button>
+    </form>
+
+    <p class="disclaimer">
+      LeaseLand provides general information only — it is not legal advice. 
+      We'll never spam you. Unsubscribe anytime.
+    </p>
+
+    <!-- Success State -->
+    <div class="success-state" id="capture-success">
+      <div class="emoji">✅</div>
+      <h3>You're all set!</h3>
+      <p>Check your inbox for lease tips tailored to your state. Welcome to the LeaseLand community!</p>
+    </div>
+  </div>
+
+  <script>
+    function handleCapture(e) {
+      e.preventDefault();
+      const name = document.getElementById('c-name').value.trim();
+      const email = document.getElementById('c-email').value.trim();
+      const state = document.getElementById('c-state').value;
+
+      if (!name || !email || !state) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      // Simple email validation
+      if (!email.includes('@') || !email.includes('.')) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      // Store locally to not lose if backend is not ready
+      try {
+        const existing = JSON.parse(localStorage.getItem('leaseland_captures') || '[]');
+        existing.push({ name, email, state, timestamp: new Date().toISOString(), source: 'free-tier-result' });
+        localStorage.setItem('leaseland_captures', JSON.stringify(existing));
+      } catch(e) { /* ignore localStorage errors */ }
+
+      // In production: POST /api/signup
+      console.log('[LeaseLand Capture]', { name, email, state });
+
+      // Show success
+      document.getElementById('capture-form').style.display = 'none';
+      document.getElementById('capture-success').classList.add('show');
+
+      // Track event for analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'email_capture', { state });
+      }
+    }
+  </script>
+</body>
+</html>

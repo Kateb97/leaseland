@@ -1,0 +1,214 @@
+{
+  "state": "NSW",
+  "state_full": "New South Wales",
+  "disclaimer": "LeaseLand provides general information only — it is not legal advice. Consult a qualified professional for your specific situation. Always verify with NSW Fair Trading or NCAT for your exact circumstances.",
+  "last_updated": "2025-06-08",
+  "primary_authority": {
+    "name": "NSW Fair Trading",
+    "website": "https://www.fairtrading.nsw.gov.au",
+    "legislation": "Residential Tenancies Act 2010 (NSW) and Residential Tenancies Regulation 2019"
+  },
+  "tribunal": {
+    "name": "NCAT (NSW Civil and Administrative Tribunal)",
+    "website": "https://www.ncat.nsw.gov.au",
+    "jurisdiction": "Residential tenancy disputes including bond, rent, termination, and repairs"
+  },
+
+  "bond_rules": {
+    "summary": "In NSW, the maximum bond is generally 4 weeks' rent (unlimited if rent > $600/week). Bonds must be lodged with NSW Rental Bonds Online (RBO) within 10 business days. Bond must be returned within 14 days of the tenancy ending (7 days if tenant or landlord applies for it sooner).",
+    "rules": [
+      {
+        "topic": "Maximum bond amount",
+        "summary": "Maximum bond is 4 weeks' rent for properties with rent up to $600/week. For rent over $600/week, there is no statutory limit.",
+        "details": "For weekly rent ≤ $600, the maximum bond is 4 weeks' rent. For weekly rent > $600, there is no prescribed maximum — landlord and tenant can agree on a higher amount but it must be 'reasonable'. Landlords cannot demand a 'key money' payment or any non-refundable upfront fee.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 160; Residential Tenancies Regulation 2019 cl 35"
+      },
+      {
+        "topic": "Bond lodgement",
+        "summary": "Bond must be lodged with NSW Rental Bonds Online within 10 business days of receipt.",
+        "details": "The landlord or agent must lodge the bond with NSW Fair Trading's Rental Bonds Online system within 10 business days of receiving it from the tenant. A bond lodgement form (completed and signed by both parties) must accompany the deposit. Digital lodgement via RBO is now mandatory. Failure to lodge is a penalty offence.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 163; Residential Tenancies Regulation 2019 cl 37"
+      },
+      {
+        "topic": "Bond return timeline",
+        "summary": "Bond must be returned within 14 days of tenancy end if claim agreed; otherwise parties apply to NCAT.",
+        "details": "If both tenant and landlord agree on the bond distribution, the bond is refunded within 14 days of the tenancy ending. If there is a dispute, either party can apply to NCAT. The landlord cannot make deductions from the bond without the tenant's consent or a NCAT order. Acceptable deductions include unpaid rent, damage beyond reasonable wear and tear, and cleaning if the property was left less clean than at move-in (with condition report evidence).",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 175, s 177"
+      }
+    ]
+  },
+
+  "rent_rules": {
+    "summary": "Rent can only be increased once every 12 months for periodic or fixed-term agreements (if the fixed term is 2+ years or has a rent increase clause). Landlords must give 60 days' written notice of any rent increase.",
+    "rules": [
+      {
+        "topic": "Rent increase frequency",
+        "summary": "Rent can only be increased once every 12 months for most tenancies.",
+        "details": "For fixed-term agreements of less than 2 years, rent cannot be increased during the fixed term unless the agreement includes an increase clause specifying the amount or method. For fixed-term agreements of 2+ years, rent can be increased per the terms. For periodic agreements, rent can only be increased once every 12 months. Excessive rent increases can be challenged at NCAT.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 42, s 43"
+      },
+      {
+        "topic": "Rent increase notice period",
+        "summary": "Landlord must give 60 days' written notice of a rent increase.",
+        "details": "The landlord must provide written notice of at least 60 days before the proposed increase takes effect. The notice must be in the approved form and state the new rent amount and the date it takes effect. The tenant does not need to agree — the increase takes effect unless the tenant challenges it at NCAT within 30 days of receiving the notice.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 44"
+      },
+      {
+        "topic": "Rent receipts",
+        "summary": "Landlords must provide rent receipts if requested by the tenant.",
+        "details": "If the tenant pays rent in cash, the landlord must provide a written receipt. For other payment methods, the landlord must provide a receipt if the tenant requests one. The receipt must include the date, amount, property address, and payment period covered.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 37"
+      }
+    ]
+  },
+
+  "lease_termination": {
+    "summary": "Breaking a lease in NSW typically involves paying a 'break fee' (ranging from 2–6 weeks' rent depending on how much of the fixed term remains) plus rent until a new tenant moves in. Landlord must mitigate losses by seeking a replacement tenant. Notice periods for tenants range from 14–21 days depending on grounds.",
+    "rules": [
+      {
+        "topic": "Breaking a fixed-term lease — tenant",
+        "summary": "Break fee ranges from 2–6 weeks' rent depending on how much of the lease remains, plus rent until replacement found.",
+        "details": "If the tenant ends a fixed-term lease early without a valid reason, they must pay:\n- If less than 25% of the term has expired: 6 weeks' rent\n- If 25–50% has expired: 4 weeks' rent\n- If more than 50% has expired: 2 weeks' rent\n\nIf the break fee is insufficient to cover the landlord's loss (e.g., property stays vacant longer), the landlord can apply to NCAT for additional compensation. The tenant is also liable for rent until a new tenant moves in, but the landlord must take 'reasonable steps' to re-let the property. Advertising costs are typically the tenant's responsibility unless the lease states otherwise.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 107, Schedule 1"
+      },
+      {
+        "topic": "Notice to vacate — tenant (periodic)",
+        "summary": "Tenant must give 21 days' notice for a periodic agreement (14 days for fixed-term ending).",
+        "details": "For a periodic agreement, the tenant must give at least 21 days' written notice. If vacating at the end of a fixed-term agreement (and not renewing), no notice is technically required — the tenant simply vacates on the last day. However, it's best practice to notify the landlord in writing.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 97"
+      },
+      {
+        "topic": "Notice to terminate — landlord",
+        "summary": "Landlord must give 30–90 days' notice depending on grounds; no-grounds eviction requires 90 days.",
+        "details": "Landlord grounds and notice periods:\n- No grounds (periodic tenancy): 90 days' notice\n- End of fixed term (no renewal): no notice required, tenant must vacate on last day\n- Breach of agreement (e.g., rent arrears): 14 days' notice\n- Property sold with vacant possession: 30 days' notice\n- Demolition or major renovations: 30 days' notice (with supporting documentation)\n- Hardship to landlord: 42 days' notice (with NCAT order)",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 82–s 96"
+      }
+    ]
+  },
+
+  "maintenance": {
+    "summary": "Landlords must ensure the property is in a 'reasonable state of repair' at all times. Urgent repairs must be attended to immediately — tenants can arrange emergency repairs up to $1,000 (or higher with Tribunal order) and be reimbursed. Non-urgent repairs must be reported in writing and actioned within a reasonable timeframe.",
+    "rules": [
+      {
+        "topic": "Landlord repair obligations",
+        "summary": "Landlord must maintain the property in a reasonable state of repair and fit for habitation.",
+        "details": "The landlord's obligations include ensuring the property is structurally sound, has adequate plumbing and drainage, is weatherproof, has functioning electrical and gas systems, and meets all health and safety standards. The landlord cannot avoid these obligations even if the tenant was aware of issues before moving in.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 52, s 63"
+      },
+      {
+        "topic": "Urgent repairs",
+        "summary": "Tenant can arrange urgent repairs up to $1,000 without prior landlord approval and be reimbursed.",
+        "details": "Urgent repairs include: burst water pipe, blocked toilet, serious roof leak, gas leak, dangerous electrical fault, flooding, serious storm/fire damage, failure of hot water system, failure of stove/oven, failure of heating (winter only), fault in any essential service (electricity, gas, water). If the landlord cannot be contacted or fails to act promptly, the tenant can arrange repairs up to $1,000 and must be reimbursed within 14 days of providing receipts. Amounts above $1,000 require a NCAT order.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 60, s 62"
+      },
+      {
+        "topic": "Non-urgent repairs process",
+        "summary": "Tenant must report non-urgent repairs in writing; landlord must respond within 14 days.",
+        "details": "The tenant should report non-urgent repairs in writing to the landlord or agent. The landlord must respond within 14 days. If no action is taken, the tenant can apply to NCAT for a repairs order. Retaliatory eviction is illegal — a landlord cannot evict a tenant for requesting repairs.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 57, s 59"
+      }
+    ]
+  },
+
+  "entry_notice": {
+    "summary": "Landlord/agent must give at least 2 days' written notice (14 days for open homes) before entering the premises, except in emergencies. Entry is only permitted between 8am–8pm and must be for a valid purpose. The tenant has a right to quiet enjoyment.",
+    "rules": [
+      {
+        "topic": "General entry notice period",
+        "summary": "Landlord must give at least 2 days' (48 hours) written notice before entering.",
+        "details": "The landlord or agent must provide written notice of at least 2 days (48 hours) before entering the property for a valid purpose (e.g., inspection, repairs). Entry must be between 8am and 8pm unless otherwise agreed. The landlord cannot enter without consent or proper notice except in an emergency.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 55"
+      },
+      {
+        "topic": "Routine inspection",
+        "summary": "Maximum of 4 routine inspections per year with 7+ days' notice.",
+        "details": "The landlord can conduct routine inspections no more than 4 times per year (every 3 months). The tenant must receive at least 7 days' written notice. Inspections should be at a reasonable time and the tenant has the right to be present.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 55(2)"
+      },
+      {
+        "topic": "Open home / showing to prospective tenants",
+        "summary": "14 days' notice required for open homes when a tenant is vacating.",
+        "details": "When a tenant has given notice to vacate (or the tenancy is ending), the landlord can show the property to prospective tenants. For open homes, the landlord must give at least 14 days' written notice. Individual inspections require 48 hours' notice. Entry for showings is permitted between 8am–8pm.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 55(4)"
+      }
+    ]
+  },
+
+  "condition_reports": {
+    "summary": "The landlord must provide a condition report at the start and end of the tenancy. The tenant has 7 days to return the report with comments. The report is critical evidence for bond disputes.",
+    "rules": [
+      {
+        "topic": "Ingoing condition report",
+        "summary": "Landlord must provide an ingoing condition report; tenant has 7 days to review and return it.",
+        "details": "The landlord or agent must prepare a condition report (in the approved form) describing the state of the premises at the start of the tenancy. Two copies must be provided to the tenant — one to keep and one to return within 7 days with any comments or amendments. The report should include photos and notes about the cleanliness, condition of walls/floors/windows, appliances, and any existing damage. The tenant should take dated photos/videos to support their own records. If the tenant doesn't return the report within 7 days, the landlord's version is taken as correct unless proven otherwise.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 33; Residential Tenancies Regulation 2019 cl 13"
+      },
+      {
+        "topic": "Outgoing condition report",
+        "summary": "Landlord must conduct a final inspection and provide an outgoing report within 7 days.",
+        "details": "When the tenancy ends, the landlord conducts a final inspection against the ingoing condition report. The landlord must provide the tenant with a copy of the outgoing condition report within 7 days of the inspection. The tenant should attend the final inspection if possible. Discrepancies between ingoing and outgoing conditions (beyond fair wear and tear) can form the basis for bond claims.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 33(3)"
+      }
+    ]
+  },
+
+  "dispute_resolution": {
+    "summary": "Tenancy disputes in NSW are handled by NCAT's Consumer and Commercial Division. The process involves: 1) Attempt to resolve directly with landlord/agent, 2) Apply to NCAT online, 3) Attend a conciliation hearing, and if unresolved, 4) Attend a formal hearing. Fair Trading also offers free mediation services.",
+    "rules": [
+      {
+        "topic": "NCAT application process",
+        "summary": "Tenants can apply to NCAT online for tenancy disputes; fees apply (waived for low-income).",
+        "details": "Tenants can lodge an application with NCAT online via the NCAT website. Application fees (as of 2025) are approximately $58 for minor claims and higher for complex matters, but can be waived for tenants with financial hardship. The process involves:\n1. Lodging the application with details of the dispute\n2. A conciliation hearing (both parties try to reach agreement)\n3. If conciliation fails, a formal Tribunal hearing\n4. A binding NCAT order is issued\n\nLegal representation is generally not allowed at NCAT without the Tribunal's permission, keeping costs low for tenants.",
+        "law_reference": "Civil and Administrative Tribunal Act 2013 (NSW); NCAT Rules"
+      },
+      {
+        "topic": "Free mediation — NSW Fair Trading",
+        "summary": "NSW Fair Trading offers free tenancy mediation before NCAT application.",
+        "details": "Before applying to NCAT, tenants and landlords can access free dispute resolution through NSW Fair Trading's Tenancy Advice and Advocacy Service. This is a less formal process where a trained mediator helps both parties reach an agreement. If mediation fails, the mediator issues a certificate allowing the matter to proceed to NCAT.",
+        "law_reference": "Fair Trading Act 1987 (NSW)"
+      },
+      {
+        "topic": "Time limits for disputes",
+        "summary": "Tenants generally have 30 days from the end of tenancy to dispute a bond claim.",
+        "details": "For bond disputes, the tenant must file a claim within 30 days of the tenancy ending. For other disputes (e.g., repairs, rent increases), applications can be made while the tenancy is ongoing. Urgent matters (e.g., lockouts, utility disconnection) can be heard within 24–48 hours.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 189"
+      }
+    ]
+  },
+
+  "renters_rights": {
+    "summary": "NSW has strong renter protections including minimum housing standards, the right to have pets (with reasonable conditions), and protection against retaliatory eviction. Tenants have the right to 'quiet enjoyment' of the property.",
+    "rules": [
+      {
+        "topic": "Minimum housing standards (NSW)",
+        "summary": "Rental properties must meet minimum standards including adequate locks, lighting, and ventilation.",
+        "details": "From 2023, all rental properties in NSW must meet minimum standards including:\n- Working deadlock on external doors\n- Self-closing screen doors (for ground floor properties)\n- Window latches and locks\n- Adequate natural or artificial lighting in each room\n- Adequate ventilation (windows, exhaust fans in kitchens/bathrooms)\n- Electrical appliances in good working order\n- Mould and damp addressed\n- Plumbing and drainage in good working order\nThese standards apply at the start of the tenancy and throughout.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 51A; Residential Tenancies Regulation 2019 Part 4"
+      },
+      {
+        "topic": "Right to pets in rentals",
+        "summary": "Tenants have the right to keep pets with landlord's consent, which cannot be unreasonably withheld.",
+        "details": "Since July 2022, tenants in NSW have the right to keep a pet in their rental property. The tenant must request permission in writing. The landlord cannot unreasonably refuse — refusal must be on reasonable grounds (e.g., the property is unsuitable, or the pet would cause damage). If the landlord refuses, the tenant can apply to NCAT. The landlord can impose reasonable conditions (e.g., pet bond, professional cleaning). Assistance/service animals are exempt from these rules entirely.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 153A–153G"
+      },
+      {
+        "topic": "Retaliatory eviction protection",
+        "summary": "Landlord cannot evict a tenant for exercising their legal rights.",
+        "details": "It is illegal for a landlord to issue a termination notice because the tenant:\n- Complained to the landlord about repairs or maintenance\n- Applied to NCAT for an order\n- Contacted NSW Fair Trading about a tenancy issue\n- Joined or formed a tenants' union\nIf NCAT finds an eviction is retaliatory, it can dismiss the eviction application. This is a key protection for tenants who assert their rights.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 115"
+      },
+      {
+        "topic": "Quiet enjoyment",
+        "summary": "Tenant has the right to quiet enjoyment — privacy, no harassment, and no interference by landlord.",
+        "details": "The tenant has a right to quiet enjoyment of the property, meaning the landlord cannot:\n- Enter without proper notice\n- Harass the tenant\n- Cut off utilities\n- Change locks without the tenant's consent\n- Enter or take photos without permission (except for valid reasons with notice)\n- Interfere with the tenant's reasonable peace, comfort, and privacy",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 50"
+      },
+      {
+        "topic": "Rent arrears grace period",
+        "summary": "Tenant has 14 days to pay overdue rent before the landlord can issue a termination notice.",
+        "details": "If a tenant falls behind on rent, the landlord must provide a written breach notice giving the tenant 14 days to pay the arrears. Only after this 14-day period expires (if rent remains unpaid) can the landlord apply to NCAT for termination. This gives tenants a grace period to catch up on payments.",
+        "law_reference": "Residential Tenancies Act 2010 (NSW) s 88"
+      }
+    ]
+  }
+}

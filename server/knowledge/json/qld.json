@@ -1,0 +1,208 @@
+{
+  "state": "QLD",
+  "state_full": "Queensland",
+  "disclaimer": "LeaseLand provides general information only — it is not legal advice. Consult a qualified professional for your specific situation. Always verify with the Residential Tenancies Authority (RTA) Queensland or QCAT for your exact circumstances.",
+  "last_updated": "2025-06-08",
+  "primary_authority": {
+    "name": "Residential Tenancies Authority (RTA) Queensland",
+    "website": "https://www.rta.qld.gov.au",
+    "legislation": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD)"
+  },
+  "tribunal": {
+    "name": "QCAT (Queensland Civil and Administrative Tribunal)",
+    "website": "https://www.qcat.qld.gov.au",
+    "jurisdiction": "Residential tenancy disputes including bond, rent, termination, and repairs"
+  },
+
+  "bond_rules": {
+    "summary": "Maximum bond is generally 4 weeks' rent. Bond must be lodged with the RTA within 10 days. Bond refund claims are processed through the RTA and returned within 14 days if parties agree.",
+    "rules": [
+      {
+        "topic": "Maximum bond amount",
+        "summary": "Maximum bond is 4 weeks' rent for properties with weekly rent of $700 or less; 5 weeks' rent for rent over $700/week.",
+        "details": "For properties with a weekly rent of $700 or less, the maximum bond is 4 weeks' rent. For properties with weekly rent over $700, the maximum bond is 5 weeks' rent. The bond cannot be more than this regardless of any agreement between parties. No 'key money' or other non-refundable deposits are permitted.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 114"
+      },
+      {
+        "topic": "Bond lodgement timeline and process",
+        "summary": "Bond must be lodged with the RTA within 10 days using the online service.",
+        "details": "The landlord or agent must lodge the bond with the Residential Tenancies Authority (RTA) within 10 days of receiving it from the tenant. Lodgement is done online via the RTA website. The RTA issues a receipt to the tenant confirming the bond is lodged. Both parties should sign the bond lodgement form. Failure to lodge the bond is a serious offence with penalties.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 118–s 121"
+      },
+      {
+        "topic": "Bond refund process",
+        "summary": "Bond refunded within 14 days after RTA receives a completed claim form signed by both parties.",
+        "details": "When the tenancy ends, either party can start a bond claim with the RTA. If both parties agree on the refund amount, the RTA processes the payment within 14 days. If there is a dispute, the bond remains with the RTA until QCAT makes a determination. A landlord cannot deduct from the bond without the tenant's written consent or a QCAT order. Acceptable deductions include unpaid rent, damage beyond reasonable wear and tear, and cleaning costs (with evidence).",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 131"
+      }
+    ]
+  },
+
+  "rent_rules": {
+    "summary": "Rent can be increased once every 12 months for periodic or fixed-term agreements (if the agreement allows it). Landlords must give 60 days' advance notice of any rent increase. QLD does not limit the amount of increase, but excessive increases can be challenged at QCAT.",
+    "rules": [
+      {
+        "topic": "Rent increase frequency",
+        "summary": "Rent can only be increased once every 12 months.",
+        "details": "For periodic agreements, rent can only be increased once every 12 months. For fixed-term agreements, the rent agreed in the lease remains fixed for the entire term — unless the lease is for 12+ months and contains a rent increase clause specifying the increase or formula. After the fixed term ends, the tenant can stay on a periodic agreement and rent can be increased once every 12 months.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 96"
+      },
+      {
+        "topic": "Rent increase notice period",
+        "summary": "Landlord must give at least 60 days' written notice of a rent increase.",
+        "details": "The landlord must provide at least 60 days' written notice of a rent increase. The notice must state the new rent amount and the date it takes effect. There is no legal limit on the amount of increase, but if it is excessive compared to market rates, the tenant can challenge it at QCAT. QCAT can refuse or reduce excessive rent increases.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 97"
+      }
+    ]
+  },
+
+  "lease_termination": {
+    "summary": "Breaking a lease in QLD typically involves paying rent until a new tenant moves in plus reasonable advertising costs (unless the tenant finds a replacement tenant). There is no fixed break fee formula — the tenant is liable for the landlord's actual loss. Notice periods are 7 days for tenants with serious grounds (e.g., domestic violence) up to 4 weeks for no special grounds. Landlords can give 2 months' notice for no grounds (periodic) or 14 days for breach.",
+    "rules": [
+      {
+        "topic": "Breaking a fixed-term lease — tenant",
+        "summary": "Tenant must pay rent until a new tenant is found, plus reasonable advertising costs (capped in some cases).",
+        "details": "When a tenant breaks a fixed-term lease, they are liable for:\n- Rent continuing until a new tenant moves in (or the fixed term would have ended, whichever is sooner)\n- The landlord's reasonable advertising costs for finding a new tenant\n- However, the landlord must take all reasonable steps to minimise the loss (re-let the property as soon as possible)\n\nIf the tenant finds a suitable replacement tenant themselves, the landlord cannot charge advertising costs and the replacement tenant can take over the lease immediately, minimising the tenant's liability.\n\nThere is a cap on compensation the landlord can claim — generally no more than the amount of rent for the period until the property is re-let or the fixed term would have ended.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 107–s 109"
+      },
+      {
+        "topic": "Tenant notice — periodic",
+        "summary": "Tenant must give at least 2 weeks' notice for periodic tenancy.",
+        "details": "For a periodic (rolling) tenancy, the tenant must give at least 2 weeks' written notice to end the tenancy. If the tenancy has been going for 6+ months, 4 weeks' notice is recommended in practice (but the law only specifies 2 weeks). At the end of a fixed term, the tenant does not need to give notice if they vacate on the last day of the term.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 142"
+      },
+      {
+        "topic": "Landlord termination — no-grounds notice",
+        "summary": "Landlord can give 2 months' notice without grounds for a periodic tenancy (4 months for tenancy > 6 months).",
+        "details": "For a periodic tenancy, a landlord can terminate without grounds by giving:\n- 2 months' notice (60 days) if the tenancy has lasted less than 6 months\n- 4 months' notice (120 days) if the tenancy has lasted 6 months or more\n\nFor fixed-term tenancies, the landlord cannot end the tenancy early without grounds unless the agreement allows it. For breach of agreement (e.g., rent arrears), the landlord can give 14 days' notice, or 7 days for serious breaches (e.g., using the property for illegal purposes).",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 155–s 161"
+      }
+    ]
+  },
+
+  "maintenance": {
+    "summary": "Landlords must maintain the property in good repair and fit for habitation. The tenant can arrange emergency repairs (up to 2 weeks' rent) and be reimbursed. Non-urgent repairs must be reported in writing.",
+    "rules": [
+      {
+        "topic": "Landlord's maintenance obligations",
+        "summary": "The landlord must maintain the premises in good repair and fit for habitation.",
+        "details": "The landlord is legally obligated to ensure the property is:\n- In good repair (structurally sound, all fixtures and appliances working)\n- Fit for human habitation (safe, healthy, and hygienic)\n- Compliant with all building, health, and safety laws\n- Provided with essential services (water, electricity, gas, sewerage)\nThe landlord's obligation applies regardless of when the issue started or whether the tenant knew about it when moving in.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 183, s 184"
+      },
+      {
+        "topic": "Emergency repairs",
+        "summary": "Tenant can arrange emergency repairs up to 2 weeks' rent and be reimbursed within 7 days.",
+        "details": "Emergency repairs include: burst water pipe, blocked or broken toilet, serious roof leak, gas leak, dangerous electrical fault, flood damage, failure of hot water system, failure of stove or oven, failure of heating (winter) or cooling (summer), breakdown of any essential service, pest infestation, and any fault causing the premises to be unsafe or insecure. If the landlord cannot be contacted or fails to respond within a reasonable time, the tenant can arrange repairs at a cost up to 2 weeks' rent. The landlord must reimburse the tenant within 7 days of receiving the receipts.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 214, s 216"
+      },
+      {
+        "topic": "Non-urgent repairs process",
+        "summary": "Tenant must give written notice; if not addressed within a reasonable time, tenant can apply to QCAT.",
+        "details": "For non-urgent repairs, the tenant must give the landlord written notice describing the issue. The landlord must respond within a reasonable time (typically 2–4 weeks depending on severity). If the landlord fails to act, the tenant can:\n- Apply to QCAT for a repairs order\n- QCAT can order the landlord to complete repairs and may order a rent reduction\n- In some cases, the tenant can terminate the tenancy if the property is unfit for habitation",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 217, s 220"
+      }
+    ]
+  },
+
+  "entry_notice": {
+    "summary": "Landlord/agent must give at least 24 hours' written notice before entering the premises (except emergencies). Entry is only between 8am–6pm (not on Sundays or public holidays unless agreed). Maximum of 4 inspections per year.",
+    "rules": [
+      {
+        "topic": "Entry notice requirements",
+        "summary": "Landlord must give at least 24 hours' written notice before entry.",
+        "details": "The landlord or agent must provide the tenant with at least 24 hours' written notice before entering the premises. Written notice can be by email, text message, or letter. Entry must be for a valid purpose (inspection, repairs, showing the property). Entry is only permitted between 8am and 6pm, and cannot occur on a Sunday or public holiday unless the tenant agrees. In an emergency, the landlord can enter without notice.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 190"
+      },
+      {
+        "topic": "Routine inspections",
+        "summary": "Maximum of 4 routine inspections per year with 24 hours' notice.",
+        "details": "The landlord can conduct routine inspections no more than 4 times per year (approximately every 3 months). The tenant must receive at least 24 hours' notice. Inspections must be at a reasonable time. Routine inspections cannot be used as a form of harassment. A tenant who feels harassed by excessive inspections can apply to QCAT.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 193"
+      },
+      {
+        "topic": "Entry for sales/showings",
+        "summary": "Landlord can show property to prospective tenants/buyers with 24 hours' notice.",
+        "details": "When the tenancy is ending, the landlord can show the property to prospective tenants or buyers. The landlord must give at least 24 hours' written notice. The number of showings should be reasonable. Entry times are limited to 8am–6pm and cannot be on Sundays or public holidays without the tenant's agreement.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 192"
+      }
+    ]
+  },
+
+  "condition_reports": {
+    "summary": "Landlord must provide an ingoing condition report before the tenant moves in. The tenant has 3 days to return the report with comments. The RTA has a standard condition report form. Video and photos are highly recommended.",
+    "rules": [
+      {
+        "topic": "Ingoing condition report",
+        "summary": "Landlord must provide a condition report before the tenant moves in; tenant has 3 days to return.",
+        "details": "The landlord or agent must prepare a condition report using the RTA's approved form. The report must be given to the tenant before they move in (or at the time of handing over keys). The tenant has 3 days (not business days, calendar days) to review the report, add comments about the condition of each room and item, and return one signed copy to the landlord. The tenant should take dated photos and videos of every room, including close-ups of any existing damage, stains, or wear. The RTA recommends using the Entry Report app for digital condition reports.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 69; Residential Tenancies and Rooming Accommodation Regulation 2009 (QLD)"
+      },
+      {
+        "topic": "Outgoing condition report",
+        "summary": "Landlord and tenant should jointly inspect the property at the end of the tenancy.",
+        "details": "At the end of the tenancy, either party can request a joint final inspection. The outgoing condition is compared against the ingoing condition report. The RTA recommends both parties complete the outgoing report together. If the tenant cannot attend, they should take their own photos and videos when vacating. Any differences between ingoing and outgoing (beyond fair wear and tear) can form the basis for bond claims. Fair wear and tear includes minor scuffs, faded paint, carpet wear in high-traffic areas, and small nail holes from picture hanging.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 70"
+      }
+    ]
+  },
+
+  "dispute_resolution": {
+    "summary": "Tenancy disputes in QLD are handled by QCAT. The process is: 1) Attempt to resolve directly, 2) Contact the RTA for advice and free mediation, 3) Lodge a dispute resolution request with the RTA, 4) If unresolved, apply to QCAT for a formal hearing.",
+    "rules": [
+      {
+        "topic": "RTA dispute resolution service",
+        "summary": "RTA offers free dispute resolution before parties go to QCAT.",
+        "details": "The Residential Tenancies Authority (RTA) provides a free dispute resolution service. The process is:\n1. Lodging a dispute with the RTA (online or by phone)\n2. The RTA contacts both parties to gather information\n3. A trained RTA mediator facilitates a conciliation session (by phone or in person)\n4. If an agreement is reached, it is recorded in writing\n5. If no agreement, a certificate is issued allowing the matter to go to QCAT\n\nAll RTA dispute resolution officers are impartial and trained in tenancy law.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 403"
+      },
+      {
+        "topic": "QCAT application process",
+        "summary": "Tenants can apply to QCAT for tenancy disputes with a fee (waivable for hardship).",
+        "details": "If RTA mediation fails, either party can apply to QCAT. Application fees are approximately $72 (minor civil disputes) but can be waived for tenants with financial hardship. The QCAT process involves:\n1. Filing the application\n2. A compulsory conference (a QCAT member helps parties negotiate)\n3. If unresolved, a formal hearing\n4. Binding QCAT orders\n\nLegal representation at QCAT is not automatic — permission from the Tribunal is required in most residential tenancy matters. This helps keep costs manageable for tenants.",
+        "law_reference": "Queensland Civil and Administrative Tribunal Act 2009 (QLD)"
+      },
+      {
+        "topic": "Time limits for disputes",
+        "summary": "Tenants generally have 6 months from the end of tenancy to dispute bond claims.",
+        "details": "Bond disputes must be lodged with the RTA or QCAT within 6 months of the tenancy ending. For other disputes (e.g., repairs during tenancy), the dispute can be lodged while the tenancy is ongoing. Urgent matters (e.g., utility disconnection, lockouts) can be heard by QCAT urgently.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 131"
+      }
+    ]
+  },
+
+  "renters_rights": {
+    "summary": "QLD tenants have protections including minimum housing standards (effective from 2023–2025), the right to keep pets (landlord's consent cannot be unreasonably withheld), and protection against retaliation for exercising legal rights. QLD is phasing in mandatory minimum housing standards over 2023–2025.",
+    "rules": [
+      {
+        "topic": "Minimum housing standards (QLD)",
+        "summary": "All rental properties must meet minimum housing standards from 1 September 2024 (new tenancies) and 1 September 2025 (all tenancies).",
+        "details": "From 1 September 2024 (new tenancies) and 1 September 2025 (existing tenancies), all rental properties in QLD must meet minimum housing standards:\n- Weatherproof and structurally sound\n- Adequate plumbing and drainage\n- Adequate electrical wiring and lighting\n- Working locks on all external doors and windows\n- Adequate ventilation in all rooms\n- Privacy and window coverings in rooms used for sleeping\n- Kitchen with a sink, cooking facilities (stove), and bench space\n- Toilet connected to sewer/septic\n- Bathroom with shower/bath and hand basin\n- Laundry facilities or space for them\n- Vermin-proof bins\nThe property must be free from mould, damp, and pests at the start of the tenancy.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 184A; Housing Legislation Amendment Act 2021 (QLD)"
+      },
+      {
+        "topic": "Right to pets in rentals",
+        "summary": "Tenants have the right to keep pets; landlord's consent cannot be unreasonably withheld.",
+        "details": "Since October 2022, tenants in QLD can request to keep a pet in their rental. The landlord must respond to the written request within 14 days. The landlord can only refuse on reasonable grounds (e.g., property unsuitable for the specific animal, would breach laws, or cause unreasonable damage beyond a standard pet bond). If the landlord refuses, the tenant can apply to QCAT which can approve the pet. The landlord can impose reasonable conditions (e.g., professional carpet cleaning at end of tenancy). Assistance animals are exempt.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 173A–173H"
+      },
+      {
+        "topic": "Retaliatory eviction protection",
+        "summary": "Landlord cannot evict a tenant for exercising their legal rights.",
+        "details": "It is illegal for a landlord to issue a termination notice or increase rent because the tenant:\n- Complained about the condition of the property\n- Requested repairs\n- Applied to QCAT\n- Contacted the RTA about a tenancy issue\n- Joined a tenants' union or association\n- Refused a rent increase that was not properly notified\nIf QCAT finds an eviction is retaliatory, it can dismiss the application and the tenancy continues.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 179"
+      },
+      {
+        "topic": "Tenant's right to quiet enjoyment",
+        "summary": "Tenant has the right to peace, comfort, and privacy without unreasonable interference from the landlord.",
+        "details": "The tenant is entitled to occupy the property without undue interference from the landlord. This means the landlord cannot:\n- Enter without proper notice (except in emergencies)\n- Harass or intimidate the tenant\n- Withhold or interfere with essential services\n- Change locks without the tenant's consent\n- Conduct excessive inspections or showings\n- Enter for any reason that is not a valid purpose\nA breach of quiet enjoyment can result in compensation to the tenant.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 188"
+      },
+      {
+        "topic": "Rent arrears breach process",
+        "summary": "Landlord must give a breach notice with 7 days to remedy before starting termination.", 
+        "details": "If a tenant falls behind on rent, the landlord must serve a formal breach notice (Form 11 — Notice to Remedy Breach) giving the tenant 7 days to pay. If the tenant pays within this period, the tenancy continues. Only after the 7-day period expires with unpaid rent can the landlord apply to QCAT for termination. The QCAT hearing is typically scheduled within a few weeks.",
+        "law_reference": "Residential Tenancies and Rooming Accommodation Act 2008 (QLD) s 159"
+      }
+    ]
+  }
+}

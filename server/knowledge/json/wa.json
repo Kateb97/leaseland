@@ -1,0 +1,202 @@
+{
+  "state": "WA",
+  "state_full": "Western Australia",
+  "disclaimer": "LeaseLand provides general information only — it is not legal advice. Consult a qualified professional for your specific situation. Always verify with Consumer Protection WA or SAT (State Administrative Tribunal) for your exact circumstances.",
+  "last_updated": "2025-06-08",
+  "primary_authority": {
+    "name": "Consumer Protection WA (Department of Mines, Industry Regulation and Safety)",
+    "website": "https://www.commerce.wa.gov.au/consumer-protection/renting",
+    "legislation": "Residential Tenancies Act 1987 (WA) (as significantly amended by the Residential Tenancies Amendment Act 2022, effective from 2024)"
+  },
+  "tribunal": {
+    "name": "SAT (State Administrative Tribunal of Western Australia)",
+    "website": "https://www.sat.justice.wa.gov.au",
+    "jurisdiction": "Residential tenancy disputes including bond, rent, termination, and repairs"
+  },
+
+  "bond_rules": {
+    "summary": "Maximum bond is 4 weeks' rent. Bond must be lodged with the Bond Administrator (Consumer Protection WA) within 14 days. Bond returned within 14 days if parties agree.",
+    "rules": [
+      {
+        "topic": "Maximum bond amount",
+        "summary": "Maximum bond is 4 weeks' rent regardless of rent amount.",
+        "details": "The maximum bond a landlord can collect is 4 weeks' rent (or if rent is paid monthly, the equivalent of 4 weeks). There are no exceptions for higher-rent properties. Landlords cannot charge 'key money', application fees, or any other non-refundable upfront payments. Holding deposits are limited to 1 week's rent and must be refunded if the tenancy does not proceed.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 21, s 29"
+      },
+      {
+        "topic": "Bond lodgement",
+        "summary": "Bond must be lodged with the Bond Administrator within 14 days of receipt.",
+        "details": "The landlord or agent must lodge the bond with the Bond Administrator (Consumer Protection WA) within 14 calendar days of receiving it. Lodgement must be done via the online Bond Lodgement System. A completed bond lodgement form (signed by both parties) must be submitted. The Bond Administrator issues a receipt to the tenant.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 30"
+      },
+      {
+        "topic": "Bond refund process",
+        "summary": "Bond refunded within 14 days after completed claim form submitted to Bond Administrator.",
+        "details": "When the tenancy ends, either party can lodge a bond refund claim with the Bond Administrator. If both parties agree (joint application), the bond is refunded within 14 days. If there is a dispute, the Bond Administrator holds the bond until the parties agree or SAT makes an order. The landlord must have evidence (condition reports, receipts, quotes) to support any deductions. The tenant cannot unreasonably withhold consent to a reasonable bond claim.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 31, s 32"
+      }
+    ]
+  },
+
+  "rent_rules": {
+    "summary": "Rent can only be increased once every 12 months for periodic tenancies (or per fixed-term agreement terms). Landlords must give 60 days' written notice. WA does not have rent control but excessive increases can be challenged at SAT.",
+    "rules": [
+      {
+        "topic": "Rent increase frequency",
+        "summary": "Rent can be increased once every 12 months for periodic tenancies.",
+        "details": "For periodic (continuing) tenancies, rent can only be increased once every 12 months. For fixed-term agreements of less than 2 years, the rent agreed at the start remains for the entire term (no increase during the fixed term). For agreements of 2 years or more, a rent increase clause can be included specifying the amount or method of increase. After the fixed term ends and the tenancy continues periodically, the 12-month rule applies.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 47, s 48"
+      },
+      {
+        "topic": "Rent increase notice period",
+        "summary": "Landlord must give at least 60 days' written notice of a rent increase.",
+        "details": "The landlord must provide written notice of at least 60 days before the proposed rent increase takes effect. The notice must be in the prescribed form and include the current rent, proposed new rent, and the effective date. The tenant does not need to agree to the increase — if they stay beyond the effective date, they are deemed to accept it. However, they can challenge an excessive increase at SAT within 30 days of receiving the notice.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 49"
+      }
+    ]
+  },
+
+  "lease_termination": {
+    "summary": "Breaking a lease in WA: tenant pays rent until a new tenant is found plus reasonable re-letting costs. WA has a 'lesser of' rule — the tenant's liability is capped at the lesser of the break fee (2–6 weeks' rent) or their actual loss. No-grounds evictions require 30–60 days' notice depending on tenancy length.",
+    "rules": [
+      {
+        "topic": "Breaking a fixed-term lease — tenant",
+        "summary": "Tenant pays the lesser of: a break fee (2–6 weeks' rent) OR actual loss (rent until re-let + costs).",
+        "details": "When a tenant breaks a fixed-term lease in WA (effective from 2024 reforms), the formula is:\n- If less than 25% of the term has expired: break fee of 6 weeks' rent (max)\n- If 25–50% has expired: break fee of 4 weeks' rent (max)\n- If more than 50% has expired: break fee of 2 weeks' rent (max)\n\nThe tenant's total liability is the LESSER of:\n(a) the break fee above, OR\n(b) the landlord's actual loss (rent until the property is re-let, plus reasonable re-letting costs)\n\nIf the property is re-let within a week, the tenant only pays that week's rent and costs, not the full break fee. The landlord must mitigate losses by actively seeking a new tenant.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 71"
+      },
+      {
+        "topic": "Tenant notice — periodic",
+        "summary": "Tenant must give 21 days' notice to end a periodic tenancy.",
+        "details": "A tenant must give at least 21 days' written notice to end a periodic (month-to-month) tenancy. If vacating at the end of a fixed term, the tenant does not need to give notice if they vacate on the last day. Written notice should be given to the landlord or agent and should specify the date of vacating.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 63"
+      },
+      {
+        "topic": "Landlord termination — periodic tenancy",
+        "summary": "Landlord must give 30–60 days' notice depending on tenancy length (no-grounds) or shorter for breach.",
+        "details": "For periodic tenancies:\n- No-grounds termination: 30 days' notice if tenancy is less than 6 months old; 60 days' notice if 6+ months old\n- Breach of agreement (e.g., rent arrears): 14 days' notice (7 days for serious breach)\n- Property to be sold: 30 days' notice (with supporting evidence)\n- Landlord or family moving in: 30 days' notice (must be in good faith)\n- Demolition or renovations: 30 days' notice (with evidence)\nFor fixed-term agreements ending, the landlord cannot require the tenant to leave before the end date unless there is a breach.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 64, s 65, s 66"
+      }
+    ]
+  },
+
+  "maintenance": {
+    "summary": "Landlord must maintain the property in a reasonable state of repair and fit for habitation. Urgent repairs can be arranged by the tenant up to $2,500 (or 2 weeks' rent, whichever is less) without prior approval and reimbursed within 14 days. Non-urgent repairs must be reported in writing.",
+    "rules": [
+      {
+        "topic": "Landlord's maintenance obligations",
+        "summary": "Landlord must provide and maintain the property in good repair and fit for habitation.",
+        "details": "The landlord is obligated to ensure that the property is:\n- Structurally sound and weatherproof\n- Provided with adequate water, electricity, gas (if connected), and sewerage\n- Free from significant mould or damp\n- With all appliances and fixtures in working order\n- Safe and secure (working locks on doors and windows)\n- Compliant with building and health standards\nThese obligations apply throughout the tenancy, not just at the start.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 42"
+      },
+      {
+        "topic": "Urgent repairs",
+        "summary": "Tenant can arrange urgent repairs up to $2,500 (or 2 weeks' rent, whichever is less) without prior approval.",
+        "details": "Urgent repairs include: burst water pipe, blocked or broken toilet, serious roof leak, gas leak, dangerous electrical fault, flooding, failure of hot water system, failure of stove/oven, failure of heating (winter), failure of cooling (summer for air conditioning), failure of refrigerator (if provided), breakdown of any essential service (gas, water, electricity). If the landlord cannot be contacted or fails to act promptly, the tenant can arrange repairs at a cost up to $2,500 or 2 weeks' rent (whichever is less). The landlord must reimburse the tenant within 14 days of receiving receipts. For urgent repairs costing more than this, the tenant must contact the landlord first or apply to SAT.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 43, s 44"
+      },
+      {
+        "topic": "Non-urgent repairs process",
+        "summary": "Tenant must notify landlord in writing; if unresolved, apply to SAT.",
+        "details": "The tenant should report any maintenance issue in writing to the landlord or agent. The landlord must respond within a reasonable timeframe (14 days is considered reasonable for non-urgent matters). If the landlord fails to act, the tenant can apply to SAT for a repairs order. SAT can order repairs to be done, may order a rent reduction, and in severe cases, allow the tenant to terminate the tenancy.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 44"
+      }
+    ]
+  },
+
+  "entry_notice": {
+    "summary": "Landlord/agent must give at least 24 hours' written notice before entering (except emergencies). Entry must be between 7am–8pm. Maximum of 4 routine inspections per year.",
+    "rules": [
+      {
+        "topic": "Entry notice period",
+        "summary": "Landlord must give at least 24 hours' written notice before entering the premises.",
+        "details": "The landlord or agent must provide at least 24 hours' written notice before entering the property. Entry must be between 7am and 8pm. The notice must specify the purpose of entry, date, and a reasonable timeframe. In an emergency (e.g., fire, gas leak, burst pipe), the landlord can enter without notice. The tenant has the right to be present during any entry. The landlord cannot enter more than is reasonably necessary.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 45"
+      },
+      {
+        "topic": "Routine inspections",
+        "summary": "Maximum of 4 routine inspections per year.",
+        "details": "The landlord can conduct routine inspections no more than 4 times per year (once every 3 months). The tenant must receive at least 24 hours' written notice. The inspection must be at a reasonable time (between 7am and 8pm). Excessive inspections (more than 4 per year) can be challenged.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 45(3)"
+      },
+      {
+        "topic": "Entry for sales/showings",
+        "summary": "Landlord can show the property to prospective tenants or buyers with 24 hours' notice.",
+        "details": "When a tenancy is ending, the landlord may show the property to prospective tenants or purchasers with at least 24 hours' written notice. For ongoing tenancies, the landlord must obtain the tenant's consent to show the property (which cannot be unreasonably withheld).",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 45"
+      }
+    ]
+  },
+
+  "condition_reports": {
+    "summary": "Landlord must provide two copies of the ingoing condition report before or at the start of the tenancy. Tenant has 7 days to return one copy with comments. Condition reports are essential for bond disputes in WA.",
+    "rules": [
+      {
+        "topic": "Ingoing condition report",
+        "summary": "Landlord must provide condition report before tenant moves in; tenant has 7 days to return.",
+        "details": "The landlord or agent must prepare a condition report and give two copies to the tenant before they move in (or at the time of handing over keys). The report should cover each room, fixtures, furniture (if provided), and outdoor areas. The tenant has 7 calendar days to review the report, add any comments about the condition, sign both copies, and return one to the landlord. The tenant should take comprehensive dated photos and videos to support their comments. If the tenant finds damage or defects not noted by the landlord, they should photograph them and add detailed notes to the report.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 22"
+      },
+      {
+        "topic": "Outgoing condition report",
+        "summary": "Tenant should arrange a final inspection and compare with the ingoing report.",
+        "details": "When the tenancy ends, the tenant should request a final inspection with the landlord or agent. Both parties should go through the property room by room, comparing the current condition with the ingoing condition report. The landlord cannot deduct for:\n- Fair wear and tear (faded paint, minor carpet wear, small holes from picture hooks)\n- Pre-existing damage noted on the ingoing report\n- Cleaning beyond what is reasonable\nIf the tenant cannot attend the final inspection, they should take their own photos and videos when vacating to serve as evidence.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 32"
+      }
+    ]
+  },
+
+  "dispute_resolution": {
+    "summary": "Tenancy disputes in WA are handled by the State Administrative Tribunal (SAT). The process is: 1) Try to resolve with the landlord/agent, 2) Contact Consumer Protection WA for advice, 3) Apply to SAT online (fees apply, can be waived). Consumer Protection WA also offers a free Tenancy Mediation Service.",
+    "rules": [
+      {
+        "topic": "SAT application process",
+        "summary": "Tenants can apply to SAT for tenancy disputes; fees around $104–$210 depending on claim type.",
+        "details": "Tenants can apply to SAT online via the SAT website. Application fees vary (approximately $104 for minor claims, $210 for standard claims). Fees can be waived for tenants with financial hardship. The SAT process includes:\n1. Lodging a detailed application\n2. A compulsory conference (mediation by a SAT member)\n3. If no agreement, a formal hearing\n4. Binding SAT orders are issued\nLegal representation is not automatic — parties usually represent themselves. SAT decisions can be appealed on questions of law.",
+        "law_reference": "State Administrative Tribunal Act 2004 (WA)"
+      },
+      {
+        "topic": "Consumer Protection WA mediation",
+        "summary": "Free tenancy mediation service available before going to SAT.",
+        "details": "Consumer Protection WA offers a free Tenancy Mediation Service. A trained mediator helps both parties resolve the issue without going to SAT. This service covers:\n- Bond disputes\n- Rent arrears\n- Repairs and maintenance\n- Termination issues\n- Break lease fees\n- Entry notice disputes\nMediation can be done by phone or in person. If successful, a written agreement is signed. Mediation is voluntary and confidential.",
+        "law_reference": "Consumer Protection WA (Dept. of Mines, Industry Regulation and Safety)"
+      }
+    ]
+  },
+
+  "renters_rights": {
+    "summary": "WA underwent major tenancy law reforms effective from 2024, including new minimum standards, limited break fees, protection against retaliatory eviction, and stronger protections for tenants in family violence situations. WA's reforms align it more closely with other Australian states.",
+    "rules": [
+      {
+        "topic": "Minimum standards (WA — 2024 reforms)",
+        "summary": "Rental properties must meet minimum standards including working fixtures, adequate ventilation, and security.",
+        "details": "Under the 2022 amendments (effective 2024), rental properties in WA must meet minimum standards including:\n- Working locks on all external doors and windows (deadbolts on external doors)\n- Adequate natural or artificial lighting\n- Adequate ventilation (windows, exhaust fans in kitchens and bathrooms)\n- Working stove/oven with at least 2 burner cooktop\n- Working sinks with hot and cold water in kitchen and bathroom\n- A toilet in working order\n- Adequate plumbing and drainage\n- Electrical wiring in safe condition\n- Structural soundness and weatherproofing\n- No significant mould or damp\nProperties that do not meet these standards cannot be leased to new tenants.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 42A; Residential Tenancies Amendment Act 2022"
+      },
+      {
+        "topic": "Right to pets",
+        "summary": "Tenants can request pets; landlord must respond within 14 days and cannot unreasonably refuse.",
+        "details": "Under WA's 2022 amendments (effective 2024), tenants have the right to request a pet in writing. The landlord must respond within 14 days and can only refuse on reasonable grounds (e.g., the property is unsuitable for that specific pet, or the pet would contravene a law or by-law). If the landlord refuses, the tenant can apply to SAT. The landlord can impose reasonable conditions (e.g., professional cleaning, regular pest treatment). Assistance animals are exempt.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 46A–46E"
+      },
+      {
+        "topic": "Retaliatory eviction protection",
+        "summary": "Protection against eviction for exercising legal rights since 2024.",
+        "details": "Under the 2024 reforms, it is illegal for a landlord to evict a tenant because the tenant:\n- Complained about the condition of the property\n- Requested a repair or maintenance\n- Applied to SAT\n- Contacted Consumer Protection WA\n- Exercised any other right under the tenancy laws\nIf SAT finds the eviction is retaliatory, the termination notice is invalid and the tenancy continues.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 72"
+      },
+      {
+        "topic": "Family violence protections",
+        "summary": "Tenants experiencing family violence can terminate a tenancy with 7 days' notice and no break fee.",
+        "details": "Under WA law (2024 reforms), a tenant experiencing family violence can end their tenancy with just 7 days' notice by providing supporting evidence (e.g., a police report, family violence restraining order, or a certificate from a qualified professional). No break fee is payable, and the tenant is not liable for rent beyond the 7-day notice period. The tenant can request that their name be removed from the tenancy agreement and bond.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 74A–74E"
+      },
+      {
+        "topic": "Quiet enjoyment",
+        "summary": "Tenant has the right to quiet enjoyment of the property without interference.",
+        "details": "The tenant has a right to occupy the property without interference from the landlord. This includes:\n- Privacy and the right to be left alone\n- Not being locked out or having access restricted\n- Not having utilities disconnected\n- Not being harassed or intimidated\n- Having reasonable peace, comfort, and privacy\nA breach of quiet enjoyment can lead to compensation orders from SAT.",
+        "law_reference": "Residential Tenancies Act 1987 (WA) s 41"
+      }
+    ]
+  }
+}

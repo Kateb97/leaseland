@@ -1,0 +1,108 @@
+/* =============================================
+   LeaseLand — Brand Design System
+   =============================================
+   Colour Palette | Typography | Spacing | Components
+   ============================================= */
+
+:root {
+  /* ── Primary Palette ── */
+  --ll-blue-50:  #EFF6FF;
+  --ll-blue-100: #DBEAFE;
+  --ll-blue-200: #BFDBFE;
+  --ll-blue-300: #93C5FD;
+  --ll-blue-400: #60A5FA;
+  --ll-blue-500: #3B82F6;
+  --ll-blue-600: #2563EB;   /* Primary */
+  --ll-blue-700: #1D4ED8;
+  --ll-blue-800: #1E40AF;
+
+  --ll-emerald-50:  #ECFDF5;
+  --ll-emerald-100: #D1FAE5;
+  --ll-emerald-200: #A7F3D0;
+  --ll-emerald-300: #6EE7B7;
+  --ll-emerald-400: #34D399;
+  --ll-emerald-500: #10B981;
+  --ll-emerald-600: #059669;  /* Secondary */
+  --ll-emerald-700: #047857;
+
+  /* ── Accent ── */
+  --ll-amber-400: #FBBF24;
+  --ll-amber-500: #F59E0B;   /* CTA accent */
+  --ll-amber-600: #D97706;
+
+  --ll-sky-500: #0EA5E9;     /* Supporting info */
+
+  /* ── Neutrals ── */
+  --ll-slate-50:  #F8FAFC;
+  --ll-slate-100: #F1F5F9;
+  --ll-slate-200: #E2E8F0;
+  --ll-slate-300: #CBD5E1;
+  --ll-slate-400: #94A3B8;
+  --ll-slate-500: #64748B;
+  --ll-slate-600: #475569;
+  --ll-slate-700: #334155;
+  --ll-slate-800: #1E293B;
+  --ll-slate-900: #0F172A;
+
+  /* ── Semantic ── */
+  --ll-success: var(--ll-emerald-500);
+  --ll-warning: var(--ll-amber-500);
+  --ll-error:   #EF4444;
+  --ll-info:    var(--ll-sky-500);
+
+  /* ── Typography ── */
+  --ll-font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ll-font-mono:  'JetBrains Mono', 'Fira Code', monospace;
+  --ll-font-display: 'Inter', sans-serif;
+
+  --ll-text-xs:   0.75rem;
+  --ll-text-sm:   0.875rem;
+  --ll-text-base: 1rem;
+  --ll-text-lg:   1.125rem;
+  --ll-text-xl:   1.25rem;
+  --ll-text-2xl:  1.5rem;
+  --ll-text-3xl:  1.875rem;
+  --ll-text-4xl:  2.25rem;
+  --ll-text-5xl:  3rem;
+
+  --ll-leading-tight: 1.25;
+  --ll-leading-normal: 1.5;
+  --ll-leading-relaxed: 1.625;
+
+  /* ── Spacing ── */
+  --ll-space-1:  0.25rem;
+  --ll-space-2:  0.5rem;
+  --ll-space-3:  0.75rem;
+  --ll-space-4:  1rem;
+  --ll-space-5:  1.25rem;
+  --ll-space-6:  1.5rem;
+  --ll-space-8:  2rem;
+  --ll-space-10: 2.5rem;
+  --ll-space-12: 3rem;
+  --ll-space-16: 4rem;
+  --ll-space-20: 5rem;
+
+  /* ── Radii ── */
+  --ll-radius-sm:   0.25rem;
+  --ll-radius-md:   0.5rem;
+  --ll-radius-lg:   0.75rem;
+  --ll-radius-xl:   1rem;
+  --ll-radius-2xl:  1.5rem;
+  --ll-radius-full: 9999px;
+
+  /* ── Shadows ── */
+  --ll-shadow-sm:   0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --ll-shadow-md:   0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --ll-shadow-lg:   0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --ll-shadow-xl:   0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* ── Transitions ── */
+  --ll-transition: 200ms ease-in-out;
+}
+
+/* ── Import Inter from Google Fonts (add to HTML <head>) ── */
+/*
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+*/
