@@ -1,6 +1,5 @@
-// LeaseLand - Payment Routes
 const express = require('express');
-const { SQL } = require('../db');
+const { client } = require('../db');
 const { requireAuth } = require('../middleware/auth');
 const { createCheckoutSession } = require('../services/stripe');
 
@@ -10,7 +9,7 @@ const router = express.Router();
 router.post('/create-checkout', requireAuth, async (req, res) => {
   try {
     const { type } = req.body;
-    
+
     if (!type || !['subscription', 'oneShot'].includes(type)) {
       return res.status(400).json({ error: 'Invalid payment type. Must be "subscription" or "oneShot"' });
     }
@@ -26,11 +25,11 @@ router.post('/create-checkout', requireAuth, async (req, res) => {
 // GET /api/payments/history
 router.get('/history', requireAuth, async (req, res) => {
   try {
-    const payments = await SQL.all(
-      'SELECT id, amount, currency, status, type, created_at FROM payments WHERE user_id = ? ORDER BY created_at DESC',
-      [req.user.id]
-    );
-    res.json({ payments });
+    const result = await client.execute({
+      sql: 'SELECT id, amount, currency, status, created_at FROM payments WHERE user_id = ? ORDER BY created_at DESC',
+      args: [req.user.id]
+    });
+    res.json({ payments: result.rows });
   } catch (err) {
     console.error('Payment history error:', err);
     res.status(500).json({ error: 'Error fetching payment history' });
@@ -40,22 +39,16 @@ router.get('/history', requireAuth, async (req, res) => {
 // GET /api/payments/status
 router.get('/status', requireAuth, async (req, res) => {
   try {
-    const user = await SQL.get(
-      'SELECT subscription_status, subscription_end, free_questions_remaining, referral_free_months FROM users WHERE id = ?',
-      [req.user.id]
-    );
-    
-    let effectiveStatus = user.subscription_status;
-    if (user.referral_free_months > 0 && effectiveStatus === 'free') {
-      effectiveStatus = 'active';
-    }
+    const result = await client.execute({
+      sql: 'SELECT subscription_status, free_questions_used FROM users WHERE id = ?',
+      args: [req.user.id]
+    });
+    const user = result.rows[0];
 
     res.json({
-      subscription_status: effectiveStatus,
-      subscription_end: user.subscription_end,
-      free_questions_remaining: user.free_questions_remaining,
-      referral_free_months: user.referral_free_months,
-      isActive: effectiveStatus === 'active',
+      subscription_status: user.subscription_status,
+      free_questions_remaining: Math.max(0, 1 - user.free_questions_used),
+      isActive: user.subscription_status === 'active',
     });
   } catch (err) {
     console.error('Payment status error:', err);
