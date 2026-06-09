@@ -1,6 +1,6 @@
 // LeaseLand - Auth Middleware
 const jwt = require('jsonwebtoken');
-const { getDb } = require('../db');
+const { SQL } = require('../db');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'lease-land-dev-secret-key-change-in-production';
 
@@ -12,7 +12,7 @@ function verifyToken(token) {
   return jwt.verify(token, JWT_SECRET);
 }
 
-function requireAuth(req, res, next) {
+async function requireAuth(req, res, next) {
   const authHeader = req.headers.authorization;
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
     return res.status(401).json({ error: 'Authentication required' });
@@ -21,8 +21,10 @@ function requireAuth(req, res, next) {
   const token = authHeader.split(' ')[1];
   try {
     const decoded = verifyToken(token);
-    const db = getDb();
-    const user = db.prepare('SELECT id, email, name, country, state, subscription_status, free_questions_remaining, referral_code, referral_free_months FROM users WHERE id = ?').get(decoded.userId);
+    const user = await SQL.get(
+      'SELECT id, email, name, country, state, subscription_status, free_questions_remaining, referral_code, referral_free_months FROM users WHERE id = ?',
+      [decoded.userId]
+    );
     if (!user) {
       return res.status(401).json({ error: 'User not found' });
     }
@@ -33,19 +35,21 @@ function requireAuth(req, res, next) {
   }
 }
 
-function optionalAuth(req, res, next) {
+async function optionalAuth(req, res, next) {
   const authHeader = req.headers.authorization;
   if (authHeader && authHeader.startsWith('Bearer ')) {
     const token = authHeader.split(' ')[1];
     try {
       const decoded = verifyToken(token);
-      const db = getDb();
-      const user = db.prepare('SELECT id, email, name, country, state, subscription_status, free_questions_remaining, referral_code, referral_free_months FROM users WHERE id = ?').get(decoded.userId);
+      const user = await SQL.get(
+        'SELECT id, email, name, country, state, subscription_status, free_questions_remaining, referral_code, referral_free_months FROM users WHERE id = ?',
+        [decoded.userId]
+      );
       if (user) {
         req.user = user;
       }
     } catch (err) {
-      // Token invalid, just continue without user
+      // Token invalid, continue without user
     }
   }
   next();
