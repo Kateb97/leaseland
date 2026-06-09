@@ -1,8 +1,6 @@
-// LeaseLand - Auth Routes
 const express = require('express');
 const bcrypt = require('bcryptjs');
-const { v4: uuidv4 } = require('uuid');
-const { SQL } = require('../db');
+const { client } = require('../db');
 const { generateToken, requireAuth } = require('../middleware/auth');
 
 const router = express.Router();
@@ -10,8 +8,8 @@ const router = express.Router();
 // POST /api/auth/signup
 router.post('/signup', async (req, res) => {
   try {
-    const { email, password, name, country, state } = req.body;
-    
+    const { email, password, name, state } = req.body;
+
     if (!email || !password) {
       return res.status(400).json({ error: 'Email and password are required' });
     }
@@ -20,45 +18,40 @@ router.post('/signup', async (req, res) => {
       return res.status(400).json({ error: 'Password must be at least 6 characters' });
     }
 
-    const existingUser = await SQL.get('SELECT id FROM users WHERE email = ?', [email.toLowerCase().trim()]);
-    if (existingUser) {
+    const existing = await client.execute({
+      sql: 'SELECT id FROM users WHERE email = ?',
+      args: [email.toLowerCase().trim()]
+    });
+    if (existing.rows.length > 0) {
       return res.status(409).json({ error: 'An account with this email already exists' });
     }
 
-    const id = uuidv4();
     const passwordHash = bcrypt.hashSync(password, 10);
-    const userState = state || 'nsw';
-    const userCountry = country || 'australia';
-    const referralCode = uuidv4().split('-').slice(0, 2).join('').substring(0, 8).toUpperCase();
+    const userState = state || 'NSW';
+    const referralCode = Math.random().toString(36).substring(2, 10).toUpperCase();
 
     let referredBy = null;
-    const referralParam = req.body.referralCode;
-    if (referralParam) {
-      const referrer = await SQL.get('SELECT id FROM users WHERE referral_code = ?', [referralParam.toUpperCase()]);
-      if (referrer) {
-        referredBy = referrer.id;
+    if (req.body.referralCode) {
+      const referrer = await client.execute({
+        sql: 'SELECT id FROM users WHERE referral_code = ?',
+        args: [req.body.referralCode.toUpperCase()]
+      });
+      if (referrer.rows.length > 0) {
+        referredBy = referrer.rows[0].id;
       }
     }
 
-    await SQL.run(
-      'INSERT INTO users (id, email, password_hash, name, country, state, referral_code, referred_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-      [id, email.toLowerCase().trim(), passwordHash, name || null, userCountry, userState, referralCode, referredBy]
-    );
+    await client.execute({
+      sql: 'INSERT INTO users (email, password, name, state, referral_code, referred_by) VALUES (?, ?, ?, ?, ?, ?)',
+      args: [email.toLowerCase().trim(), passwordHash, name || null, userState, referralCode, referredBy]
+    });
 
-    if (referredBy) {
-      const refId = uuidv4();
-      await SQL.run(
-        'INSERT INTO referrals (id, referrer_user_id, referred_email, referred_user_id, status, free_month_granted) VALUES (?, ?, ?, ?, ?, ?)',
-        [refId, referredBy, email.toLowerCase().trim(), id, 'completed', 0]
-      );
-      await SQL.run('UPDATE users SET referral_free_months = referral_free_months + 1 WHERE id = ?', [referredBy]);
-    }
-
-    const user = await SQL.get(
-      'SELECT id, email, name, country, state, subscription_status, free_questions_remaining, referral_code, referral_free_months FROM users WHERE id = ?',
-      [id]
-    );
-    const token = generateToken(id);
+    const userResult = await client.execute({
+      sql: 'SELECT id, email, name, state, subscription_status, free_questions_used, referral_code FROM users WHERE email = ?',
+      args: [email.toLowerCase().trim()]
+    });
+    const user = userResult.rows[0];
+    const token = generateToken(user.id);
 
     res.status(201).json({ user, token });
   } catch (err) {
@@ -71,25 +64,24 @@ router.post('/signup', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
-    
+
     if (!email || !password) {
       return res.status(400).json({ error: 'Email and password are required' });
     }
 
-    const user = await SQL.get('SELECT * FROM users WHERE email = ?', [email.toLowerCase().trim()]);
-    
-    if (!user) {
+    const result = await client.execute({
+      sql: 'SELECT * FROM users WHERE email = ?',
+      args: [email.toLowerCase().trim()]
+    });
+
+    if (result.rows.length === 0) {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
 
-    const validPassword = bcrypt.compareSync(password, user.password_hash);
+    const user = result.rows[0];
+    const validPassword = bcrypt.compareSync(password, user.password);
     if (!validPassword) {
       return res.status(401).json({ error: 'Invalid email or password' });
-    }
-
-    let subscriptionStatus = user.subscription_status;
-    if (user.referral_free_months > 0 && subscriptionStatus === 'free') {
-      subscriptionStatus = 'active';
     }
 
     const token = generateToken(user.id);
@@ -99,12 +91,10 @@ router.post('/login', async (req, res) => {
         id: user.id,
         email: user.email,
         name: user.name,
-        country: user.country,
         state: user.state,
-        subscription_status: subscriptionStatus,
-        free_questions_remaining: user.free_questions_remaining,
+        subscription_status: user.subscription_status,
+        free_questions_used: user.free_questions_used,
         referral_code: user.referral_code,
-        referral_free_months: user.referral_free_months,
       },
       token,
     });
@@ -122,15 +112,17 @@ router.get('/me', requireAuth, (req, res) => {
 // PUT /api/auth/state
 router.put('/state', requireAuth, async (req, res) => {
   try {
-    const { state, country } = req.body;
+    const { state } = req.body;
     if (!state) {
       return res.status(400).json({ error: 'State is required' });
     }
 
-    await SQL.run('UPDATE users SET state = ?, country = ? WHERE id = ?', [state, country || 'australia', req.user.id]);
+    await client.execute({
+      sql: 'UPDATE users SET state = ? WHERE id = ?',
+      args: [state, req.user.id]
+    });
 
     req.user.state = state;
-    req.user.country = country || 'australia';
     res.json({ user: req.user });
   } catch (err) {
     console.error('State update error:', err);
@@ -140,8 +132,14 @@ router.put('/state', requireAuth, async (req, res) => {
 
 // GET /api/auth/states
 router.get('/states', (req, res) => {
-  const { getAllStatesList } = require('../knowledge');
-  const states = getAllStatesList();
+  const states = [
+    { code: 'NSW', name: 'New South Wales' },
+    { code: 'VIC', name: 'Victoria' },
+    { code: 'QLD', name: 'Queensland' },
+    { code: 'WA', name: 'Western Australia' },
+    { code: 'SA', name: 'South Australia' },
+    { code: 'ACT', name: 'Australian Capital Territory' },
+  ];
   res.json({ states });
 });
 
