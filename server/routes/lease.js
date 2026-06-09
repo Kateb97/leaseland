@@ -26,7 +26,7 @@ router.post('/check', requireAuth, async (req, res) => {
     const user = userResult.rows[0];
 
     const isSubscribed = user.subscription_status === 'active';
-    const hasFreeQuestion = user.free_questions_used < 1;
+    const hasFreeQuestion = Number(user.free_questions_used || 0) < 1;
 
     if (!isSubscribed && !hasFreeQuestion) {
       return res.status(402).json({
@@ -58,9 +58,9 @@ router.post('/check', requireAuth, async (req, res) => {
     const updated = updatedResult.rows[0];
 
     res.json({
-      analysis: result.analysis || result,
+      analysis: typeof result.analysis === 'string' ? result.analysis : JSON.stringify(result.analysis || result),
       state: userState,
-      free_questions_remaining: isSubscribed ? 999 : Math.max(0, 1 - updated.free_questions_used),
+      free_questions_remaining: isSubscribed ? 999 : Math.max(0, 1 - Number(updated.free_questions_used || 0)),
     });
   } catch (err) {
     console.error('Lease check error:', err);
@@ -85,7 +85,7 @@ router.post('/upload', requireAuth, upload.single('file'), async (req, res) => {
     const user = userResult.rows[0];
 
     const isSubscribed = user.subscription_status === 'active';
-    const hasFreeQuestion = user.free_questions_used < 1;
+    const hasFreeQuestion = Number(user.free_questions_used || 0) < 1;
 
     if (!isSubscribed && !hasFreeQuestion) {
       return res.status(402).json({ error: 'No credits remaining', needsPayment: true });
@@ -129,9 +129,9 @@ router.post('/upload', requireAuth, upload.single('file'), async (req, res) => {
 
     res.json({
       filename: req.file.originalname,
-      analysis: result.analysis || result,
+      analysis: typeof result.analysis === 'string' ? result.analysis : JSON.stringify(result.analysis || result),
       state: userState,
-      free_questions_remaining: isSubscribed ? 999 : Math.max(0, 1 - updated.free_questions_used),
+      free_questions_remaining: isSubscribed ? 999 : Math.max(0, 1 - Number(updated.free_questions_used || 0)),
     });
   } catch (err) {
     console.error('Lease upload error:', err);

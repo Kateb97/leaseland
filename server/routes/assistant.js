@@ -23,7 +23,7 @@ router.post('/ask', requireAuth, async (req, res) => {
     const user = userResult.rows[0];
 
     const isSubscribed = user.subscription_status === 'active';
-    const hasFreeQuestion = user.free_questions_used < 1;
+    const hasFreeQuestion = Number(user.free_questions_used || 0) < 1;
 
     if (!isSubscribed && !hasFreeQuestion) {
       return res.status(402).json({
@@ -85,7 +85,7 @@ router.post('/ask', requireAuth, async (req, res) => {
       conversationId: convId,
       answer: result.answer,
       state: userState,
-      free_questions_remaining: isSubscribed ? 999 : Math.max(0, 1 - updated.free_questions_used),
+      free_questions_remaining: isSubscribed ? 999 : Math.max(0, 1 - Number(updated.free_questions_used || 0)),
     });
   } catch (err) {
     console.error('Assistant error:', err);

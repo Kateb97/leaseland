@@ -93,9 +93,10 @@ export default function LeaseCheck() {
 
   const renderAnalysis = (analysis) => {
     if (!analysis) return null;
-    
-    // Split into sections and render with proper formatting
-    const lines = analysis.split('\n');
+
+    // Ensure analysis is a string before splitting
+    const text = typeof analysis === 'string' ? analysis : JSON.stringify(analysis, null, 2);
+    const lines = text.split('\n');
     return (
       <div className="analysis-content">
         {lines.map((line, i) => {
