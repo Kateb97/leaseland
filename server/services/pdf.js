@@ -1,26 +1,14 @@
 // LeaseLand - PDF Parsing Service
-const fs = require('fs');
-const path = require('path');
-
 let pdfParse;
 
-// Load pdf-parse dynamically (it has native dependencies)
 try {
   pdfParse = require('pdf-parse');
 } catch (e) {
   console.warn('pdf-parse not available, PDF uploads will be limited');
 }
 
-const UPLOAD_DIR = path.join(__dirname, '..', 'uploads');
-
-// Ensure upload directory exists
-if (!fs.existsSync(UPLOAD_DIR)) {
-  fs.mkdirSync(UPLOAD_DIR, { recursive: true });
-}
-
 async function parsePdf(buffer) {
   if (!pdfParse) {
-    // Fallback: extract text simply
     return extractTextFallback(buffer);
   }
   
@@ -38,9 +26,7 @@ async function parsePdf(buffer) {
 }
 
 function extractTextFallback(buffer) {
-  // Simple text extraction from PDF buffer
   const text = buffer.toString('utf8');
-  // Remove PDF control characters and try to get readable text
   const cleaned = text
     .replace(/[\u0000-\u001F\u007F-\u009F]/g, ' ')
     .replace(/\(([^)]*)\)/g, '$1 ')
@@ -48,7 +34,6 @@ function extractTextFallback(buffer) {
     .replace(/Td|Tm|Tf|Tj|TJ|BT|ET|cm|q|Q|rg|RG|w|J|j|M|d|n|s|S|f|F|f\*/g, ' ')
     .trim();
   
-  // If we got very little readable text, return a meaningful message
   if (cleaned.length < 50) {
     return {
       text: '',
@@ -60,14 +45,4 @@ function extractTextFallback(buffer) {
   return { text: cleaned, pages: 0 };
 }
 
-function cleanupFile(filePath) {
-  try {
-    if (fs.existsSync(filePath)) {
-      fs.unlinkSync(filePath);
-    }
-  } catch (err) {
-    console.warn('Could not cleanup file:', filePath);
-  }
-}
-
-module.exports = { parsePdf, cleanupFile, UPLOAD_DIR };
+module.exports = { parsePdf };
