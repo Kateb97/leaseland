@@ -5,7 +5,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const path = require('path');
-const { getDb, initDb } = require('./db');
+const { SQL, initializeDatabase } = require('./db');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -44,15 +44,10 @@ app.post('/api/payments/webhook', express.raw({ type: 'application/json' }), asy
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
-// Initialize DB on first request and add it to req
+// Add SQL to req
 app.use((req, res, next) => {
-  try {
-    req.db = getDb();
-    next();
-  } catch (err) {
-    console.error('DB init error:', err);
-    res.status(500).json({ error: 'Database initialization failed' });
-  }
+  req.db = SQL;
+  next();
 });
 
 // Routes
@@ -64,17 +59,11 @@ app.use('/api/referral', require('./routes/referral'));
 
 // Health check
 app.get('/api/health', async (req, res) => {
-  try {
-    const db = getDb();
-    res.json({
-      status: 'ok',
-      version: '1.0.0',
-      timestamp: new Date().toISOString(),
-      db: !!db,
-    });
-  } catch (e) {
-    res.json({ status: 'error', db: false, error: e.message });
-  }
+  res.json({
+    status: 'ok',
+    version: '1.0.0',
+    timestamp: new Date().toISOString(),
+  });
 });
 
 // Serve static frontend in production
@@ -94,15 +83,14 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-// Initialize DB then start listening
+// Initialize DB then start
 async function start() {
   try {
-    await initDb();
+    await initializeDatabase();
     console.log('Database initialized');
     
     app.listen(PORT, '0.0.0.0', () => {
       console.log(`LeaseLand server running on port ${PORT}`);
-      console.log(`API: http://0.0.0.0:${PORT}/api`);
     });
   } catch (err) {
     console.error('Failed to start server:', err);
