@@ -5,7 +5,7 @@ import { assistantApi } from '../utils/api';
 import StateSelector from '../components/StateSelector';
 
 export default function Assistant() {
-  const { user, isSubscribed, canUseFeature } = useAuth();
+  const { user, isSubscribed, canUseFeature, setUser } = useAuth();
   const navigate = useNavigate();
   const [message, setMessage] = useState('');
   const [conversationId, setConversationId] = useState(null);
@@ -55,11 +55,15 @@ export default function Assistant() {
       });
       
       setConversationId(data.conversationId);
-      setMessages(prev => [...prev, { 
-        role: 'assistant', 
+      setMessages(prev => [...prev, {
+        role: 'assistant',
         content: data.answer,
         timestamp: new Date().toISOString(),
       }]);
+      // Update user's remaining questions so paywall state refreshes
+      if (data.free_questions_remaining !== undefined) {
+        setUser(prev => ({ ...prev, free_questions_remaining: data.free_questions_remaining }));
+      }
     } catch (err) {
       if (err.message?.includes('402') || err.message?.includes('No credits')) {
         navigate('/pricing');

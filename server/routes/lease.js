@@ -36,14 +36,15 @@ router.post('/check', requireAuth, async (req, res) => {
       });
     }
 
+    const result = await checkLease(leaseText, 'AU', userState);
+
+    // Increment free question usage only after successful response
     if (!isSubscribed) {
       await client.execute({
         sql: 'UPDATE users SET free_questions_used = free_questions_used + 1 WHERE id = ?',
         args: [req.user.id]
       });
     }
-
-    const result = await checkLease(leaseText, 'AU', userState);
 
     await client.execute({
       sql: 'INSERT INTO lease_checks (user_id, state, lease_text, analysis) VALUES (?, ?, ?, ?)',
@@ -105,14 +106,15 @@ router.post('/upload', requireAuth, upload.single('file'), async (req, res) => {
       return res.status(400).json({ error: 'Could not parse the PDF file. Please paste the lease text directly.' });
     }
 
+    const result = await checkLease(pdfText, 'AU', userState);
+
+    // Increment free question usage only after successful response
     if (!isSubscribed) {
       await client.execute({
         sql: 'UPDATE users SET free_questions_used = free_questions_used + 1 WHERE id = ?',
         args: [req.user.id]
       });
     }
-
-    const result = await checkLease(pdfText, 'AU', userState);
 
     await client.execute({
       sql: 'INSERT INTO lease_checks (user_id, state, lease_text, analysis) VALUES (?, ?, ?, ?)',

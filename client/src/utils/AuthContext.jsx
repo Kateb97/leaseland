@@ -53,9 +53,9 @@ export function AuthProvider({ children }) {
     return data.user;
   }, []);
 
-  // Check if user has active subscription or free months
-  const isSubscribed = user?.subscription_status === 'active' || user?.referral_free_months > 0;
-  const hasFreeQuestions = (user?.free_questions_remaining || 0) > 0;
+  // Check if user has active subscription or free questions
+  const isSubscribed = user?.subscription_status === 'active';
+  const hasFreeQuestions = user ? (user.free_questions_remaining > 0 || (user.free_questions_used || 0) < 1) : false;
   const canUseFeature = isSubscribed || hasFreeQuestions;
 
   return (

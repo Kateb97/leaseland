@@ -6,7 +6,7 @@ import StateSelector from '../components/StateSelector';
 import Disclaimer from '../components/Disclaimer';
 
 export default function LeaseCheck() {
-  const { user, isSubscribed, canUseFeature } = useAuth();
+  const { user, isSubscribed, canUseFeature, setUser } = useAuth();
   const navigate = useNavigate();
   const [leaseText, setLeaseText] = useState('');
   const [file, setFile] = useState(null);
@@ -72,6 +72,10 @@ export default function LeaseCheck() {
         data = await leaseApi.upload(formData);
       }
       setResult(data);
+      // Update user's remaining questions so paywall state refreshes
+      if (data.free_questions_remaining !== undefined) {
+        setUser(prev => ({ ...prev, free_questions_remaining: data.free_questions_remaining }));
+      }
       // Scroll to results
       setTimeout(() => {
         resultRef.current?.scrollIntoView({ behavior: 'smooth' });

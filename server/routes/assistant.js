@@ -33,13 +33,6 @@ router.post('/ask', requireAuth, async (req, res) => {
       });
     }
 
-    if (!isSubscribed) {
-      await client.execute({
-        sql: 'UPDATE users SET free_questions_used = free_questions_used + 1 WHERE id = ?',
-        args: [req.user.id]
-      });
-    }
-
     let convId = conversationId;
     let existingMessages = [];
 
@@ -56,6 +49,14 @@ router.post('/ask', requireAuth, async (req, res) => {
     }
 
     const result = await askAssistant(req.user.id, message, 'AU', userState, convId);
+
+    // Increment free question usage only after successful response
+    if (!isSubscribed) {
+      await client.execute({
+        sql: 'UPDATE users SET free_questions_used = free_questions_used + 1 WHERE id = ?',
+        args: [req.user.id]
+      });
+    }
 
     existingMessages.push({ role: 'user', content: message, timestamp: new Date().toISOString() });
     existingMessages.push({ role: 'assistant', content: result.answer, timestamp: new Date().toISOString() });
