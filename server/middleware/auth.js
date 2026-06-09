@@ -1,6 +1,5 @@
-// LeaseLand - Auth Middleware
 const jwt = require('jsonwebtoken');
-const { SQL } = require('../db');
+const { client } = require('../db');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'lease-land-dev-secret-key-change-in-production';
 
@@ -21,14 +20,14 @@ async function requireAuth(req, res, next) {
   const token = authHeader.split(' ')[1];
   try {
     const decoded = verifyToken(token);
-    const user = await SQL.get(
-      'SELECT id, email, name, country, state, subscription_status, free_questions_remaining, referral_code, referral_free_months FROM users WHERE id = ?',
-      [decoded.userId]
-    );
-    if (!user) {
+    const result = await client.execute({
+      sql: 'SELECT id, email, name, state, subscription_status, free_questions_used, referral_code FROM users WHERE id = ?',
+      args: [decoded.userId]
+    });
+    if (result.rows.length === 0) {
       return res.status(401).json({ error: 'User not found' });
     }
-    req.user = user;
+    req.user = result.rows[0];
     next();
   } catch (err) {
     return res.status(401).json({ error: 'Invalid or expired token' });
@@ -41,12 +40,12 @@ async function optionalAuth(req, res, next) {
     const token = authHeader.split(' ')[1];
     try {
       const decoded = verifyToken(token);
-      const user = await SQL.get(
-        'SELECT id, email, name, country, state, subscription_status, free_questions_remaining, referral_code, referral_free_months FROM users WHERE id = ?',
-        [decoded.userId]
-      );
-      if (user) {
-        req.user = user;
+      const result = await client.execute({
+        sql: 'SELECT id, email, name, state, subscription_status, free_questions_used, referral_code FROM users WHERE id = ?',
+        args: [decoded.userId]
+      });
+      if (result.rows.length > 0) {
+        req.user = result.rows[0];
       }
     } catch (err) {
       // Token invalid, continue without user
