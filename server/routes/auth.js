@@ -2,13 +2,13 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const { v4: uuidv4 } = require('uuid');
-const { getDb } = require('../db');
+const { SQL } = require('../db');
 const { generateToken, requireAuth } = require('../middleware/auth');
 
 const router = express.Router();
 
 // POST /api/auth/signup
-router.post('/signup', (req, res) => {
+router.post('/signup', async (req, res) => {
   try {
     const { email, password, name, country, state } = req.body;
     
@@ -20,10 +20,7 @@ router.post('/signup', (req, res) => {
       return res.status(400).json({ error: 'Password must be at least 6 characters' });
     }
 
-    const db = getDb();
-    
-    // Check if email already exists
-    const existingUser = db.prepare('SELECT id FROM users WHERE email = ?').get(email.toLowerCase().trim());
+    const existingUser = await SQL.get('SELECT id FROM users WHERE email = ?', [email.toLowerCase().trim()]);
     if (existingUser) {
       return res.status(409).json({ error: 'An account with this email already exists' });
     }
@@ -34,32 +31,33 @@ router.post('/signup', (req, res) => {
     const userCountry = country || 'australia';
     const referralCode = uuidv4().split('-').slice(0, 2).join('').substring(0, 8).toUpperCase();
 
-    // Check if user was referred
     let referredBy = null;
     const referralParam = req.body.referralCode;
     if (referralParam) {
-      const referrer = db.prepare('SELECT id FROM users WHERE referral_code = ?').get(referralParam.toUpperCase());
+      const referrer = await SQL.get('SELECT id FROM users WHERE referral_code = ?', [referralParam.toUpperCase()]);
       if (referrer) {
         referredBy = referrer.id;
       }
     }
 
-    db.prepare(`
-      INSERT INTO users (id, email, password_hash, name, country, state, referral_code, referred_by)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-    `).run(id, email.toLowerCase().trim(), passwordHash, name || null, userCountry, userState, referralCode, referredBy);
+    await SQL.run(
+      'INSERT INTO users (id, email, password_hash, name, country, state, referral_code, referred_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+      [id, email.toLowerCase().trim(), passwordHash, name || null, userCountry, userState, referralCode, referredBy]
+    );
 
-    // If referred, create referral record and grant free month
     if (referredBy) {
       const refId = uuidv4();
-      db.prepare('INSERT INTO referrals (id, referrer_user_id, referred_email, referred_user_id, status, free_month_granted) VALUES (?, ?, ?, ?, ?, ?)')
-        .run(refId, referredBy, email.toLowerCase().trim(), id, 'completed', 0);
-      
-      // Grant referrer 1 free month
-      db.prepare('UPDATE users SET referral_free_months = referral_free_months + 1 WHERE id = ?').run(referredBy);
+      await SQL.run(
+        'INSERT INTO referrals (id, referrer_user_id, referred_email, referred_user_id, status, free_month_granted) VALUES (?, ?, ?, ?, ?, ?)',
+        [refId, referredBy, email.toLowerCase().trim(), id, 'completed', 0]
+      );
+      await SQL.run('UPDATE users SET referral_free_months = referral_free_months + 1 WHERE id = ?', [referredBy]);
     }
 
-    const user = db.prepare('SELECT id, email, name, country, state, subscription_status, free_questions_remaining, referral_code, referral_free_months FROM users WHERE id = ?').get(id);
+    const user = await SQL.get(
+      'SELECT id, email, name, country, state, subscription_status, free_questions_remaining, referral_code, referral_free_months FROM users WHERE id = ?',
+      [id]
+    );
     const token = generateToken(id);
 
     res.status(201).json({ user, token });
@@ -70,7 +68,7 @@ router.post('/signup', (req, res) => {
 });
 
 // POST /api/auth/login
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
     
@@ -78,8 +76,7 @@ router.post('/login', (req, res) => {
       return res.status(400).json({ error: 'Email and password are required' });
     }
 
-    const db = getDb();
-    const user = db.prepare('SELECT * FROM users WHERE email = ?').get(email.toLowerCase().trim());
+    const user = await SQL.get('SELECT * FROM users WHERE email = ?', [email.toLowerCase().trim()]);
     
     if (!user) {
       return res.status(401).json({ error: 'Invalid email or password' });
@@ -90,7 +87,6 @@ router.post('/login', (req, res) => {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
 
-    // Check if referral free months are active
     let subscriptionStatus = user.subscription_status;
     if (user.referral_free_months > 0 && subscriptionStatus === 'free') {
       subscriptionStatus = 'active';
@@ -124,17 +120,14 @@ router.get('/me', requireAuth, (req, res) => {
 });
 
 // PUT /api/auth/state
-router.put('/state', requireAuth, (req, res) => {
+router.put('/state', requireAuth, async (req, res) => {
   try {
     const { state, country } = req.body;
     if (!state) {
       return res.status(400).json({ error: 'State is required' });
     }
 
-    const db = getDb();
-    db.prepare('UPDATE users SET state = ?, country = ? WHERE id = ?').run(
-      state, country || 'australia', req.user.id
-    );
+    await SQL.run('UPDATE users SET state = ?, country = ? WHERE id = ?', [state, country || 'australia', req.user.id]);
 
     req.user.state = state;
     req.user.country = country || 'australia';
