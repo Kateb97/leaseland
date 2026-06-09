@@ -19,7 +19,7 @@ async function sendPasswordResetEmail(email, resetUrl) {
     return { success: true, dev: true };
   }
 
-  const fromAddress = process.env.EMAIL_FROM || 'LeaseLand <noreply@leaseland.app>';
+  const fromAddress = process.env.EMAIL_FROM || 'LeaseLand <onboarding@resend.dev>';
 
   try {
     const result = await client.emails.send({
