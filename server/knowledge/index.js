@@ -18,8 +18,18 @@ const countries = {
   },
 };
 
+const countryAliases = {
+  au: 'australia',
+  aus: 'australia',
+};
+
+function resolveCountry(country) {
+  const key = country?.toLowerCase();
+  return countries[key] || countries[countryAliases[key]];
+}
+
 function getStateRules(country, state) {
-  const countryData = countries[country];
+  const countryData = resolveCountry(country);
   if (!countryData) return null;
   
   const stateKey = state?.toLowerCase();
@@ -30,13 +40,13 @@ function getStateRules(country, state) {
 }
 
 function getAllStateKeys(country) {
-  const countryData = countries[country];
+  const countryData = resolveCountry(country);
   if (!countryData) return [];
   return Object.keys(countryData.states);
 }
 
 function getAllStates(country) {
-  const countryData = countries[country];
+  const countryData = resolveCountry(country);
   if (!countryData) return [];
   return Object.values(countryData.states).map(s => ({
     state: s.state,
