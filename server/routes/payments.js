@@ -1,12 +1,12 @@
 // LeaseLand - Payment Routes
 const express = require('express');
-const { getDb } = require('../db');
+const { SQL } = require('../db');
 const { requireAuth } = require('../middleware/auth');
 const { createCheckoutSession } = require('../services/stripe');
 
 const router = express.Router();
 
-// POST /api/payments/create-checkout - Create a Stripe Checkout session
+// POST /api/payments/create-checkout
 router.post('/create-checkout', requireAuth, async (req, res) => {
   try {
     const { type } = req.body;
@@ -23,30 +23,44 @@ router.post('/create-checkout', requireAuth, async (req, res) => {
   }
 });
 
-// GET /api/payments/history - Get payment history
-router.get('/history', requireAuth, (req, res) => {
-  const db = getDb();
-  const payments = db.prepare('SELECT id, amount, currency, status, type, created_at FROM payments WHERE user_id = ? ORDER BY created_at DESC').all(req.user.id);
-  res.json({ payments });
+// GET /api/payments/history
+router.get('/history', requireAuth, async (req, res) => {
+  try {
+    const payments = await SQL.all(
+      'SELECT id, amount, currency, status, type, created_at FROM payments WHERE user_id = ? ORDER BY created_at DESC',
+      [req.user.id]
+    );
+    res.json({ payments });
+  } catch (err) {
+    console.error('Payment history error:', err);
+    res.status(500).json({ error: 'Error fetching payment history' });
+  }
 });
 
-// GET /api/payments/status - Get current subscription status
-router.get('/status', requireAuth, (req, res) => {
-  const db = getDb();
-  const user = db.prepare('SELECT subscription_status, subscription_end, free_questions_remaining, referral_free_months FROM users WHERE id = ?').get(req.user.id);
-  
-  let effectiveStatus = user.subscription_status;
-  if (user.referral_free_months > 0 && effectiveStatus === 'free') {
-    effectiveStatus = 'active';
-  }
+// GET /api/payments/status
+router.get('/status', requireAuth, async (req, res) => {
+  try {
+    const user = await SQL.get(
+      'SELECT subscription_status, subscription_end, free_questions_remaining, referral_free_months FROM users WHERE id = ?',
+      [req.user.id]
+    );
+    
+    let effectiveStatus = user.subscription_status;
+    if (user.referral_free_months > 0 && effectiveStatus === 'free') {
+      effectiveStatus = 'active';
+    }
 
-  res.json({
-    subscription_status: effectiveStatus,
-    subscription_end: user.subscription_end,
-    free_questions_remaining: user.free_questions_remaining,
-    referral_free_months: user.referral_free_months,
-    isActive: effectiveStatus === 'active',
-  });
+    res.json({
+      subscription_status: effectiveStatus,
+      subscription_end: user.subscription_end,
+      free_questions_remaining: user.free_questions_remaining,
+      referral_free_months: user.referral_free_months,
+      isActive: effectiveStatus === 'active',
+    });
+  } catch (err) {
+    console.error('Payment status error:', err);
+    res.status(500).json({ error: 'Error fetching payment status' });
+  }
 });
 
 module.exports = router;
