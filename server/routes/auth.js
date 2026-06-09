@@ -94,7 +94,7 @@ router.post('/login', async (req, res) => {
         state: user.state,
         subscription_status: user.subscription_status,
         free_questions_used: user.free_questions_used,
-        free_questions_remaining: Math.max(0, 1 - (user.free_questions_used || 0)),
+        free_questions_remaining: Math.max(0, 1 - Number(user.free_questions_used || 0)),
         referral_code: user.referral_code,
       },
       token,

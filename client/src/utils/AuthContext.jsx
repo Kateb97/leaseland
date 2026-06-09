@@ -55,7 +55,8 @@ export function AuthProvider({ children }) {
 
   // Check if user has active subscription or free questions
   const isSubscribed = user?.subscription_status === 'active';
-  const hasFreeQuestions = user ? (user.free_questions_remaining > 0 || (user.free_questions_used || 0) < 1) : false;
+  const freeRemaining = user?.free_questions_remaining;
+  const hasFreeQuestions = freeRemaining !== undefined ? freeRemaining > 0 : true;
   const canUseFeature = isSubscribed || hasFreeQuestions;
 
   return (
