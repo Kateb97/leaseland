@@ -1,6 +1,7 @@
 // LeaseLand - Anthropic Claude AI Service
 const Anthropic = require('@anthropic-ai/sdk');
 const { getStateRules } = require('../knowledge');
+const { SQL } = require('../db');
 
 const DISCLAIMER = '\n\n---\n*LeaseLand provides general information only — it is not legal advice. Consult a qualified professional for your specific situation.*';
 
@@ -97,7 +98,6 @@ async function checkLease(leaseText, country, state) {
   }
 
   if (!client) {
-    // Return mock analysis when no API key is configured
     return mockLeaseCheck(leaseText, stateRules);
   }
 
@@ -130,12 +130,12 @@ async function askAssistant(userId, message, country, state, conversationId) {
   }
 
   try {
-    // Load conversation history
     let history = '';
     if (conversationId) {
-      const { getDb } = require('../db');
-      const db = getDb();
-      const conv = db.prepare('SELECT messages FROM assistant_conversations WHERE id = ? AND user_id = ?').get(conversationId, userId);
+      const conv = await SQL.get(
+        'SELECT messages FROM assistant_conversations WHERE id = ? AND user_id = ?',
+        [conversationId, userId]
+      );
       if (conv) {
         const msgs = JSON.parse(conv.messages);
         history = msgs.map(m => `${m.role}: ${m.content}`).join('\n');
@@ -157,7 +157,6 @@ async function askAssistant(userId, message, country, state, conversationId) {
   }
 }
 
-// Mock responses for development/demo without Claude API key
 function mockLeaseCheck(leaseText, stateRules) {
   const redFlags = [];
   const yellowFlags = [];
@@ -165,15 +164,14 @@ function mockLeaseCheck(leaseText, stateRules) {
 
   const textLower = leaseText.toLowerCase();
 
-  // Check for common issues
   if (textLower.includes('no pets') || textLower.includes('no pet')) {
     redFlags.push('"No pets" clause may be unenforceable - tenants have the right to request pets and landlords cannot unreasonably refuse.');
   }
   if (textLower.includes('professional clean') || textLower.includes('professionally cleaned')) {
-    yellowFlags.push('Requiring "professional cleaning" at end of lease may be excessive - the property only needs to be "reasonably clean" (fair wear and tear excepted).');
+    yellowFlags.push('Requiring "professional cleaning" at end of lease may be excessive - the property only needs to be "reasonably clean".');
   }
   if (textLower.includes('no guests') || textLower.includes('no visitors') || textLower.includes('no overnight')) {
-    redFlags.push('Clause restricting guests/visitors likely infringes on tenant\'s right to quiet enjoyment of the property.');
+    redFlags.push('Clause restricting guests/visitors likely infringes on tenant\'s right to quiet enjoyment.');
   }
   if (textLower.includes('inspect') && (textLower.includes('24 hours') || textLower.includes('24 hr'))) {
     yellowFlags.push('Inspection notice period appears to be 24 hours - required notice is at least 7 days for routine inspections.');
@@ -189,7 +187,7 @@ function mockLeaseCheck(leaseText, stateRules) {
   }
 
   if (redFlags.length === 0 && yellowFlags.length === 0) {
-    goodClauses.push('The lease appears to use standard terms. However, always read your specific state\'s residential tenancy authority resources.');
+    goodClauses.push('The lease appears to use standard terms. Always read your state\'s residential tenancy authority resources.');
   }
 
   return {
@@ -207,8 +205,6 @@ ${goodClauses.length > 0 ? `## ✅ Looks Good\n${goodClauses.map(f => `- ${f}`).
 - **Landlord Entry Notice:** ${stateRules.inspections.noticePeriod}
 - **Urgent Repairs Limit:** ${stateRules.repairs.urgentTenantRights}
 
-> Need more help? Ask our Tenancy Assistant! Just type your question below.
-
 ${DISCLAIMER}`,
     state: stateRules.state,
   };
@@ -216,104 +212,20 @@ ${DISCLAIMER}`,
 
 function mockAssistantResponse(message, stateRules) {
   const msg = message.toLowerCase();
-
   let answer = '';
 
   if (msg.includes('bond')) {
-    answer = `## 💰 Bond Information for ${stateRules.state}
-
-**Maximum bond amount:** ${stateRules.bonds.maxAmount}
-**Authority:** ${stateRules.bonds.authority}
-**Lodging deadline:** ${stateRules.bonds.lodgingDeadline}
-
-Your landlord MUST lodge your bond with the state authority within the required timeframe. If they don't, you can take action through ${stateRules.resources.tribunal} or ${stateRules.resources.tenancyUnion}.
-
-**Getting your bond back:**
-1. Submit a condition report with photos on move-in
-2. Leave the property reasonably clean (not necessarily professionally cleaned)
-3. Make sure the final inspection happens with you present
-4. You and the landlord sign the bond claim form
-
-If there's a dispute, it goes to ${stateRules.resources.tribunal}.`;
+    answer = `## 💰 Bond Information for ${stateRules.state}\n\n**Maximum bond amount:** ${stateRules.bonds.maxAmount}\n**Authority:** ${stateRules.bonds.authority}\n**Lodging deadline:** ${stateRules.bonds.lodgingDeadline}`;
   } else if (msg.includes('repair') || msg.includes('maintenance')) {
-    answer = `## 🔧 Repairs & Maintenance in ${stateRules.state}
-
-**Urgent repairs** (landlord must fix immediately):\n${stateRules.repairs.urgent}
-
-**Your rights for urgent repairs:** ${stateRules.repairs.urgentTenantRights}
-
-**Non-urgent repairs:** ${stateRules.repairs.nonUrgent}
-
-**Steps to take:**
-1. Notify the landlord/agent in WRITING (email is fine - keep a record)
-2. Give them reasonable time to respond (14 days for non-urgent)
-3. If no action, escalate to ${stateRules.resources.tribunal}
-
-**Important:** Never stop paying rent to force repairs — this could backfire legally.`;
+    answer = `## 🔧 Repairs & Maintenance in ${stateRules.state}\n\n**Urgent repairs:** ${stateRules.repairs.urgent}\n**Your rights:** ${stateRules.repairs.urgentTenantRights}`;
   } else if (msg.includes('break') || msg.includes('end lease') || msg.includes('terminate') || msg.includes('notice')) {
-    answer = `## 📅 Ending Your Lease in ${stateRules.state}
-
-**Periodic lease (month-to-month) — notice by tenant:** ${stateRules.leaseTermination.noticeByTenantPeriodic}
-**Periodic lease — notice by landlord:** ${stateRules.leaseTermination.noticeByLandlordPeriodic}
-
-**Breaking a fixed-term lease:** ${stateRules.leaseTermination.breakingLeaseFees}
-
-**Tips:**
-- Give proper written notice
-- Take photos of the property condition when you leave
-- Request a final inspection and attend it
-- Submit your bond claim promptly after the inspection`;
+    answer = `## 📅 Ending Your Lease in ${stateRules.state}\n\n**Notice by tenant (periodic):** ${stateRules.leaseTermination.noticeByTenantPeriodic}\n**Breaking fixed-term:** ${stateRules.leaseTermination.breakingLeaseFees}`;
   } else if (msg.includes('inspect') || msg.includes('entry')) {
-    answer = `## 🔍 Routine Inspections in ${stateRules.state}
-
-**Frequency:** ${stateRules.inspections.frequency}
-**Notice period:** ${stateRules.inspections.noticePeriod}
-**Entry times:** ${stateRules.inspections.entryTimes}
-
-**Your rights:**
-- You don't need to have the property "perfect" — normal living mess is fine
-- You can be present during the inspection
-- The landlord cannot enter without proper notice (except in emergencies)
-- You can request to reschedule for a reasonable reason`;
-  } else if (msg.includes('pet') || msg.includes('dog') || msg.includes('cat')) {
-    answer = `## 🐾 Pets in Rental Properties - ${stateRules.state}
-
-**Rules:** ${stateRules.pets.rules}
-**Extra bond:** ${stateRules.bondAddition || 'No additional pet bond may be charged'}
-
-**What to do:**
-1. Ask the landlord/agent in writing (email is fine)
-2. Offer to provide references or a pet resume
-3. If refused without reasonable grounds, contact ${stateRules.resources.tenancyUnion}`;
-  } else if (msg.includes('condition report') || msg.includes('move in')) {
-    answer = `## 📋 Condition Reports in ${stateRules.state}
-
-**What should happen:** ${stateRules.conditionReports.requirement}
-**Tenant return deadline:** ${stateRules.conditionReports.tenantReturn}
-
-**Why it matters:** The condition report is your main defense against unfair bond claims.
-
-**Pro tips:**
-- Take photos and videos on move-in day (timestamped if possible)
-- Note every existing scratch, mark, and issue on the report
-- Keep a copy of the signed report
-- Email photos to yourself with a description for timestamp evidence`;
+    answer = `## 🔍 Inspections in ${stateRules.state}\n\n**Frequency:** ${stateRules.inspections.frequency}\n**Notice:** ${stateRules.inspections.noticePeriod}`;
+  } else if (msg.includes('pet')) {
+    answer = `## 🐾 Pets in ${stateRules.state}\n\n**Rules:** ${stateRules.pets.rules}`;
   } else {
-    answer = `## 💬 Tenancy Help for ${stateRules.state}
-
-I can help you with questions about:
-- **💰 Bonds** — amounts, lodging, getting it back
-- **🔧 Repairs & maintenance** — urgent vs non-urgent
-- **📋 Condition reports** — move-in and move-out
-- **🔍 Inspections** — notice periods, frequency
-- **📅 Breaking a lease / ending tenancy** — notice periods, fees
-- **🐾 Pets** — rights and processes
-- **📈 Rent increases** — limits and notice
-- **⚖️ Disputes** — tribunal, tenancy union
-
-**Which topic would you like to know more about?** Just ask!
-
-For specific legal advice, contact ${stateRules.resources.tenancyUnion} or ${stateRules.resources.tribunal}.`;
+    answer = `## 💬 Tenancy Help for ${stateRules.state}\n\nI can help with bonds, repairs, inspections, ending a lease, pets, and more. What would you like to know?`;
   }
 
   return {
