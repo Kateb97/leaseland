@@ -54,3 +54,9 @@ async function initializeDatabase() {
       currency TEXT,
       status TEXT,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (user_id) REFERENCES users(id)
+    )
+  `);
+}
+
+module.exports = { client, initializeDatabase };
