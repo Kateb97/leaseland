@@ -7,6 +7,8 @@ import Dashboard from './pages/Dashboard';
 import LeaseCheck from './pages/LeaseCheck';
 import Assistant from './pages/Assistant';
 import Pricing from './pages/Pricing';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 import Disclaimer from './components/Disclaimer';
 import { useEffect, useState } from 'react';
 import { paymentsApi } from './utils/api';
@@ -96,6 +98,8 @@ function AppContent() {
           <Route path="/lease-check" element={<LeaseCheck />} />
           <Route path="/assistant" element={<Assistant />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
         </Routes>
       </main>
       <Disclaimer />

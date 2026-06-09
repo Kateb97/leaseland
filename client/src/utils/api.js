@@ -58,6 +58,8 @@ export const authApi = {
   me: () => request('/auth/me'),
   updateState: (data) => request('/auth/state', { method: 'PUT', body: data }),
   getStates: () => request('/auth/states'),
+  forgotPassword: (data) => request('/auth/forgot-password', { method: 'POST', body: data }),
+  resetPassword: (data) => request('/auth/reset-password', { method: 'POST', body: data }),
 };
 
 // Lease Checker API

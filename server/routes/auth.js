@@ -1,7 +1,9 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
+const crypto = require('crypto');
 const { client } = require('../db');
 const { generateToken, requireAuth } = require('../middleware/auth');
+const { sendPasswordResetEmail } = require('../services/email');
 
 const router = express.Router();
 
@@ -142,6 +144,92 @@ router.get('/states', (req, res) => {
     { code: 'ACT', name: 'Australian Capital Territory' },
   ];
   res.json({ states });
+});
+
+// POST /api/auth/forgot-password
+router.post('/forgot-password', async (req, res) => {
+  try {
+    const { email } = req.body;
+    if (!email) {
+      return res.status(400).json({ error: 'Email is required' });
+    }
+
+    const result = await client.execute({
+      sql: 'SELECT id FROM users WHERE email = ?',
+      args: [email.toLowerCase().trim()]
+    });
+
+    // Always return success to avoid leaking whether an email exists
+    if (result.rows.length === 0) {
+      return res.json({ message: 'If that email exists, a reset link has been sent.' });
+    }
+
+    const userId = result.rows[0].id;
+    const token = crypto.randomBytes(32).toString('hex');
+    const expiresAt = new Date(Date.now() + 60 * 60 * 1000).toISOString(); // 1 hour
+
+    await client.execute({
+      sql: 'INSERT INTO password_resets (user_id, token, expires_at) VALUES (?, ?, ?)',
+      args: [userId, token, expiresAt]
+    });
+
+    const baseUrl = process.env.APP_URL || 'https://leaseland.vercel.app';
+    const resetUrl = `${baseUrl}/reset-password?token=${token}`;
+
+    await sendPasswordResetEmail(email.toLowerCase().trim(), resetUrl);
+
+    res.json({ message: 'If that email exists, a reset link has been sent.' });
+  } catch (err) {
+    console.error('Forgot password error:', err);
+    res.status(500).json({ error: 'Error processing request' });
+  }
+});
+
+// POST /api/auth/reset-password
+router.post('/reset-password', async (req, res) => {
+  try {
+    const { token, password } = req.body;
+
+    if (!token || !password) {
+      return res.status(400).json({ error: 'Token and new password are required' });
+    }
+
+    if (password.length < 6) {
+      return res.status(400).json({ error: 'Password must be at least 6 characters' });
+    }
+
+    const result = await client.execute({
+      sql: 'SELECT * FROM password_resets WHERE token = ? AND used = 0',
+      args: [token]
+    });
+
+    if (result.rows.length === 0) {
+      return res.status(400).json({ error: 'Invalid or expired reset link' });
+    }
+
+    const reset = result.rows[0];
+
+    if (new Date(reset.expires_at) < new Date()) {
+      return res.status(400).json({ error: 'This reset link has expired. Please request a new one.' });
+    }
+
+    const passwordHash = bcrypt.hashSync(password, 10);
+
+    await client.execute({
+      sql: 'UPDATE users SET password = ? WHERE id = ?',
+      args: [passwordHash, reset.user_id]
+    });
+
+    await client.execute({
+      sql: 'UPDATE password_resets SET used = 1 WHERE id = ?',
+      args: [reset.id]
+    });
+
+    res.json({ message: 'Password has been reset. You can now log in.' });
+  } catch (err) {
+    console.error('Reset password error:', err);
+    res.status(500).json({ error: 'Error resetting password' });
+  }
 });
 
 module.exports = router;
