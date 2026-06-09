@@ -1,7 +1,5 @@
-// LeaseLand - Anthropic Claude AI Service
 const Anthropic = require('@anthropic-ai/sdk');
 const { getStateRules } = require('../knowledge');
-const { SQL } = require('../db');
 
 const DISCLAIMER = '\n\n---\n*LeaseLand provides general information only — it is not legal advice. Consult a qualified professional for your specific situation.*';
 
@@ -92,7 +90,7 @@ ${DISCLAIMER}`;
 async function checkLease(leaseText, country, state) {
   const client = getClient();
   const stateRules = getStateRules(country, state);
-  
+
   if (!stateRules) {
     return { error: `Unknown state: ${state}` };
   }
@@ -109,7 +107,7 @@ async function checkLease(leaseText, country, state) {
       system: "You are LeaseLand, a helpful AI assistant specialized in Australian residential tenancy law. Always be accurate, cite relevant laws, and remember your responses are for informational purposes only.",
       messages: [{ role: 'user', content: prompt }],
     });
-    
+
     return { analysis: response.content[0].text, state: stateRules.state };
   } catch (error) {
     console.error('Claude API error:', error.message);
@@ -117,10 +115,10 @@ async function checkLease(leaseText, country, state) {
   }
 }
 
-async function askAssistant(userId, message, country, state, conversationId) {
+async function askAssistant(userId, message, country, state, conversationHistory) {
   const client = getClient();
   const stateRules = getStateRules(country, state);
-  
+
   if (!stateRules) {
     return { error: `Unknown state: ${state}` };
   }
@@ -130,26 +128,14 @@ async function askAssistant(userId, message, country, state, conversationId) {
   }
 
   try {
-    let history = '';
-    if (conversationId) {
-      const conv = await SQL.get(
-        'SELECT messages FROM assistant_conversations WHERE id = ? AND user_id = ?',
-        [conversationId, userId]
-      );
-      if (conv) {
-        const msgs = JSON.parse(conv.messages);
-        history = msgs.map(m => `${m.role}: ${m.content}`).join('\n');
-      }
-    }
-
-    const prompt = buildAssistantPrompt(message, state, stateRules, history);
+    const prompt = buildAssistantPrompt(message, state, stateRules, conversationHistory);
     const response = await client.messages.create({
       model: 'claude-sonnet-4-20250514',
       max_tokens: 1500,
       system: "You are LeaseLand, a helpful AI assistant specialized in Australian residential tenancy law. Always be accurate, cite relevant laws, and remember your responses are for informational purposes only.",
       messages: [{ role: 'user', content: prompt }],
     });
-    
+
     return { answer: response.content[0].text, state: stateRules.state };
   } catch (error) {
     console.error('Claude API error:', error.message);
