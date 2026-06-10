@@ -1,4 +1,10 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const Stripe = require('stripe');
+
+function getStripe() {
+  const key = process.env.STRIPE_SECRET_KEY;
+  if (!key) throw new Error('STRIPE_SECRET_KEY is not set');
+  return new Stripe(key);
+}
 const { client } = require('../db');
 
 const PRICES = {
@@ -31,7 +37,7 @@ async function createCheckoutSession(userId, type) {
 
   let customerId = user.stripe_customer_id;
   if (!customerId) {
-    const customer = await stripe.customers.create({
+    const customer = await getStripe().customers.create({
       email: user.email,
       metadata: { userId: String(userId) },
     });
@@ -42,7 +48,7 @@ async function createCheckoutSession(userId, type) {
     });
   }
 
-  const session = await stripe.checkout.sessions.create({
+  const session = await getStripe().checkout.sessions.create({
     customer: customerId,
     payment_method_types: ['card'],
     line_items: [
@@ -91,7 +97,7 @@ async function handleWebhookEvent(event) {
       });
 
       if (type === 'subscription') {
-        const subscription = await stripe.subscriptions.retrieve(session.subscription);
+        const subscription = await getStripe().subscriptions.retrieve(session.subscription);
         await client.execute({
           sql: 'UPDATE users SET subscription_status = ?, stripe_subscription_id = ? WHERE id = ?',
           args: ['active', subscription.id, userId]
@@ -107,7 +113,7 @@ async function handleWebhookEvent(event) {
     case 'invoice.payment_failed': {
       const invoice = event.data.object;
       if (invoice.subscription) {
-        const subscription = await stripe.subscriptions.retrieve(invoice.subscription);
+        const subscription = await getStripe().subscriptions.retrieve(invoice.subscription);
         const userId = subscription.metadata.userId;
         if (userId) {
           await client.execute({

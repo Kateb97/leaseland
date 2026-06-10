@@ -17,8 +17,8 @@ router.post('/create-checkout', requireAuth, async (req, res) => {
     const result = await createCheckoutSession(req.user.id, type);
     res.json(result);
   } catch (err) {
-    console.error('Payment session error:', err);
-    res.status(500).json({ error: 'Error creating payment session' });
+    console.error('Payment session error:', err.message, err.type, err.statusCode);
+    res.status(500).json({ error: err.message || 'Error creating payment session' });
   }
 });
 
