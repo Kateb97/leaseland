@@ -49,7 +49,7 @@ export default function Pricing() {
             <span className="pricing-icon">📋</span>
             <h2>Free</h2>
             <div className="pricing-amount">
-              <span className="price">$0</span>
+              <span className="price">A$0</span>
               <span className="period">/ forever</span>
             </div>
           </div>
@@ -80,7 +80,7 @@ export default function Pricing() {
             <span className="pricing-icon">⭐</span>
             <h2>Premium</h2>
             <div className="pricing-amount">
-              <span className="price">$9</span>
+              <span className="price">A$9</span>
               <span className="period">/ month</span>
             </div>
           </div>
@@ -111,7 +111,7 @@ export default function Pricing() {
             <span className="pricing-icon">🚀</span>
             <h2>One-Shot</h2>
             <div className="pricing-amount">
-              <span className="price">$29</span>
+              <span className="price">A$44</span>
               <span className="period">/ one-time</span>
             </div>
           </div>

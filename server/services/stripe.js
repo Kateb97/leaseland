@@ -10,7 +10,7 @@ const { client } = require('../db');
 const PRICES = {
   subscription: {
     priceId: process.env.STRIPE_SUBSCRIPTION_PRICE_ID,
-    amount: 1400,
+    amount: 900,
     currency: 'aud',
     product: 'LeaseLand Monthly Subscription',
   },
