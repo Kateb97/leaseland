@@ -72,7 +72,7 @@ router.post('/ask', requireAuth, async (req, res) => {
         sql: 'INSERT INTO conversations (user_id, messages) VALUES (?, ?)',
         args: [req.user.id, JSON.stringify(trimmed)]
       });
-      convId = insertResult.lastInsertRowid;
+      convId = Number(insertResult.lastInsertRowid);
     }
 
     const updatedResult = await client.execute({

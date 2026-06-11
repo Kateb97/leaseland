@@ -11,13 +11,23 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(helmet({ contentSecurityPolicy: false }));
+const allowedOrigins = process.env.CORS_ORIGIN
+  ? process.env.CORS_ORIGIN.split(',').map(o => o.trim())
+  : [
+      'https://leaseland.app',
+      'https://www.leaseland.app',
+      'https://leaseland.vercel.app',
+      'http://localhost:5173',
+    ];
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || '*',
+  origin: allowedOrigins,
   credentials: true,
 }));
 
-// Stripe webhook needs raw body - must come before json parser
-app.post('/api/payments/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
+// Stripe webhook needs raw body - must come before json parser.
+// Multiple paths accepted: the Stripe dashboard endpoints were created
+// pointing at /api/stripe/webhook and /api/webhook.
+app.post(['/api/payments/webhook', '/api/stripe/webhook', '/api/webhook'], express.raw({ type: 'application/json' }), async (req, res) => {
   try {
     const { handleWebhookEvent } = require('./services/stripe');
     const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);

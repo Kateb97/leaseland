@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 const { client } = require('../db');
 const { generateToken, requireAuth } = require('../middleware/auth');
-const { sendPasswordResetEmail } = require('../services/email');
+const { sendPasswordResetEmail, sendWelcomeEmail } = require('../services/email');
 
 const router = express.Router();
 
@@ -54,6 +54,11 @@ router.post('/signup', async (req, res) => {
     });
     const user = userResult.rows[0];
     const token = generateToken(user.id);
+
+    // Fire-and-forget: signup must succeed even if the email provider is down
+    sendWelcomeEmail(user.email, user.name).catch(err =>
+      console.error('Welcome email failed:', err.message)
+    );
 
     res.status(201).json({ user, token });
   } catch (err) {
