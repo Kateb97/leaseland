@@ -26,16 +26,16 @@ export default function ForgotPassword() {
     <div className="page-container auth-page">
       <div className="auth-card">
         <div className="auth-header">
-          <span className="auth-logo">🔑</span>
-          <h1>Forgot Password</h1>
+          <img src="/brand/apple-touch-icon.png" alt="" width="40" height="40" />
+          <h1>Forgot password</h1>
           <p>Enter your email and we'll send you a reset link</p>
         </div>
 
         {sent ? (
           <div className="auth-success">
             <p>If an account with that email exists, we've sent a password reset link. Check your inbox.</p>
-            <Link to="/login" className="btn btn-primary btn-full" style={{ marginTop: '16px' }}>
-              Back to Login
+            <Link to="/login" className="btn btn-primary btn-block">
+              Back to log in
             </Link>
           </div>
         ) : (
@@ -55,8 +55,8 @@ export default function ForgotPassword() {
                   autoFocus
                 />
               </div>
-              <button type="submit" className="btn btn-primary btn-full" disabled={loading}>
-                {loading ? 'Sending...' : 'Send Reset Link'}
+              <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
+                {loading ? 'Sending…' : 'Send reset link'}
               </button>
             </form>
 

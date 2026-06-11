@@ -16,12 +16,12 @@ export default function ResetPassword() {
       <div className="page-container auth-page">
         <div className="auth-card">
           <div className="auth-header">
-            <span className="auth-logo">🔑</span>
-            <h1>Invalid Link</h1>
+            <img src="/brand/apple-touch-icon.png" alt="" width="40" height="40" />
+            <h1>Invalid link</h1>
             <p>This password reset link is invalid or has expired.</p>
           </div>
-          <Link to="/forgot-password" className="btn btn-primary btn-full">
-            Request a New Link
+          <Link to="/forgot-password" className="btn btn-primary btn-block">
+            Request a new link
           </Link>
         </div>
       </div>
@@ -52,16 +52,16 @@ export default function ResetPassword() {
     <div className="page-container auth-page">
       <div className="auth-card">
         <div className="auth-header">
-          <span className="auth-logo">🔑</span>
-          <h1>Reset Password</h1>
+          <img src="/brand/apple-touch-icon.png" alt="" width="40" height="40" />
+          <h1>Reset password</h1>
           <p>Choose a new password for your account</p>
         </div>
 
         {success ? (
           <div className="auth-success">
-            <p>Your password has been reset successfully.</p>
-            <Link to="/login" className="btn btn-primary btn-full" style={{ marginTop: '16px' }}>
-              Log In
+            <p>Your password has been reset.</p>
+            <Link to="/login" className="btn btn-primary btn-block">
+              Log in
             </Link>
           </div>
         ) : (
@@ -70,7 +70,7 @@ export default function ResetPassword() {
 
             <form onSubmit={handleSubmit} className="auth-form">
               <div className="form-group">
-                <label htmlFor="password">New Password</label>
+                <label htmlFor="password">New password</label>
                 <input
                   id="password"
                   type="password"
@@ -83,19 +83,19 @@ export default function ResetPassword() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="confirm">Confirm Password</label>
+                <label htmlFor="confirm">Confirm password</label>
                 <input
                   id="confirm"
                   type="password"
                   value={confirm}
                   onChange={(e) => setConfirm(e.target.value)}
-                  placeholder="Confirm your new password"
+                  placeholder="Repeat your new password"
                   required
                   minLength={6}
                 />
               </div>
-              <button type="submit" className="btn btn-primary btn-full" disabled={loading}>
-                {loading ? 'Resetting...' : 'Reset Password'}
+              <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
+                {loading ? 'Resetting…' : 'Reset password'}
               </button>
             </form>
 

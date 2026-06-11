@@ -1,6 +1,7 @@
 import { useAuth } from '../utils/AuthContext';
 import { authApi } from '../utils/api';
 import { useState, useEffect } from 'react';
+import { MapPin, ChevronDown, ChevronUp } from 'lucide-react';
 
 const STATE_OPTIONS = [
   { key: 'nsw', name: 'New South Wales' },
@@ -19,8 +20,11 @@ export default function StateSelector({ onStateChange, compact }) {
 
   useEffect(() => {
     authApi.getStates().then(data => {
-      if (data.states) {
-        setStates(data.states.map(s => ({ key: s.stateKey, name: s.stateName })));
+      if (data.states && data.states.length) {
+        setStates(data.states.map(s => ({
+          key: (s.code || s.stateKey || '').toLowerCase(),
+          name: s.name || s.stateName,
+        })).filter(s => s.key && s.name));
       }
     }).catch(() => {});
   }, []);
@@ -34,23 +38,25 @@ export default function StateSelector({ onStateChange, compact }) {
     if (onStateChange) onStateChange(stateKey);
   };
 
-  const currentState = states.find(s => s.key === selectedState);
-  const stateLabel = compact ? selectedState.toUpperCase() : (currentState?.name || selectedState.toUpperCase());
+  const currentState = states.find(s => s.key === selectedState?.toLowerCase());
+  const stateLabel = compact
+    ? (selectedState || 'nsw').toUpperCase()
+    : (currentState?.name || (selectedState || 'nsw').toUpperCase());
 
   return (
     <div className={`state-selector ${compact ? 'compact' : ''}`}>
       <label className="state-label">
-        <span className="state-icon">📍</span>
-        {!compact && <span>Your State:</span>}
+        <MapPin size={16} />
+        {!compact && <span>Your state</span>}
       </label>
       <div className="state-dropdown">
-        <button 
+        <button
           className="state-dropdown-trigger"
           onClick={() => setIsOpen(!isOpen)}
           title="Select your state for accurate tenancy information"
         >
           {stateLabel}
-          <span className="dropdown-arrow">{isOpen ? '▲' : '▼'}</span>
+          {isOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
         </button>
         {isOpen && (
           <div className="state-dropdown-menu">

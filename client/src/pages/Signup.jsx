@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../utils/AuthContext';
 
@@ -50,17 +50,17 @@ export default function Signup() {
     <div className="page-container auth-page">
       <div className="auth-card">
         <div className="auth-header">
-          <span className="auth-logo">🏠</span>
-          <h1>Join LeaseLand</h1>
-          <p>Protect your tenancy rights</p>
+          <img src="/brand/apple-touch-icon.png" alt="" width="40" height="40" />
+          <h1>Create your account</h1>
+          <p>Your first lease question is free</p>
         </div>
 
         {referralCode && (
           <div className="alert alert-success">
-            🎉 You were referred! You both get a free month!
+            You were referred by a friend. You both get one free month.
           </div>
         )}
-        
+
         {error && <div className="alert alert-error">{error}</div>}
 
         <form onSubmit={handleSubmit} className="auth-form">
@@ -101,7 +101,7 @@ export default function Signup() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="state">Which Australian state are you renting in?</label>
+            <label htmlFor="state">Which state are you renting in?</label>
             <select
               id="state"
               name="state"
@@ -114,8 +114,8 @@ export default function Signup() {
               ))}
             </select>
           </div>
-          <button type="submit" className="btn btn-primary btn-full" disabled={loading}>
-            {loading ? 'Creating account...' : 'Create Free Account'}
+          <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
+            {loading ? 'Creating account…' : 'Create free account'}
           </button>
         </form>
 

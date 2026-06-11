@@ -3,7 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../utils/AuthContext';
 import { leaseApi } from '../utils/api';
 import StateSelector from '../components/StateSelector';
-import Disclaimer from '../components/Disclaimer';
+import Markdown from '../components/Markdown';
+import {
+  ClipboardList, Upload, FileText, MapPin, Info, Loader2, MessageSquareText,
+} from 'lucide-react';
 
 export default function LeaseCheck() {
   const { user, isSubscribed, canUseFeature, setUser } = useAuth();
@@ -91,78 +94,62 @@ export default function LeaseCheck() {
     }
   };
 
-  const renderAnalysis = (analysis) => {
-    if (!analysis) return null;
-
-    // Ensure analysis is a string before splitting
-    const text = typeof analysis === 'string' ? analysis : JSON.stringify(analysis, null, 2);
-    const lines = text.split('\n');
-    return (
-      <div className="analysis-content">
-        {lines.map((line, i) => {
-          if (line.startsWith('# ')) return <h2 key={i} className="analysis-h2">{line.replace('# ', '')}</h2>;
-          if (line.startsWith('## ')) return <h3 key={i} className="analysis-h3">{line.replace('## ', '')}</h3>;
-          if (line.startsWith('- ')) return <li key={i} className="analysis-li">{line.replace('- ', '')}</li>;
-          if (line.startsWith('> ')) return <blockquote key={i} className="analysis-quote">{line.replace('> ', '')}</blockquote>;
-          if (line.trim() === '') return <br key={i} />;
-          if (line.startsWith('---')) return <hr key={i} className="analysis-hr" />;
-          return <p key={i} className="analysis-p">{line}</p>;
-        })}
-      </div>
-    );
-  };
-
   return (
-    <div className="page-container">
+    <div className="page-container page-narrow">
       <div className="page-header">
-        <h1>📄 Lease Checker</h1>
-        <p className="text-muted">Paste your lease or upload a PDF. We'll analyze it against {state.toUpperCase()} tenancy laws.</p>
-        <div className="page-state">
-          <StateSelector onStateChange={(s) => setState(s)} />
-        </div>
+        <h1>Lease check</h1>
+        <p className="page-sub">
+          Paste your lease or upload the PDF. We'll review it against {state.toUpperCase()} tenancy laws.
+        </p>
+        <StateSelector onStateChange={(s) => setState(s)} />
       </div>
 
       {!isSubscribed && (
         <div className="usage-banner">
-          <span>💡</span>
-          <span>You have <strong>{user?.free_questions_remaining || 1} free question{(user?.free_questions_remaining || 1) !== 1 ? 's' : ''}</strong> remaining. 
-          <a href="/pricing" className="banner-link"> Subscribe for unlimited checks →</a></span>
+          <Info size={17} />
+          <span>
+            You have <strong>{user?.free_questions_remaining ?? 1} free question{(user?.free_questions_remaining ?? 1) !== 1 ? 's' : ''}</strong> left.{' '}
+            <a href="/pricing">See pricing</a>
+          </span>
         </div>
       )}
 
       <div className="lease-check-form">
         <div className="mode-tabs">
-          <button 
+          <button
             className={`mode-tab ${mode === 'paste' ? 'active' : ''}`}
             onClick={() => setMode('paste')}
+            type="button"
           >
-            📝 Paste Text
+            <ClipboardList size={16} />
+            Paste text
           </button>
-          <button 
+          <button
             className={`mode-tab ${mode === 'upload' ? 'active' : ''}`}
             onClick={() => setMode('upload')}
+            type="button"
           >
-            📎 Upload PDF
+            <Upload size={16} />
+            Upload PDF
           </button>
         </div>
 
         <form onSubmit={handleSubmit}>
           {mode === 'paste' ? (
             <div className="form-group">
-              <label htmlFor="leaseText">Paste your lease agreement here</label>
+              <label htmlFor="leaseText">Lease agreement</label>
               <textarea
                 id="leaseText"
                 value={leaseText}
                 onChange={(e) => setLeaseText(e.target.value)}
-                placeholder="Paste the full text of your rental lease agreement here..."
+                placeholder="Paste the full text of your rental lease agreement here"
                 rows={12}
-                className="lease-textarea"
               />
-              <p className="field-hint">Include the full lease text for best results. Minimum 10 characters.</p>
+              <p className="field-hint">Include the full lease text for the most complete review.</p>
             </div>
           ) : (
             <div className="upload-area">
-              <div 
+              <div
                 className="upload-box"
                 onClick={() => fileInputRef.current?.click()}
                 onDragOver={(e) => e.preventDefault()}
@@ -176,17 +163,17 @@ export default function LeaseCheck() {
               >
                 {file ? (
                   <div className="file-selected">
-                    <span className="file-icon">📎</span>
+                    <FileText size={18} />
                     <span className="file-name">{file.name}</span>
                     <span className="file-size">({(file.size / 1024).toFixed(0)} KB)</span>
-                    <button type="button" className="btn btn-small" onClick={(e) => { e.stopPropagation(); setFile(null); }}>
+                    <button type="button" className="btn btn-ghost btn-sm" onClick={(e) => { e.stopPropagation(); setFile(null); }}>
                       Remove
                     </button>
                   </div>
                 ) : (
                   <>
-                    <div className="upload-icon">📄</div>
-                    <p>Click to upload or drag & drop a PDF</p>
+                    <Upload size={26} />
+                    <p>Click to upload or drag a PDF here</p>
                     <p className="upload-hint">Maximum 10MB</p>
                   </>
                 )}
@@ -203,12 +190,17 @@ export default function LeaseCheck() {
 
           {error && <div className="alert alert-error">{error}</div>}
 
-          <button 
-            type="submit" 
-            className="btn btn-primary btn-full btn-large" 
+          <button
+            type="submit"
+            className="btn btn-primary btn-block btn-lg"
             disabled={loading || (mode === 'paste' && leaseText.trim().length < 10) || (mode === 'upload' && !file)}
           >
-            {loading ? '🔍 Analyzing your lease...' : '🔍 Analyze Lease'}
+            {loading ? (
+              <>
+                <Loader2 size={18} className="spin-icon" style={{ animation: 'spin 0.8s linear infinite' }} />
+                Reviewing your lease…
+              </>
+            ) : 'Review lease'}
           </button>
         </form>
       </div>
@@ -216,16 +208,24 @@ export default function LeaseCheck() {
       {result && (
         <div className="lease-result" ref={resultRef}>
           <div className="result-header">
-            <h2>Analysis Results</h2>
-            <span className="result-state">📍 {state.toUpperCase()}</span>
+            <h2>Review</h2>
+            <span className="result-state">
+              <MapPin size={13} />
+              {state.toUpperCase()}
+            </span>
           </div>
           <div className="result-body">
-            {renderAnalysis(result.analysis)}
+            <Markdown content={result.analysis} />
           </div>
           <div className="result-footer">
-            <p>⚡ <strong>Free questions remaining:</strong> {result.free_questions_remaining !== undefined ? result.free_questions_remaining : 'unlimited'}</p>
-            <button className="btn btn-secondary" onClick={() => navigate('/assistant')}>
-              💬 Ask Follow-up Questions
+            <p>
+              {result.free_questions_remaining !== undefined && result.free_questions_remaining < 900
+                ? `Free questions remaining: ${result.free_questions_remaining}`
+                : 'Unlimited questions on your plan'}
+            </p>
+            <button className="btn btn-ghost" onClick={() => navigate('/assistant')}>
+              <MessageSquareText size={16} />
+              Ask a follow-up question
             </button>
           </div>
         </div>

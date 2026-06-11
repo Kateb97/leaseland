@@ -28,13 +28,13 @@ export default function Login() {
     <div className="page-container auth-page">
       <div className="auth-card">
         <div className="auth-header">
-          <span className="auth-logo">🏠</span>
-          <h1>Welcome Back</h1>
+          <img src="/brand/apple-touch-icon.png" alt="" width="40" height="40" />
+          <h1>Welcome back</h1>
           <p>Log in to LeaseLand</p>
         </div>
-        
+
         {error && <div className="alert alert-error">{error}</div>}
-        
+
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -60,14 +60,14 @@ export default function Login() {
               minLength={6}
             />
           </div>
-          <button type="submit" className="btn btn-primary btn-full" disabled={loading}>
-            {loading ? 'Logging in...' : 'Log In'}
+          <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
+            {loading ? 'Logging in…' : 'Log in'}
           </button>
         </form>
-        
+
         <div className="auth-footer">
           <p><Link to="/forgot-password">Forgot your password?</Link></p>
-          <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
+          <p>New to LeaseLand? <Link to="/signup">Create an account</Link></p>
         </div>
       </div>
     </div>
